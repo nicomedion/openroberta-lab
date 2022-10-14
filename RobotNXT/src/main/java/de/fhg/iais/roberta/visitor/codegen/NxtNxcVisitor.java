@@ -327,13 +327,17 @@ public final class NxtNxcVisitor extends AbstractCppVisitor implements INxtVisit
                 break;
             case NOTHING:
                 if ( showTextAction.msg.getProperty().getBlockType().contains("isPressed")
-                    || showTextAction.msg.getProperty().getBlockType().contains("logic_ternary") ) {
+                    || showTextAction.msg.getProperty().getBlockType().contains("logic_ternary")
+                    || showTextAction.msg.toString().contains("BOOLEAN") ) {
                     methodName = "BoolOut";
-                } else if ( showTextAction.msg.getProperty().getBlockType().contains("colour") ) {
+                } else if ( showTextAction.msg.getProperty().getBlockType().contains("colour")
+                    || showTextAction.msg.toString().contains("COLOR") ) {
                     methodName = "ColorOut";
                 } else if ( showTextAction.msg.getProperty().getBlockType().contains("robSensors")
                     || showTextAction.msg.getProperty().getBlockType().contains("robActions")
-                    || showTextAction.msg.toString().contains("POWER") ) {
+                    || showTextAction.msg.toString().contains("POWER")
+                    || showTextAction.msg.toString().contains("NUMBER")
+                    || showTextAction.msg.toString().contains("CONNECTION") ) {
                     methodName = "NumOut";
                 } else {
                     methodName = "TextOut";
