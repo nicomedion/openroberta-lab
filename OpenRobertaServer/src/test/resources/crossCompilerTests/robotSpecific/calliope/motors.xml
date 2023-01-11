@@ -1,0 +1,292 @@
+<export xmlns="http://de.fhg.iais.roberta.blockly">
+    <program>
+        <block_set xmlns="http://de.fhg.iais.roberta.blockly" robottype="calliope" xmlversion="3.1" description="" tags="">
+            <instance x="-18" y="61">
+                <block type="robControls_start" id="O:?DHvsFBDo6`#`wdG*x" intask="true" deletable="false">
+                    <mutation declare="false"></mutation>
+                    <field name="DEBUG"></field>
+                    <data>
+                        {"learningRate":0.03,"regularizationRate":0,"noise":0,"batchSize":10,"discretize":false,"percTrainData":50,"activationKey":"linear","activation":{},"regularization":null,"initUntil":null,"collectStats":false,"numHiddenLayers":0,"networkShape":[],"weights":[[],[]],"biases":[[],[]],"precision":"2","weightArcMaxSize":8,"weightSuppressMultOp":true,"inputs":[],"outputs":[]}
+                    </data>
+                </block>
+                <block type="controls_whileUntil" id="zMhV!O37w!;UI;G-q-yL" intask="true">
+                    <field name="MODE">UNTIL</field>
+                    <value name="BOOL">
+                        <block type="robSensors_key_getSample" id="QgVN?ML46G*A]f-NO7GH" intask="true">
+                            <mutation mode="PRESSED"></mutation>
+                            <field name="MODE">PRESSED</field>
+                            <field name="SENSORPORT">A</field>
+                            <field name="SLOT"></field>
+                        </block>
+                    </value>
+                    <statement name="DO">
+                        <block type="mbedActions_display_image" id="+sw~XCYaFTPR~gA)N:I," intask="true">
+                            <mutation type="IMAGE"></mutation>
+                            <field name="TYPE">IMAGE</field>
+                            <value name="VALUE">
+                                <block type="mbedImage_image" id="d9-aVnT1vS7jzo3!REh7" intask="true">
+                                    <field name="P00"></field>
+                                    <field name="P10"></field>
+                                    <field name="P20">#</field>
+                                    <field name="P30"></field>
+                                    <field name="P40"></field>
+                                    <field name="P01"></field>
+                                    <field name="P11">#</field>
+                                    <field name="P21">#</field>
+                                    <field name="P31"></field>
+                                    <field name="P41"></field>
+                                    <field name="P02">#</field>
+                                    <field name="P12">#</field>
+                                    <field name="P22">#</field>
+                                    <field name="P32">#</field>
+                                    <field name="P42">#</field>
+                                    <field name="P03"></field>
+                                    <field name="P13">#</field>
+                                    <field name="P23">#</field>
+                                    <field name="P33"></field>
+                                    <field name="P43"></field>
+                                    <field name="P04"></field>
+                                    <field name="P14"></field>
+                                    <field name="P24">#</field>
+                                    <field name="P34"></field>
+                                    <field name="P44"></field>
+                                </block>
+                            </value>
+                        </block>
+                        <block type="mbedActions_motors_on" id="f~JJk1=-Qexw!d#7G@jq" intask="true">
+                            <field name="A">MR</field>
+                            <field name="B">ML</field>
+                            <value name="POWER_A">
+                                <block type="math_number" id="LuB~QYS6t2-Ca5~dN?P1" intask="true">
+                                    <field name="NUM">0</field>
+                                </block>
+                            </value>
+                            <value name="POWER_B">
+                                <block type="math_number" id="?@;k;#@-{-rs6hC?-SD~" intask="true">
+                                    <field name="NUM">100</field>
+                                </block>
+                            </value>
+                        </block>
+                    </statement>
+                </block>
+                <block type="mbedActions_motor_stop" id="17:DQ!]d46son(/XWugp" intask="true">
+                    <field name="MOTORPORT">MR</field>
+                    <field name="MODE">NONFLOAT</field>
+                </block>
+                <block type="mbedActions_motor_stop" id="]LcGeN}wIjB}GW6a5IWn" intask="true">
+                    <field name="MOTORPORT">ML</field>
+                    <field name="MODE">NONFLOAT</field>
+                </block>
+                <block type="controls_whileUntil" id="|pY7mr~GHx8zrafaNvgc" intask="true">
+                    <field name="MODE">UNTIL</field>
+                    <value name="BOOL">
+                        <block type="robSensors_key_getSample" id="xybnP-8~9SOALGt_M;O0" intask="true">
+                            <mutation mode="PRESSED"></mutation>
+                            <field name="MODE">PRESSED</field>
+                            <field name="SENSORPORT">B</field>
+                            <field name="SLOT"></field>
+                        </block>
+                    </value>
+                    <statement name="DO">
+                        <block type="mbedActions_display_image" id="3L(-^0mma6g-n)a4|E5C" intask="true">
+                            <mutation type="IMAGE"></mutation>
+                            <field name="TYPE">IMAGE</field>
+                            <value name="VALUE">
+                                <block type="mbedImage_image" id=")r96!Y(tiZ#y4UW]Uho," intask="true">
+                                    <field name="P00"></field>
+                                    <field name="P10"></field>
+                                    <field name="P20">#</field>
+                                    <field name="P30"></field>
+                                    <field name="P40"></field>
+                                    <field name="P01"></field>
+                                    <field name="P11"></field>
+                                    <field name="P21">#</field>
+                                    <field name="P31">#</field>
+                                    <field name="P41"></field>
+                                    <field name="P02">#</field>
+                                    <field name="P12">#</field>
+                                    <field name="P22">#</field>
+                                    <field name="P32">#</field>
+                                    <field name="P42">#</field>
+                                    <field name="P03"></field>
+                                    <field name="P13"></field>
+                                    <field name="P23">#</field>
+                                    <field name="P33">#</field>
+                                    <field name="P43"></field>
+                                    <field name="P04"></field>
+                                    <field name="P14"></field>
+                                    <field name="P24">#</field>
+                                    <field name="P34"></field>
+                                    <field name="P44"></field>
+                                </block>
+                            </value>
+                        </block>
+                        <block type="mbedActions_motors_on" id="sQ*Ko][l/^UEJ)fpKpoH" intask="true">
+                            <field name="A">MR</field>
+                            <field name="B">ML</field>
+                            <value name="POWER_A">
+                                <block type="math_number" id="mC8Lv4{hD@4z#ns(5:CV" intask="true">
+                                    <field name="NUM">100</field>
+                                </block>
+                            </value>
+                            <value name="POWER_B">
+                                <block type="math_number" id="uYo6Q#}3ro3`]WkGzcy5" intask="true">
+                                    <field name="NUM">0</field>
+                                </block>
+                            </value>
+                        </block>
+                    </statement>
+                </block>
+                <block type="mbedActions_motor_stop" id="1BUvgLCRp8(G13y(3^}=" intask="true">
+                    <field name="MOTORPORT">MR</field>
+                    <field name="MODE">NONFLOAT</field>
+                </block>
+                <block type="mbedActions_motor_stop" id="1mPQALP3*|*K+ZBuoy?7" intask="true">
+                    <field name="MOTORPORT">ML</field>
+                    <field name="MODE">NONFLOAT</field>
+                </block>
+                <block type="controls_whileUntil" id="V)]DEJatdz%K1g_]X@2~" intask="true">
+                    <field name="MODE">UNTIL</field>
+                    <value name="BOOL">
+                        <block type="robSensors_pintouch_getSample" id="Ym#1dsz;DCH6`}G^hZd." intask="true">
+                            <mutation mode="PRESSED"></mutation>
+                            <field name="MODE">PRESSED</field>
+                            <field name="SENSORPORT">0</field>
+                            <field name="SLOT"></field>
+                        </block>
+                    </value>
+                    <statement name="DO">
+                        <block type="mbedActions_display_image" id="@[;uNj5o?:ccedHF,g`R" intask="true">
+                            <mutation type="IMAGE"></mutation>
+                            <field name="TYPE">IMAGE</field>
+                            <value name="VALUE">
+                                <block type="mbedImage_image" id="z7Ju(M!@}6]Q^N]mXEJK" intask="true">
+                                    <field name="P00"></field>
+                                    <field name="P10">#</field>
+                                    <field name="P20">#</field>
+                                    <field name="P30">#</field>
+                                    <field name="P40"></field>
+                                    <field name="P01"></field>
+                                    <field name="P11">#</field>
+                                    <field name="P21"></field>
+                                    <field name="P31">#</field>
+                                    <field name="P41"></field>
+                                    <field name="P02"></field>
+                                    <field name="P12">#</field>
+                                    <field name="P22"></field>
+                                    <field name="P32">#</field>
+                                    <field name="P42"></field>
+                                    <field name="P03"></field>
+                                    <field name="P13">#</field>
+                                    <field name="P23"></field>
+                                    <field name="P33">#</field>
+                                    <field name="P43"></field>
+                                    <field name="P04"></field>
+                                    <field name="P14">#</field>
+                                    <field name="P24">#</field>
+                                    <field name="P34">#</field>
+                                    <field name="P44"></field>
+                                </block>
+                            </value>
+                        </block>
+                        <block type="mbedActions_motors_on" id=".ynFq0AYhUHMVP.5[6/q" intask="true">
+                            <field name="A">MR</field>
+                            <field name="B">ML</field>
+                            <value name="POWER_A">
+                                <block type="math_number" id="dYa4Z*IDwyyY^rF-81CM" intask="true">
+                                    <field name="NUM">100</field>
+                                </block>
+                            </value>
+                            <value name="POWER_B">
+                                <block type="math_number" id="N3JDSqDD3};9S!3A}N:h" intask="true">
+                                    <field name="NUM">100</field>
+                                </block>
+                            </value>
+                        </block>
+                    </statement>
+                </block>
+                <block type="mbedActions_motor_stop" id=":l4r3iMVZP%p7+!|R(|W" intask="true">
+                    <field name="MOTORPORT">MR</field>
+                    <field name="MODE">NONFLOAT</field>
+                </block>
+                <block type="mbedActions_motor_stop" id="?:gh5bJyg:v,=AzWx2/u" intask="true">
+                    <field name="MOTORPORT">ML</field>
+                    <field name="MODE">NONFLOAT</field>
+                </block>
+            </instance>
+        </block_set>
+    </program>
+    <config>
+        <block_set xmlns="http://de.fhg.iais.roberta.blockly" robottype="calliope" xmlversion="3.1" description="" tags="">
+            <instance x="218" y="7">
+                <block type="robConf_key" id="~wk*JZQvB.fj=I`N#NWp" intask="true" deletable="false">
+                    <field name="NAME">B</field>
+                    <field name="PIN1">B</field>
+                </block>
+            </instance>
+            <instance x="449" y="49">
+                <block type="robConf_sound" id="e:4V0FcDx%9,.7xO,Ns@" intask="true" deletable="false">
+                    <field name="NAME">_S</field>
+                </block>
+            </instance>
+            <instance x="449" y="77">
+                <block type="robConf_light" id="9Ktt(7_4+XmKC0]5Zha?" intask="true" deletable="false">
+                    <field name="NAME">_L</field>
+                </block>
+            </instance>
+            <instance x="332" y="98">
+                <block type="robConf_gyro" id="lIT?C5y|(7FWCQIUn~pc" intask="true" deletable="false">
+                    <field name="NAME">_G</field>
+                </block>
+            </instance>
+            <instance x="332" y="126">
+                <block type="robConf_compass" id="O%Oi0Tq`hGEvrgHGPYY=" intask="true" deletable="false">
+                    <field name="NAME">_C</field>
+                </block>
+            </instance>
+            <instance x="502" y="137">
+                <block type="robConf_robot" id="robot" intask="false" deletable="false">
+                    <field name="ROBOT">undefined</field>
+                </block>
+            </instance>
+            <instance x="218" y="157">
+                <block type="robConf_key" id="Kbp:=x@gw@n.b~NH|1|e" intask="true" deletable="false">
+                    <field name="NAME">A</field>
+                    <field name="PIN1">A</field>
+                </block>
+            </instance>
+            <instance x="332" y="155">
+                <block type="robConf_accelerometer" id="#(ufvG,s^FcqI,aFn/A{" intask="true" deletable="false">
+                    <field name="NAME">_A</field>
+                </block>
+            </instance>
+            <instance x="332" y="265">
+                <block type="robConf_temperature" id="0y].dnS)P)~Jjzeu3/0C" intask="true" deletable="false">
+                    <field name="NAME">_T</field>
+                </block>
+            </instance>
+            <instance x="218" y="309">
+                <block type="robConf_rgbled" id="lgi%C3,J!smR:eP0aal_" intask="true" deletable="false">
+                    <field name="NAME">_R</field>
+                </block>
+            </instance>
+            <instance x="218" y="337">
+                <block type="robConf_buzzer" id="}%d2_68IJd*7Oy{qrMR," intask="true" deletable="false">
+                    <field name="NAME">_B</field>
+                </block>
+            </instance>
+            <instance x="143" y="449">
+                <block type="robConf_motor" id="/8)c[!Mhy_[qRAsILRZ{" intask="true">
+                    <field name="NAME">ML</field>
+                    <field name="PIN1">B</field>
+                </block>
+            </instance>
+            <instance x="860" y="447">
+                <block type="robConf_motor" id="Xm3X[sXP(.f=+^r_M0ri" intask="true">
+                    <field name="NAME">MR</field>
+                    <field name="PIN1">A</field>
+                </block>
+            </instance>
+        </block_set>
+    </config>
+</export>
