@@ -120,6 +120,7 @@ public abstract class AbstractValidatorAndCollectorVisitor extends BaseVisitor<V
             throw new DbcException("at least one sub phrase is required");
         }
         for ( Phrase subPhrase : subPhrases ) {
+            checkPhraseDisabled(superPhrase, subPhrase);
             mkEmptyCheck(superPhrase, subPhrase);
             subPhrase.accept(mainVisitor);
         }
@@ -133,6 +134,7 @@ public abstract class AbstractValidatorAndCollectorVisitor extends BaseVisitor<V
      */
     public final <T extends Phrase> void requiredComponentVisited(Phrase superPhrase, List<T> subPhrases) {
         for ( Phrase subPhrase : subPhrases ) {
+            checkPhraseDisabled(superPhrase, subPhrase);
             mkEmptyCheck(superPhrase, subPhrase);
             subPhrase.accept(mainVisitor);
         }
@@ -204,5 +206,11 @@ public abstract class AbstractValidatorAndCollectorVisitor extends BaseVisitor<V
             phrase.addInfo(info);
         }
         errorAndWarningBuilder.addWarning(message);
+    }
+
+    private void checkPhraseDisabled(Phrase superPhrase, Phrase subPhrase) {
+        if ( subPhrase.getProperty().isDisabled() ) {
+            addErrorToPhrase(superPhrase, "ERROR_MISSING_PARAMETER");
+        }
     }
 }
