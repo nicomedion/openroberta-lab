@@ -349,6 +349,44 @@ export const ROBOTS = {
         width: '435px',
         height: '172px',
     },
+    microbitv2: {
+        ports: [
+            // Adressable pins
+            { name: '0', position: { x: 15, y: 167 } },
+            { name: '1', position: { x: 57.3, y: 167 } },
+            { name: '2', position: { x: 103.7, y: 167 } },
+            { name: '3', position: { x: 1.5, y: 167 } },
+            { name: '4', position: { x: 27.9, y: 167 } },
+            { name: '5', position: { x: 33.1, y: 167 } },
+            { name: '6', position: { x: 38.3, y: 167 } },
+            { name: '7', position: { x: 43.5, y: 167 } },
+            { name: '8', position: { x: 69.5, y: 167 } },
+            { name: '9', position: { x: 74.7, y: 167 } },
+            { name: '10', position: { x: 79.9, y: 167 } },
+            { name: '11', position: { x: 85.1, y: 167 } },
+            { name: '12', position: { x: 90.3, y: 167 } },
+            { name: '13', position: { x: 116.2, y: 167 } },
+            { name: '14', position: { x: 121.4, y: 167 } },
+            { name: '15', position: { x: 126.6, y: 167 } },
+            { name: '16', position: { x: 131.8, y: 167 } },
+            { name: '19', position: { x: 168.0, y: 167 } },
+            { name: '20', position: { x: 173.2, y: 167 } },
+
+            // Power pins
+            { name: '3V', position: { x: 150.0, y: 167 } },
+            { name: 'GND', position: { x: 191.8, y: 167 } },
+
+            // Inbuilts
+            { name: 'A', position: { x: 20.8, y: 86.7 } },
+            { name: 'B', position: { x: 187.7, y: 86.7 } },
+            { name: 'light', position: { x: 103.7, y: 90 } },
+            { name: 'temperature', position: { x: 262, y: 48.2 } },
+            { name: 'accelerometer', position: { x: 238.2, y: 99.5 } },
+            { name: 'compass', position: { x: 238.2, y: 104.7 } },
+        ],
+        width: '435px',
+        height: '172px',
+    },
     sensebox: {
         ports: [
             // Digital Pins
