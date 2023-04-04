@@ -58,7 +58,7 @@ import de.fhg.iais.roberta.visitor.lang.codegen.prog.AbstractPythonVisitor;
  * This class is implementing {@link IVisitor}. All methods are implemented and they append a human-readable Python code representation of a phrase to a
  * StringBuilder. <b>This representation is correct Python code.</b> <br>
  */
-public final class MicrobitPythonVisitor extends AbstractPythonVisitor implements IMbedVisitor<Void> {
+public class MicrobitPythonVisitor extends AbstractPythonVisitor implements IMbedVisitor<Void> {
     private final ConfigurationAst robotConfiguration;
 
     /**
