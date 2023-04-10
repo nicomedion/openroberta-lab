@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
-		"lastupdated": "2023-04-04 23:27:08.195999",
+		"lastupdated": "2023-04-10 21:08:36.365700",
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -399,7 +399,9 @@
 	"DISPLAY_CLEAR_TOOLTIP": "Clears the display.",
 	"PLAY_TONE_TOOLTIP": "Plays a tone. Use frequency and duration to determine the tone pitch and duration.",
 	"PLAY_FILE_TOOLTIP": "Plays a sound file.",
+	"PLAY_EXPRESSION_TOOLTIP": "Plays an expressive sound.",
 	"PLAY_SETVOLUME_TOOLTIP": "Sets volume.",
+	"SOUND_TOGGLE_TOOLTIP": "Turn the speaker on or off.",
 	"PLAY_GETVOLUME_TOOLTIP": "Gets current volume.",
 	"BRICKLIGHT_ON_TOOLTIP": "Turns bricklight on.",
 	"BRICKLIGHT_OFF_TOOLTIP": "Turns bricklight off.",
@@ -415,6 +417,9 @@
 	"TOUCH_ISPRESSED_TOOLTIP": "Is the touch sensor pressed?",
 	"KEY_ISPRESSED_TOOLTIP": "Is the selected button pressed?",
 	"PIN_ISTOUCHED_TOOLTIP": "Is the selected pin touched?",
+	"SENSOR_LOGOTOUCH_GETSAMPLE_TOOLTIP": "Is the logo touched?",
+	"SENSOR_LOGO_MODE_TOOLTIP": "Change the touch mode of the logo! In resistive mode, touch the ground and the logo together. In capacitive mode, just touch the logo! The default mode is capacitive touch.",
+	"SENSOR_PIN_MODE_TOOLTIP": "Change the touch mode of the logo! In resistive mode, touch the ground and the logo together. In capacitive mode, just touch the logo! The default mode is capacitive touch.",
 	"ULTRASONIC_GETSAMPLE_TOOLTIP": "Gets the current reading from the ultrasonic sensor in cm. Maximum distance to measure is 255 cm.",
 	"COLOUR_GETSAMPLE_TOOLTIP": "Gets the current reading from the colour sensor.",
 	"COLOUR_COLOUR_GETSAMPLE_TOOLTIP": "Gets the current colour reading from the sensor.",

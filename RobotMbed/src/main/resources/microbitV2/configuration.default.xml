@@ -36,9 +36,14 @@
             <field name="ROBOT">undefined</field>
         </block>
     </instance>
-    <instance x="400" y="250">
+    <instance x="1000" y="250">
         <block type="robConf_sound" id="robot" intask="false" deletable="false">
             <field name="ROBOT">undefined</field>
+        </block>
+    </instance>
+    <instance x="1000" y="300">
+        <block type="robConf_buzzer" id="}%d2_68IJd*7Oy{qrMR," intask="true" deletable="false">
+            <field name="NAME">_B</field>
         </block>
     </instance>
 </block_set>
