@@ -1,9 +1,18 @@
 package de.fhg.iais.roberta.visitor.validate;
 
 import com.google.common.collect.ClassToInstanceMap;
+
 import de.fhg.iais.roberta.bean.IProjectBean;
 import de.fhg.iais.roberta.components.ConfigurationAst;
-import de.fhg.iais.roberta.syntax.action.mbed.*;
+import de.fhg.iais.roberta.syntax.action.mbed.BothMotorsOnAction;
+import de.fhg.iais.roberta.syntax.action.mbed.BothMotorsStopAction;
+import de.fhg.iais.roberta.syntax.action.mbed.FourDigitDisplayClearAction;
+import de.fhg.iais.roberta.syntax.action.mbed.FourDigitDisplayShowAction;
+import de.fhg.iais.roberta.syntax.action.mbed.LedBarSetAction;
+import de.fhg.iais.roberta.syntax.action.mbed.RadioReceiveAction;
+import de.fhg.iais.roberta.syntax.action.mbed.RadioSendAction;
+import de.fhg.iais.roberta.syntax.action.mbed.RadioSetChannelAction;
+import de.fhg.iais.roberta.syntax.action.mbed.SwitchLedMatrixAction;
 import de.fhg.iais.roberta.syntax.action.motor.MotorOnAction;
 import de.fhg.iais.roberta.syntax.sensor.generic.AccelerometerSensor;
 import de.fhg.iais.roberta.syntax.sensor.generic.HumiditySensor;
@@ -13,7 +22,7 @@ import de.fhg.iais.roberta.syntax.sensor.mbed.RadioRssiSensor;
 import de.fhg.iais.roberta.util.syntax.SC;
 import de.fhg.iais.roberta.visitor.IMbedVisitorWithoutDefault;
 
-public final class MicrobitSimValidatorAndCollectorVisitor extends MbedValidatorAndCollectorVisitor implements IMbedVisitorWithoutDefault<Void> {
+public class MicrobitSimValidatorAndCollectorVisitor extends MbedValidatorAndCollectorVisitor implements IMbedVisitorWithoutDefault<Void> {
 
     public MicrobitSimValidatorAndCollectorVisitor(ConfigurationAst brickConfiguration, ClassToInstanceMap<IProjectBean.IBuilder> beanBuilders) {
         super(brickConfiguration, beanBuilders);
