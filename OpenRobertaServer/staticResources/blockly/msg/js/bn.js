@@ -1578,6 +1578,7 @@ Blockly.Msg.SENSOR_LIGHTVEML_UVLIGHT_GETSAMPLE_TOOLTIP = "Reads the current valu
 Blockly.Msg.SENSOR_LIGHT_LIGHT_GETSAMPLE_TOOLTIP_EDISON = "Gets the current reading of the light sensor";  // untranslated
 Blockly.Msg.SENSOR_LIGHT_LINETRACKER = "line tracker";  // untranslated
 Blockly.Msg.SENSOR_LINE = "bottom infrared sensor";  // untranslated
+Blockly.Msg.SENSOR_LOGO = "logo";  // untranslated
 Blockly.Msg.SENSOR_LOGOTOUCH = "logo";  // untranslated
 Blockly.Msg.SENSOR_LOGOTOUCH_GETSAMPLE_TOOLTIP = "Is the logo touched?";  // untranslated
 Blockly.Msg.SENSOR_LOGO_MODE_TOOLTIP = "Change the touch mode of the logo! In resistive mode, touch the ground and the logo together. In capacitive mode, just touch the logo! The default mode is capacitive touch.";  // untranslated

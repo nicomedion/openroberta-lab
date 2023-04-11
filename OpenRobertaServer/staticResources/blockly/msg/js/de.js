@@ -1578,6 +1578,7 @@ Blockly.Msg.SENSOR_LIGHTVEML_UVLIGHT_GETSAMPLE_TOOLTIP = "Gibt den Wert für den
 Blockly.Msg.SENSOR_LIGHT_LIGHT_GETSAMPLE_TOOLTIP_EDISON = "Gibt den aktuellen Wert des Lichtsensors zurück";
 Blockly.Msg.SENSOR_LIGHT_LINETRACKER = "Linienfolger";
 Blockly.Msg.SENSOR_LINE = "bottom infrared sensor";  // untranslated
+Blockly.Msg.SENSOR_LOGO = "Logo";
 Blockly.Msg.SENSOR_LOGOTOUCH = "Logo";
 Blockly.Msg.SENSOR_LOGOTOUCH_GETSAMPLE_TOOLTIP = "Gibt »wahr« zurück, wenn das Logo gedrückt wird.";
 Blockly.Msg.SENSOR_LOGO_MODE_TOOLTIP = "Ändere den Touch-Modus des Logos! Im resistiven Modus berühre das Logo und die Masse (GND) gleichzeitig. Im kapazitiven Modus reicht es, nur das Logo zu berühren! Der Standardmodus ist kapazitiv.";

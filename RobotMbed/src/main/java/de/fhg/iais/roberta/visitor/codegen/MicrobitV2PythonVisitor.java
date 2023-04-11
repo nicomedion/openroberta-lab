@@ -58,7 +58,7 @@ public class MicrobitV2PythonVisitor extends MicrobitPythonVisitor implements IM
     
     @Override
     public Void visitSoundSensor(SoundSensor soundSensor){
-        this.sb.append("microbit.microphone.sound_level()");
+        this.sb.append("int((microbit.microphone.sound_level() / 255) * 100)");
         return null;
     }
 
