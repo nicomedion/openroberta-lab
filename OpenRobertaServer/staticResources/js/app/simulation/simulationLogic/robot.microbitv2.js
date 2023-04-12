@@ -21,6 +21,7 @@ define(["require", "exports", "robot.microbit", "./robot.sensors", "./robot.actu
             return _super !== null && _super.apply(this, arguments) || this;
         }
         RobotMicrobitv2.prototype.configure = function (configuration) {
+            console.log(configuration);
             // TODO touch pins and the gesture sensor to configuration
             // TODO display to configuration
             // TODO separate sensors and actuators in the configuration
@@ -98,6 +99,9 @@ define(["require", "exports", "robot.microbit", "./robot.sensors", "./robot.actu
                     case 'TEMPERATURE':
                         this_1[myComponentName] = new robot_sensors_1.TemperatureSensor();
                         break;
+                    case 'SOUND':
+                        this_1[myComponentName] = new robot_sensors_1.VolumeMeterSensor(this_1);
+                        break;
                     case 'DIGITAL_PIN': {
                         var myPin = mySensorPins.find(function (pin) { return pin.port === configuration['ACTUATORS'][component]['PIN1']; });
                         myPin.name = myComponentName;
@@ -155,7 +159,7 @@ define(["require", "exports", "robot.microbit", "./robot.sensors", "./robot.actu
                 this.pinSensors = new robot_sensors_1.MicrobitPins(mySensorPins, this.id, { x: 8, y: 80 }, { x: 783, y: 663 });
             }
             // the logo DrawableTouchKey is special, ground are the dots in the middle, so it cannot be displayed => groundP = null
-            this.logoSensor = new robot_sensors_1.Pins([{ x: 461, y: 265, r: 50, type: 'TOUCH', value: false, port: 'logo', name: 'logo', touchColors: ['#d4ae1aff'], color: '#008000aa', typeValue: 0 }], this.id, null, null);
+            this.logoSensor = new robot_sensors_1.Pins([{ x: 461, y: 265, r: 50, type: 'TOUCH', value: false, port: 'LOGO', name: 'logo', touchColors: ['#d4ae1aff'], color: '#008000aa', typeValue: 0 }], this.id, null, null);
             if (myActuatorPins.length > 0) {
                 this.pinActuators = new robot_actuators_1.PinActuators(myActuatorPins, this.id, { x: 18, y: 80 });
             }

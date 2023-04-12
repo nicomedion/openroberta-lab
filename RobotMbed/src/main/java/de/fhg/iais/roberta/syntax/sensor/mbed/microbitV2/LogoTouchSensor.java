@@ -7,7 +7,7 @@ import de.fhg.iais.roberta.util.ast.BlocklyProperties;
 import de.fhg.iais.roberta.util.ast.ExternalSensorBean;
 
 @NepoExpr(name = "LOGO_TOUCH_SENSING", category = "SENSOR", blocklyNames = {"robsensors_logotouch_getsample"},
-    sampleValues = {@F2M(field = "LOGO_TOUCHED", mode = "LOGO_TOUCHED"), @F2M(field = "LOGOTOUCH_PRESSED", mode = "PRESSED")})
+    sampleValues = {@F2M(field = "LOGOTOUCH_TOUCHED", mode = "TOUCHED"), @F2M(field = "LOGOTOUCH_PRESSED", mode = "PRESSED")})
 public final class LogoTouchSensor extends ExternalSensor {
 
     public LogoTouchSensor(BlocklyProperties properties, ExternalSensorBean externalSensorBean) {

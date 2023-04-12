@@ -1,11 +1,12 @@
 // @ts-ignore
 import RobotMicrobit from 'robot.microbit';
-import { CalliopeLightSensor, CompassSensor, GestureSensor, MicrobitPins, Pins, TemperatureSensor, TouchKeys } from './robot.sensors';
+import { CalliopeLightSensor, CompassSensor, GestureSensor, MicrobitPins, Pins, TemperatureSensor, TouchKeys, VolumeMeterSensor } from './robot.sensors';
 import { MbedDisplay, PinActuators, RGBLed, WebAudio } from './robot.actuators';
 
 export default class RobotMicrobitv2 extends RobotMicrobit {
     logoSensor: Pins;
     protected override configure(configuration): void {
+        console.log(configuration);
         // TODO touch pins and the gesture sensor to configuration
         // TODO display to configuration
         // TODO separate sensors and actuators in the configuration
@@ -85,6 +86,9 @@ export default class RobotMicrobitv2 extends RobotMicrobit {
                 case 'TEMPERATURE':
                     this[myComponentName] = new TemperatureSensor();
                     break;
+                case 'SOUND':
+                    this[myComponentName] = new VolumeMeterSensor(this);
+                    break;
                 case 'DIGITAL_PIN': {
                     let myPin: DrawableTouchKey = mySensorPins.find((pin) => pin.port === configuration['ACTUATORS'][component]['PIN1']);
                     myPin.name = myComponentName;
@@ -140,7 +144,7 @@ export default class RobotMicrobitv2 extends RobotMicrobit {
         }
         // the logo DrawableTouchKey is special, ground are the dots in the middle, so it cannot be displayed => groundP = null
         this.logoSensor = new Pins(
-            [{ x: 461, y: 265, r: 50, type: 'TOUCH', value: false, port: 'logo', name: 'logo', touchColors: ['#d4ae1aff'], color: '#008000aa', typeValue: 0 }],
+            [{ x: 461, y: 265, r: 50, type: 'TOUCH', value: false, port: 'LOGO', name: 'logo', touchColors: ['#d4ae1aff'], color: '#008000aa', typeValue: 0 }],
             this.id,
             null,
             null
