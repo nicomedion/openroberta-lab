@@ -38,6 +38,7 @@ import de.fhg.iais.roberta.syntax.action.motor.MotorOnAction;
 import de.fhg.iais.roberta.syntax.action.motor.MotorSetPowerAction;
 import de.fhg.iais.roberta.syntax.action.motor.MotorStopAction;
 import de.fhg.iais.roberta.syntax.action.sound.PlayNoteAction;
+import de.fhg.iais.roberta.syntax.action.sound.SetVolumeAction;
 import de.fhg.iais.roberta.syntax.action.sound.ToneAction;
 import de.fhg.iais.roberta.syntax.configuration.ConfigurationComponent;
 import de.fhg.iais.roberta.syntax.expr.mbed.Image;
@@ -161,6 +162,14 @@ public class MbedStackMachineVisitor extends AbstractStackMachineVisitor impleme
         add(makeNode(C.EXPR).put(C.EXPR, C.NUM_CONST).put(C.VALUE, freq));
         add(makeNode(C.EXPR).put(C.EXPR, C.NUM_CONST).put(C.VALUE, duration));
         JSONObject o = makeNode(C.TONE_ACTION);
+        return add(o);
+    }
+
+    @Override
+    public Void visitSetVolumeAction(SetVolumeAction setVolumeAction) {
+        JSONObject o;
+        setVolumeAction.volume.accept(this);
+        o = makeNode(C.SET_VOLUME_ACTION);
         return add(o);
     }
 
@@ -456,4 +465,5 @@ public class MbedStackMachineVisitor extends AbstractStackMachineVisitor impleme
     public Void visitMotionKitDualSetAction(MotionKitDualSetAction motionKitDualSetAction) {
         return null;
     }
+    
 }

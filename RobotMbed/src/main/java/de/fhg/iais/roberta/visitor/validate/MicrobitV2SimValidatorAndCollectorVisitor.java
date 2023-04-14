@@ -4,7 +4,6 @@ import com.google.common.collect.ClassToInstanceMap;
 
 import de.fhg.iais.roberta.bean.IProjectBean;
 import de.fhg.iais.roberta.components.ConfigurationAst;
-import de.fhg.iais.roberta.syntax.action.mbed.microbitV2.PlayExpressionAction;
 import de.fhg.iais.roberta.syntax.action.mbed.microbitV2.SoundToggleAction;
 import de.fhg.iais.roberta.syntax.action.sound.SetVolumeAction;
 import de.fhg.iais.roberta.syntax.sensor.generic.SoundSensor;
@@ -21,18 +20,8 @@ public class MicrobitV2SimValidatorAndCollectorVisitor extends MicrobitSimValida
     }
 
     @Override
-    public Void visitPlayExpressionAction(PlayExpressionAction playExpressionAction) {
-        return null;
-    }
-
-    @Override
     public Void visitSoundToggleAction(SoundToggleAction soundToggleAction) {
         addWarningToPhrase(soundToggleAction, "SIM_BLOCK_NOT_SUPPORTED");
-        return null;
-    }
-
-    @Override
-    public Void visitSetVolumeAction(SetVolumeAction setVolumeAction) {
         return null;
     }
 
@@ -53,6 +42,12 @@ public class MicrobitV2SimValidatorAndCollectorVisitor extends MicrobitSimValida
 
     @Override
     public Void visitPinSetTouchMode(PinSetTouchMode pinSetTouchMode) {
+        return null;
+    }
+
+    @Override
+    public Void visitSetVolumeAction(SetVolumeAction setVolumeAction) {
+        requiredComponentVisited(setVolumeAction, setVolumeAction.volume);
         return null;
     }
 }

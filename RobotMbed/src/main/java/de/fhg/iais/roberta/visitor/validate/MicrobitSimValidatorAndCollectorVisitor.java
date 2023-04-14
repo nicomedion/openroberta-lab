@@ -14,6 +14,7 @@ import de.fhg.iais.roberta.syntax.action.mbed.RadioSendAction;
 import de.fhg.iais.roberta.syntax.action.mbed.RadioSetChannelAction;
 import de.fhg.iais.roberta.syntax.action.mbed.SwitchLedMatrixAction;
 import de.fhg.iais.roberta.syntax.action.motor.MotorOnAction;
+import de.fhg.iais.roberta.syntax.action.sound.PlayFileAction;
 import de.fhg.iais.roberta.syntax.sensor.generic.AccelerometerSensor;
 import de.fhg.iais.roberta.syntax.sensor.generic.HumiditySensor;
 import de.fhg.iais.roberta.syntax.sensor.generic.PinGetValueSensor;
@@ -118,6 +119,12 @@ public class MicrobitSimValidatorAndCollectorVisitor extends MbedValidatorAndCol
     public Void visitUltrasonicSensor(UltrasonicSensor ultrasonicSensor) {
         addErrorToPhrase(ultrasonicSensor, "SIM_BLOCK_NOT_SUPPORTED");
         return super.visitUltrasonicSensor(ultrasonicSensor);
+    }
+
+    @Override
+    public Void visitPlayFileAction(PlayFileAction playFileAction) {
+        addWarningToPhrase(playFileAction, "SIM_BLOCK_NOT_SUPPORTED");
+        return null;
     }
 
 }

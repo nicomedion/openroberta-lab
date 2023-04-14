@@ -7,7 +7,7 @@ import de.fhg.iais.roberta.util.ast.BlocklyProperties;
 import de.fhg.iais.roberta.util.dbc.Assert;
 import de.fhg.iais.roberta.util.syntax.BlocklyConstants;
 
-@NepoPhrase(category = "ACTOR", blocklyNames = {"robActions_play_file"}, name = "PLAY_FILE_ACTION")
+@NepoPhrase(category = "ACTOR", blocklyNames = {"robActions_play_file", "actions_play_file", "actions_play_file_port", "actions_play_expression"}, name = "PLAY_FILE_ACTION")
 public final class PlayFileAction extends Action {
     @NepoField(name = BlocklyConstants.FILE)
     public final String fileName;

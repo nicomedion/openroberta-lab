@@ -42,7 +42,10 @@ import de.fhg.iais.roberta.syntax.action.motor.MotorGetPowerAction;
 import de.fhg.iais.roberta.syntax.action.motor.MotorOnAction;
 import de.fhg.iais.roberta.syntax.action.motor.MotorSetPowerAction;
 import de.fhg.iais.roberta.syntax.action.motor.MotorStopAction;
+import de.fhg.iais.roberta.syntax.action.sound.GetVolumeAction;
+import de.fhg.iais.roberta.syntax.action.sound.PlayFileAction;
 import de.fhg.iais.roberta.syntax.action.sound.PlayNoteAction;
+import de.fhg.iais.roberta.syntax.action.sound.SetVolumeAction;
 import de.fhg.iais.roberta.syntax.action.sound.ToneAction;
 import de.fhg.iais.roberta.syntax.configuration.ConfigurationComponent;
 import de.fhg.iais.roberta.syntax.expr.mbed.Image;
@@ -215,6 +218,16 @@ public class MbedValidatorAndCollectorVisitor extends CommonNepoValidatorAndColl
     }
 
     @Override
+    public Void visitGetVolumeAction(GetVolumeAction getVolumeAction) {
+        throw new DbcException("This block is not implemented.");
+    }
+
+    @Override
+    public Void visitPlayFileAction(PlayFileAction playFileAction) {
+        throw new DbcException("This block is not implemented.");
+    }
+
+    @Override
     public Void visitGyroSensor(GyroSensor gyroSensor) {
         checkSensorExists(gyroSensor);
         usedHardwareBuilder.addUsedSensor(new UsedSensor(gyroSensor.getUserDefinedPort(), SC.ACCELEROMETER, gyroSensor.getMode()));
@@ -378,6 +391,11 @@ public class MbedValidatorAndCollectorVisitor extends CommonNepoValidatorAndColl
             usedHardwareBuilder.addUsedActor(new UsedActor(configurationComponent.userDefinedPortName, configurationComponent.componentType));
         }
         return null;
+    }
+
+    @Override
+    public Void visitSetVolumeAction(SetVolumeAction setVolumeAction) {
+        throw new DbcException("This block is not implemented.");
     }
 
     @Override

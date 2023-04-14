@@ -23,6 +23,7 @@ import de.fhg.iais.roberta.syntax.action.mbed.ServoSetAction;
 import de.fhg.iais.roberta.syntax.action.mbed.SingleMotorOnAction;
 import de.fhg.iais.roberta.syntax.action.mbed.SingleMotorStopAction;
 import de.fhg.iais.roberta.syntax.action.mbed.SwitchLedMatrixAction;
+import de.fhg.iais.roberta.syntax.action.sound.SetVolumeAction;
 import de.fhg.iais.roberta.syntax.expr.mbed.Image;
 import de.fhg.iais.roberta.syntax.expr.mbed.PredefinedImage;
 import de.fhg.iais.roberta.syntax.functions.mbed.ImageInvertFunction;
@@ -49,13 +50,13 @@ import de.fhg.iais.roberta.visitor.hardware.actor.IDisplayVisitor;
 import de.fhg.iais.roberta.visitor.hardware.actor.ILightVisitor;
 import de.fhg.iais.roberta.visitor.hardware.actor.IMotorVisitor;
 import de.fhg.iais.roberta.visitor.hardware.actor.IPinVisitor;
-import de.fhg.iais.roberta.visitor.hardware.actor.ISimpleSoundVisitor;
+import de.fhg.iais.roberta.visitor.hardware.actor.ISoundVisitor;
 
 /**
  * Interface to be used with the visitor pattern to traverse an AST (and generate code, e.g.).
  */
 public interface IMbedVisitorWithoutDefault<V>
-    extends IDisplayVisitor<V>, ILightVisitor<V>, ISimpleSoundVisitor<V>, IMotorVisitor<V>, IPinVisitor<V> {
+    extends IDisplayVisitor<V>, ILightVisitor<V>, ISoundVisitor<V>, IMotorVisitor<V>, IPinVisitor<V> {
 
     V visitDisplayTextAction(DisplayTextAction displayTextAction);
 
@@ -149,4 +150,6 @@ public interface IMbedVisitorWithoutDefault<V>
     V visitInfraredSensor(InfraredSensor infraredSensor);
 
     V visitMbedPinWriteValueAction(MbedPinWriteValueAction mbedPinWriteValueAction);
+    
+    V visitSetVolumeAction(SetVolumeAction setVolumeAction);
 }

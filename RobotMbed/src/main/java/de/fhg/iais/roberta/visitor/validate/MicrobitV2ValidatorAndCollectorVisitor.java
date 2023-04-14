@@ -4,16 +4,12 @@ import com.google.common.collect.ClassToInstanceMap;
 
 import de.fhg.iais.roberta.bean.IProjectBean;
 import de.fhg.iais.roberta.components.ConfigurationAst;
-import de.fhg.iais.roberta.syntax.action.mbed.microbitV2.PlayExpressionAction;
 import de.fhg.iais.roberta.syntax.action.mbed.microbitV2.SoundToggleAction;
 import de.fhg.iais.roberta.syntax.action.sound.SetVolumeAction;
-import de.fhg.iais.roberta.syntax.configuration.Sound;
-import de.fhg.iais.roberta.syntax.sensor.generic.InfraredSensor;
 import de.fhg.iais.roberta.syntax.sensor.generic.SoundSensor;
 import de.fhg.iais.roberta.syntax.sensor.mbed.microbitV2.LogoSetTouchMode;
 import de.fhg.iais.roberta.syntax.sensor.mbed.microbitV2.LogoTouchSensor;
 import de.fhg.iais.roberta.syntax.sensor.mbed.microbitV2.PinSetTouchMode;
-import de.fhg.iais.roberta.util.dbc.DbcException;
 import de.fhg.iais.roberta.visitor.IMicrobitV2Visitor;
 
 public class MicrobitV2ValidatorAndCollectorVisitor extends MicrobitValidatorAndCollectorVisitor implements IMicrobitV2Visitor<Void> {
@@ -22,10 +18,6 @@ public class MicrobitV2ValidatorAndCollectorVisitor extends MicrobitValidatorAnd
         ClassToInstanceMap<IProjectBean.IBuilder> beanBuilders) {
         super(brickConfiguration, beanBuilders);
     }
-    @Override
-    public Void visitPlayExpressionAction(PlayExpressionAction playExpressionAction) {
-        return null;
-    }
 
     @Override
     public Void visitSoundToggleAction(SoundToggleAction soundToggleAction) {
@@ -33,12 +25,7 @@ public class MicrobitV2ValidatorAndCollectorVisitor extends MicrobitValidatorAnd
     }
 
     @Override
-    public Void visitSetVolumeAction(SetVolumeAction setVolumeAction) {
-        return null;
-    }
-    
-    @Override
-    public Void visitSoundSensor(SoundSensor soundSensor){
+    public Void visitSoundSensor(SoundSensor soundSensor) {
         return null;
     }
 
@@ -54,6 +41,12 @@ public class MicrobitV2ValidatorAndCollectorVisitor extends MicrobitValidatorAnd
 
     @Override
     public Void visitPinSetTouchMode(PinSetTouchMode pinSetTouchMode) {
+        return null;
+    }
+
+    @Override
+    public Void visitSetVolumeAction(SetVolumeAction setVolumeAction) {
+        requiredComponentVisited(setVolumeAction, setVolumeAction.volume);
         return null;
     }
 }
