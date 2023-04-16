@@ -11,9 +11,13 @@ public final class LogoSetTouchMode extends Sensor {
     @NepoField(name = "MODE")
     public final String mode;
 
-    public LogoSetTouchMode(BlocklyProperties properties, String mode) {
+    @NepoField(name = "SENSORPORT")
+    public final String port;
+
+    public LogoSetTouchMode(BlocklyProperties properties, String mode, String port) {
         super(properties);
         this.mode = mode;
+        this.port = port;
         setReadOnly();
     }
 }

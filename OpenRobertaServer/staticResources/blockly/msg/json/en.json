@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
-		"lastupdated": "2023-04-14 14:32:54.963377",
+		"lastupdated": "2023-04-16 16:24:24.974227",
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -547,7 +547,6 @@
 	"SENSOR_ULTRASONIC": "ultrasonic sensor",
 	"SENSOR_ULTRASONIC_ARDUINO": "ultrasonic sensor HC-SR04",
 	"SENSOR_TOUCH": "touch sensor",
-	"SENSOR_LOGO": "logo sensor",
 	"SENSOR_TIME": "time",
 	"SENSOR_MS_TIMER": "in ms",
 	"SENSOR_TIMER": "timer",
@@ -1422,9 +1421,6 @@
 	"SENSOR_PINTOUCH_BOB3": "arm",
 	"SENSOR_PINTOUCH_ROB3RTA": "is",
 	"SENSOR_SOUND_CALLIOPE": "microphone",
-	"SENSOR_SOUND_MBOT2": "microphone",
-	"SENSOR_SOUND_THYMIO": "microphone",
-	"SENSOR_SOUND_MICROBITV2": "microphone",
 	"SPEAKER": "Speaker",
 	"SENSOR_SOUND_RECORD": " recording",
 	"MODE_VALUE": "value",
@@ -1437,7 +1433,7 @@
 	"INFRARED_PRESENCE_GETSAMPLE_TOOLTIP": "Returns an array of measurements for the presence of a beacon.",
 	"SENSOR_ACCELEROMETER": "accelerometer",
 	"SENSOR_PINTOUCH": "pin",
-	"SENSOR_LOGOTOUCH": "logo",
+	"SENSOR_LOGOTOUCH": "logo sensor",
 	"MODE_ANALOG": "analog value",
 	"MODE_DIGITAL": "digital value",
 	"MODE_PULSELOW": "pulse time LOW",

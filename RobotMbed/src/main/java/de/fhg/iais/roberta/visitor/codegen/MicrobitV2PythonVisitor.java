@@ -103,11 +103,11 @@ public class MicrobitV2PythonVisitor extends MicrobitPythonVisitor implements IM
                 break;
             }
             case "GIGGLE":
-            case "HAPPY ":
-            case "HELLO ":
+            case "HAPPY":
+            case "HELLO":
             case "MYSTERIOUS":
-            case "SAD  ":
-            case "SLIDE  ":
+            case "SAD":
+            case "SLIDE":
             case "SOARING":
             case "SPRING":
             case "TWINKLE":
