@@ -20,10 +20,6 @@ import de.fhg.iais.roberta.syntax.action.mbed.DisplayTextAction;
 import de.fhg.iais.roberta.syntax.action.mbed.RadioReceiveAction;
 import de.fhg.iais.roberta.syntax.action.mbed.RadioSendAction;
 import de.fhg.iais.roberta.syntax.action.mbed.RadioSetChannelAction;
-import de.fhg.iais.roberta.syntax.action.motor.MotorGetPowerAction;
-import de.fhg.iais.roberta.syntax.action.motor.MotorOnAction;
-import de.fhg.iais.roberta.syntax.action.motor.MotorSetPowerAction;
-import de.fhg.iais.roberta.syntax.action.motor.MotorStopAction;
 import de.fhg.iais.roberta.syntax.action.sound.PlayFileAction;
 import de.fhg.iais.roberta.syntax.action.sound.PlayNoteAction;
 import de.fhg.iais.roberta.syntax.action.sound.ToneAction;
@@ -495,26 +491,6 @@ public class MicrobitPythonVisitor extends AbstractPythonVisitor implements IMic
 
     @Override
     public Void visitConnectConst(ConnectConst connectConst) {
-        throw new DbcException("Not supported!");
-    }
-
-    @Override
-    public Void visitMotorGetPowerAction(MotorGetPowerAction motorGetPowerAction) {
-        throw new DbcException("Not supported!");
-    }
-
-    @Override
-    public Void visitMotorOnAction(MotorOnAction motorOnAction) {
-        throw new DbcException("Not supported!");
-    }
-
-    @Override
-    public Void visitMotorSetPowerAction(MotorSetPowerAction motorSetPowerAction) {
-        throw new DbcException("Not supported!");
-    }
-
-    @Override
-    public Void visitMotorStopAction(MotorStopAction motorStopAction) {
         throw new DbcException("Not supported!");
     }
 }

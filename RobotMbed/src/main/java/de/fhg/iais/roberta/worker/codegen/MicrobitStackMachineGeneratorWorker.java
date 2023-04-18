@@ -5,7 +5,7 @@ import de.fhg.iais.roberta.components.Project;
 import de.fhg.iais.roberta.visitor.codegen.MicrobitStackMachineVisitor;
 import de.fhg.iais.roberta.visitor.lang.codegen.AbstractStackMachineVisitor;
 
-public class MicrobitStackMachineGeneratorWorker extends MbedStackMachineGeneratorWorker {
+public class MicrobitStackMachineGeneratorWorker extends CalliopeStackMachineGeneratorWorker {
     @Override
     protected AbstractStackMachineVisitor getVisitor(Project project, UsedHardwareBean usedHardwareBean) {
         return new MicrobitStackMachineVisitor(project.getConfigurationAst(), project.getProgramAst().getTree());

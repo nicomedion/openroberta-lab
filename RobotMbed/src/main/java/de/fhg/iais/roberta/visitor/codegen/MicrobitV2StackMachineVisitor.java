@@ -7,6 +7,8 @@ import org.json.JSONObject;
 import de.fhg.iais.roberta.components.ConfigurationAst;
 import de.fhg.iais.roberta.syntax.Phrase;
 import de.fhg.iais.roberta.syntax.action.mbed.microbitV2.SoundToggleAction;
+import de.fhg.iais.roberta.syntax.action.sound.SetVolumeAction;
+import de.fhg.iais.roberta.syntax.sensor.generic.SoundSensor;
 import de.fhg.iais.roberta.syntax.sensor.mbed.microbitV2.LogoSetTouchMode;
 import de.fhg.iais.roberta.syntax.sensor.mbed.microbitV2.LogoTouchSensor;
 import de.fhg.iais.roberta.syntax.sensor.mbed.microbitV2.PinSetTouchMode;
@@ -44,5 +46,19 @@ public class MicrobitV2StackMachineVisitor extends MicrobitStackMachineVisitor i
     @Override
     public Void visitPinSetTouchMode(PinSetTouchMode pinSetTouchMode) {
         return null;
+    }
+
+    @Override
+    public Void visitSetVolumeAction(SetVolumeAction setVolumeAction) {
+        JSONObject o;
+        setVolumeAction.volume.accept(this);
+        o = makeNode(C.SET_VOLUME_ACTION);
+        return add(o);
+    }
+
+    @Override
+    public Void visitSoundSensor(SoundSensor soundSensor) {
+        JSONObject o = makeNode(C.GET_SAMPLE).put(C.GET_SAMPLE, C.SOUND).put(C.MODE, C.VOLUME).put(C.NAME, "calliope");
+        return add(o);
     }
 }

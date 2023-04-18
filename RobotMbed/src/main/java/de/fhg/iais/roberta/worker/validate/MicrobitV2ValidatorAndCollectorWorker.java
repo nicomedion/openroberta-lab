@@ -14,8 +14,8 @@ import de.fhg.iais.roberta.visitor.validate.CommonNepoValidatorAndCollectorVisit
 import de.fhg.iais.roberta.visitor.validate.MicrobitV2ValidatorAndCollectorVisitor;
 
 public class MicrobitV2ValidatorAndCollectorWorker extends MbedValidatorAndCollectorWorker {
-    public static final List<String> FREE_PINS = Stream.of("0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "19", "20", "LOGOTOUCH").collect(Collectors.toList());
-    public static final List<String> DEFAULT_PROPERTIES = Stream.of("KEY", "ACCELEROMETER", "COMPASS", "TEMPERATURE", "LIGHT", "ROBOT", "SOUND", "LOGOTOUCH").collect(Collectors.toList());
+    public static final List<String> FREE_PINS = Stream.of("0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "19", "20").collect(Collectors.toList());
+    public static final List<String> DEFAULT_PROPERTIES = Stream.of("KEY", "ACCELEROMETER", "COMPASS", "TEMPERATURE", "LIGHT", "ROBOT", "SOUND", "BUZZER", "LOGOTOUCH").collect(Collectors.toList());
     public static final HashMap<String, String> MAP_CORRECT_CONFIG_PINS = new HashMap<String, String>() {{
         put(SC.BUZZER, "0");
     }};
