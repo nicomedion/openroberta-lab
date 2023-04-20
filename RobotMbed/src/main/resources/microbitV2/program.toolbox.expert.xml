@@ -93,6 +93,7 @@
     </category>
     <category name="TOOLBOX_SENSOR" svg="true">
         <block type='robSensors_key_getSample'></block>
+        <block type='robSensors_sound_getSample'></block>
         <block type='robSensors_gesture_getSample'></block>
         <block type='robSensors_compass_getSample'></block>
         <block type='robSensors_timer_getSample'></block>
@@ -107,8 +108,6 @@
             <field name="MODE">DIGITAL</field>
         </block>
         <block type='robSensors_accelerometer_getSample'></block>
-        <block type='robSensors_sound_getSample'></block>
-        <block type='robSensors_accelerometer_getSample'/>
         <block type="robSensors_light_getSample"/>
     </category>
     <category name="TOOLBOX_CONTROL" svg="true">
