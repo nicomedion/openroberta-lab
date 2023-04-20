@@ -385,7 +385,7 @@ export const ROBOTS = {
             { name: 'compass', position: { x: 251.2, y: 122.7 } },
             { name: 'sound', position: { x: 134, y: 37 } },
             { name: 'buzzer', position: { x: 323, y: 87 } },
-            { name: 'logo', position: { x: 103.7, y: 29 } },
+            { name: 'logotouch', position: { x: 103.7, y: 29 } },
         ],
         width: '435px',
         height: '172px',
