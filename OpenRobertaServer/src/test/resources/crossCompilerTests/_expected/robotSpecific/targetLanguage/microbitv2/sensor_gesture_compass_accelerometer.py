@@ -43,6 +43,9 @@ def run():
     microbit.display.scroll(str(microbit.accelerometer.get_z()))
     microbit.display.scroll("ACCELEROMETER STRENGTH:")
     microbit.display.scroll(str(math.sqrt(microbit.accelerometer.get_x()**2 + microbit.accelerometer.get_y()**2 + microbit.accelerometer.get_z()**2)))
+    while True:
+        microbit.display.scroll(str("up" == microbit.accelerometer.current_gesture()))
+        microbit.sleep(5000)
 
 def main():
     try:

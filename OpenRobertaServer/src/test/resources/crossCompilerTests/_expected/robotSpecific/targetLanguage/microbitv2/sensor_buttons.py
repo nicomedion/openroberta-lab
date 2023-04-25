@@ -30,6 +30,8 @@ def run():
         if microbit.pin2.is_touched() == True:
             break
     microbit.pin0.set_touch_mode(microbit.pin0.RESISTIVE)
+    microbit.pin1.set_touch_mode(microbit.pin1.RESISTIVE)
+    microbit.pin2.set_touch_mode(microbit.pin2.RESISTIVE)
     microbit.display.scroll("Press Pin 0 Resistive")
     while True:
         if microbit.pin0.is_touched() == True:
@@ -47,6 +49,19 @@ def run():
         if microbit.pin_logo.is_touched() == True:
             break
     microbit.display.scroll("Finished!!")
+    while True:
+        if microbit.button_a.is_pressed():
+            microbit.display.scroll("A")
+        elif microbit.button_b.is_pressed():
+            microbit.display.scroll("B")
+        elif microbit.pin_logo.is_touched():
+            microbit.display.scroll("Logo")
+        elif microbit.pin0.is_touched():
+            microbit.display.scroll("P0")
+        elif microbit.pin1.is_touched():
+            microbit.display.scroll("P1")
+        elif microbit.pin2.is_touched():
+            microbit.display.scroll("P2")
 
 def main():
     try:

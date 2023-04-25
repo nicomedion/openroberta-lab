@@ -32,3 +32,7 @@ DisplayTextAction[mode: TEXT, msg: StringConst[value: SPEED IN Z DIRECTION]]
 DisplayTextAction[mode: TEXT, msg: SensorExpr [AccelerometerSensor [_A, VALUE, Z]]]
 DisplayTextAction[mode: TEXT, msg: StringConst[value: ACCELEROMETER STRENGTH:]]
 DisplayTextAction[mode: TEXT, msg: SensorExpr [AccelerometerSensor [_A, VALUE, STRENGTH]]]
+
+(repeat [FOREVER, BoolConst[value: true]]
+AktionStmt [DisplayTextAction[mode: TEXT, msg: SensorExpr [GestureSensor [- EMPTY_PORT -, UP, - EMPTY_SLOT -]]]]WaitTimeStmt[time: NumConst[value: 5000]]
+)
