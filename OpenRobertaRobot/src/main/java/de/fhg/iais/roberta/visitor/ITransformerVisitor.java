@@ -14,8 +14,10 @@ import de.fhg.iais.roberta.syntax.action.communication.BluetoothWaitForConnectio
 import de.fhg.iais.roberta.syntax.action.display.ClearDisplayAction;
 import de.fhg.iais.roberta.syntax.action.display.ShowTextAction;
 import de.fhg.iais.roberta.syntax.action.generic.PinWriteValueAction;
+import de.fhg.iais.roberta.syntax.action.light.BrickLightOffAction;
+import de.fhg.iais.roberta.syntax.action.light.BrickLightResetAction;
 import de.fhg.iais.roberta.syntax.action.light.LightAction;
-import de.fhg.iais.roberta.syntax.action.light.LightStatusAction;
+import de.fhg.iais.roberta.syntax.action.light.LightOffAction;
 import de.fhg.iais.roberta.syntax.action.motor.MotorGetPowerAction;
 import de.fhg.iais.roberta.syntax.action.motor.MotorOnAction;
 import de.fhg.iais.roberta.syntax.action.motor.MotorSetPowerAction;
@@ -226,8 +228,18 @@ public interface ITransformerVisitor extends ISensorVisitor<Phrase>, IAllActorsV
     }
 
     @Override
-    default Phrase visitLightStatusAction(LightStatusAction lightStatusAction) {
-        return new LightStatusAction(lightStatusAction.getUserDefinedPort(), lightStatusAction.status, lightStatusAction.getProperty());
+    default Phrase visitBrickLightOffAction(BrickLightOffAction brickLightOffAction) {
+        return new BrickLightOffAction(brickLightOffAction.getProperty());
+    }
+
+    @Override
+    default Phrase visitBrickLightResetAction(BrickLightResetAction brickLightResetAction) {
+        return new BrickLightOffAction(brickLightResetAction.getProperty());
+    }
+
+    @Override
+    default Phrase visitLightOffAction(LightOffAction lightOffAction) {
+        return new LightOffAction(lightOffAction.getProperty(), lightOffAction.port);
     }
 
     @Override

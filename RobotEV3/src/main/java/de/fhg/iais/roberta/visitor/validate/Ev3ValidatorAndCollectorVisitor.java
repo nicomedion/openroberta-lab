@@ -14,8 +14,10 @@ import de.fhg.iais.roberta.syntax.action.communication.BluetoothWaitForConnectio
 import de.fhg.iais.roberta.syntax.action.display.ClearDisplayAction;
 import de.fhg.iais.roberta.syntax.action.display.ShowTextAction;
 import de.fhg.iais.roberta.syntax.action.ev3.ShowPictureAction;
+import de.fhg.iais.roberta.syntax.action.light.BrickLightOffAction;
+import de.fhg.iais.roberta.syntax.action.light.BrickLightResetAction;
 import de.fhg.iais.roberta.syntax.action.light.LightAction;
-import de.fhg.iais.roberta.syntax.action.light.LightStatusAction;
+import de.fhg.iais.roberta.syntax.action.light.LightOffAction;
 import de.fhg.iais.roberta.syntax.action.sound.GetVolumeAction;
 import de.fhg.iais.roberta.syntax.action.sound.PlayFileAction;
 import de.fhg.iais.roberta.syntax.action.sound.PlayNoteAction;
@@ -187,8 +189,21 @@ public class Ev3ValidatorAndCollectorVisitor extends DifferentialMotorValidatorA
     }
 
     @Override
-    public Void visitLightStatusAction(LightStatusAction lightStatusAction) {
-        usedHardwareBuilder.addUsedActor(new UsedActor(lightStatusAction.getUserDefinedPort(), SC.LIGHT));
+    public Void visitLightOffAction(LightOffAction lightOffAction) {
+        usedHardwareBuilder.addUsedActor(new UsedActor(lightOffAction.port, SC.LIGHT));
+        return null;
+
+    }
+
+    @Override
+    public Void visitBrickLightOffAction(BrickLightOffAction brickLightOffAction) {
+        usedHardwareBuilder.addUsedActor(new UsedActor(BlocklyConstants.EMPTY_PORT, SC.LIGHT));
+        return null;
+    }
+
+    @Override
+    public Void visitBrickLightResetAction(BrickLightResetAction brickLightResetAction) {
+        usedHardwareBuilder.addUsedActor(new UsedActor(BlocklyConstants.EMPTY_PORT, SC.LIGHT));
         return null;
     }
 

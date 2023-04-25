@@ -1,6 +1,5 @@
 package de.fhg.iais.roberta.visitor.hardware;
 
-import de.fhg.iais.roberta.syntax.action.light.LightStatusAction;
 import de.fhg.iais.roberta.syntax.action.motor.MotorGetPowerAction;
 import de.fhg.iais.roberta.syntax.action.motor.MotorSetPowerAction;
 import de.fhg.iais.roberta.syntax.action.motor.MotorStopAction;
@@ -25,11 +24,6 @@ public interface IBotnrollVisitor<V> extends IDifferentialMotorVisitor<V>, IDisp
 
     @Override
     default V visitMotorStopAction(MotorStopAction motorStopAction) {
-        throw new DbcException("Not supported!");
-    }
-
-    @Override
-    default V visitLightStatusAction(LightStatusAction lightStatusAction) {
         throw new DbcException("Not supported!");
     }
 }

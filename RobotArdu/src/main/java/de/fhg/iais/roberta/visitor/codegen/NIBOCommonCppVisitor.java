@@ -8,7 +8,7 @@ import de.fhg.iais.roberta.bean.IProjectBean;
 import de.fhg.iais.roberta.components.ConfigurationAst;
 import de.fhg.iais.roberta.syntax.Phrase;
 import de.fhg.iais.roberta.syntax.action.light.LightAction;
-import de.fhg.iais.roberta.syntax.action.light.LightStatusAction;
+import de.fhg.iais.roberta.syntax.action.light.LightOffAction;
 import de.fhg.iais.roberta.syntax.actors.arduino.LedOffAction;
 import de.fhg.iais.roberta.syntax.actors.arduino.LedOnAction;
 import de.fhg.iais.roberta.syntax.actors.arduino.bob3.BodyLEDAction;
@@ -187,7 +187,7 @@ public abstract class NIBOCommonCppVisitor extends AbstractCommonArduinoCppVisit
     }
 
     @Override
-    public Void visitLightStatusAction(LightStatusAction lightStatusAction) {
+    public Void visitLightOffAction(LightOffAction lightOffAction) {
         this.sb.append("rob.setLed(2, OFF);");
         this.sb.append("rob.setLed(1, OFF);");
         return null;
