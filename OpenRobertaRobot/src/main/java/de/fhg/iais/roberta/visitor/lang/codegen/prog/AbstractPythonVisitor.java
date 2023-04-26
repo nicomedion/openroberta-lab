@@ -44,6 +44,7 @@ import de.fhg.iais.roberta.syntax.lang.functions.ListSetIndex;
 import de.fhg.iais.roberta.syntax.lang.functions.MathCastCharFunct;
 import de.fhg.iais.roberta.syntax.lang.functions.MathCastStringFunct;
 import de.fhg.iais.roberta.syntax.lang.functions.MathConstrainFunct;
+import de.fhg.iais.roberta.syntax.lang.functions.MathModuloFunct;
 import de.fhg.iais.roberta.syntax.lang.functions.MathNumPropFunct;
 import de.fhg.iais.roberta.syntax.lang.functions.MathOnListFunct;
 import de.fhg.iais.roberta.syntax.lang.functions.MathPowerFunct;
@@ -463,6 +464,11 @@ public abstract class AbstractPythonVisitor extends AbstractLanguageVisitor {
         this.sb.append("chr((int)(");
         mathCastCharFunct.param.get(0).accept(this);
         this.sb.append("))");
+        return null;
+    }
+
+    @Override
+    public Void visitMathModuloFunct(MathModuloFunct mathModuloFunct) {
         return null;
     }
 

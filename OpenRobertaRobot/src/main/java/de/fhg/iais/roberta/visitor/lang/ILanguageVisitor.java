@@ -39,13 +39,16 @@ import de.fhg.iais.roberta.syntax.lang.functions.ListRepeat;
 import de.fhg.iais.roberta.syntax.lang.functions.ListSetIndex;
 import de.fhg.iais.roberta.syntax.lang.functions.MathCastCharFunct;
 import de.fhg.iais.roberta.syntax.lang.functions.MathCastStringFunct;
+import de.fhg.iais.roberta.syntax.lang.functions.MathChangeFunct;
 import de.fhg.iais.roberta.syntax.lang.functions.MathConstrainFunct;
+import de.fhg.iais.roberta.syntax.lang.functions.MathModuloFunct;
 import de.fhg.iais.roberta.syntax.lang.functions.MathNumPropFunct;
 import de.fhg.iais.roberta.syntax.lang.functions.MathOnListFunct;
 import de.fhg.iais.roberta.syntax.lang.functions.MathPowerFunct;
 import de.fhg.iais.roberta.syntax.lang.functions.MathRandomFloatFunct;
 import de.fhg.iais.roberta.syntax.lang.functions.MathRandomIntFunct;
 import de.fhg.iais.roberta.syntax.lang.functions.MathSingleFunct;
+import de.fhg.iais.roberta.syntax.lang.functions.TextAppendFunct;
 import de.fhg.iais.roberta.syntax.lang.functions.TextCharCastNumberFunct;
 import de.fhg.iais.roberta.syntax.lang.functions.TextJoinFunct;
 import de.fhg.iais.roberta.syntax.lang.functions.TextPrintFunct;
@@ -166,9 +169,13 @@ public interface ILanguageVisitor<V> extends IVisitor<V> {
 
     V visitMathCastStringFunct(MathCastStringFunct mathCastStringFunct);
 
+    V visitMathChangeStmt(MathChangeFunct mathChangeFunct);
+
     V visitMathConst(MathConst mathConst);
 
     V visitMathConstrainFunct(MathConstrainFunct mathConstrainFunct);
+
+    V visitMathModuloFunct(MathModuloFunct mathModuloFunct);
 
     V visitMathNumPropFunct(MathNumPropFunct mathNumPropFunct);
 
@@ -254,6 +261,8 @@ public interface ILanguageVisitor<V> extends IVisitor<V> {
     V visitStmtTextComment(StmtTextComment stmtTextComment);
 
     V visitStringConst(StringConst stringConst);
+
+    V visitTextAppendFunct(TextAppendFunct textAppendFunct);
 
     V visitTextCharCastNumberFunct(TextCharCastNumberFunct textCharCastNumberFunct);
 
