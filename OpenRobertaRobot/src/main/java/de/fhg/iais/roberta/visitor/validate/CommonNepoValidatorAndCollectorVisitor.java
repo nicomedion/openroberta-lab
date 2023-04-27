@@ -331,17 +331,20 @@ public abstract class CommonNepoValidatorAndCollectorVisitor extends AbstractVal
     }
 
     @Override
-    public Void visitMathChangeStmt(MathChangeFunct mathChangeFunct) {
+    public Void visitMathChangeFunct(MathChangeFunct mathChangeFunct) {
+        requiredComponentVisited(mathChangeFunct, mathChangeFunct.var, mathChangeFunct.delta);
         return null;
     }
 
     @Override
     public Void visitMathModuloFunct(MathModuloFunct mathModuloFunct) {
+        requiredComponentVisited(mathModuloFunct, mathModuloFunct.dividend, mathModuloFunct.divisor);
         return null;
     }
 
     @Override
     public Void visitTextAppendFunct(TextAppendFunct textAppendFunct) {
+        requiredComponentVisited(textAppendFunct, textAppendFunct.var, textAppendFunct.text);
         return null;
     }
 

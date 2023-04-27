@@ -34,7 +34,10 @@ import de.fhg.iais.roberta.syntax.lang.expr.StringConst;
 import de.fhg.iais.roberta.syntax.lang.expr.Unary;
 import de.fhg.iais.roberta.syntax.lang.expr.Var;
 import de.fhg.iais.roberta.syntax.lang.expr.VarDeclaration;
+import de.fhg.iais.roberta.syntax.lang.functions.MathChangeFunct;
+import de.fhg.iais.roberta.syntax.lang.functions.MathModuloFunct;
 import de.fhg.iais.roberta.syntax.lang.functions.MathPowerFunct;
+import de.fhg.iais.roberta.syntax.lang.functions.TextAppendFunct;
 import de.fhg.iais.roberta.syntax.lang.methods.MethodCall;
 import de.fhg.iais.roberta.syntax.lang.stmt.ActionStmt;
 import de.fhg.iais.roberta.syntax.lang.stmt.AssignStmt;
@@ -482,6 +485,30 @@ public abstract class AbstractLanguageVisitor extends BaseVisitor<Void> implemen
         this.sb.append(", ");
         mathPowerFunct.param.get(1).accept(this);
         this.sb.append(")");
+        return null;
+    }
+
+    @Override
+    public Void visitMathChangeFunct(MathChangeFunct mathChangeFunct) {
+        mathChangeFunct.var.accept(this);
+        this.sb.append(" += ");
+        mathChangeFunct.delta.accept(this);
+        return null;
+    }
+
+    @Override
+    public Void visitMathModuloFunct(MathModuloFunct mathModuloFunct) {
+        mathModuloFunct.dividend.accept(this);
+        this.sb.append(" % ");
+        mathModuloFunct.divisor.accept(this);
+        return null;
+    }
+
+    @Override
+    public Void visitTextAppendFunct(TextAppendFunct textAppendFunct) {
+        textAppendFunct.var.accept(this);
+        this.sb.append(" += ");
+        textAppendFunct.text.accept(this);
         return null;
     }
 

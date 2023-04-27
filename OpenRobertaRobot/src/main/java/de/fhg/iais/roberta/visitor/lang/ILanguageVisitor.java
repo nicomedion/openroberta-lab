@@ -169,7 +169,7 @@ public interface ILanguageVisitor<V> extends IVisitor<V> {
 
     V visitMathCastStringFunct(MathCastStringFunct mathCastStringFunct);
 
-    V visitMathChangeStmt(MathChangeFunct mathChangeFunct);
+    V visitMathChangeFunct(MathChangeFunct mathChangeFunct);
 
     V visitMathConst(MathConst mathConst);
 

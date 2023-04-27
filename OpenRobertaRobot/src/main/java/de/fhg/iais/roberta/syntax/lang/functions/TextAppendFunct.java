@@ -19,5 +19,6 @@ public final class TextAppendFunct extends Function {
         super(properties);
         this.var = var;
         this.text = text;
+        setReadOnly();
     }
 }

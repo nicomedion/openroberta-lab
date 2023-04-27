@@ -478,18 +478,18 @@ public interface ITransformerVisitor extends ISensorVisitor<Phrase>, IAllActorsV
     }
 
     @Override
-    default Phrase visitMathChangeStmt(MathChangeFunct mathChangeFunct) {
-        return null;
+    default Phrase visitMathChangeFunct(MathChangeFunct mathChangeFunct) {
+        return new MathChangeFunct(mathChangeFunct.getProperty(), mathChangeFunct.var, mathChangeFunct.delta);
     }
 
     @Override
     default Phrase visitMathModuloFunct(MathModuloFunct mathModuloFunct) {
-        return null;
+        return new MathModuloFunct(mathModuloFunct.getProperty(), mathModuloFunct.dividend, mathModuloFunct.divisor);
     }
 
     @Override
     default Phrase visitTextAppendFunct(TextAppendFunct textAppendFunct) {
-        return null;
+        return new TextAppendFunct(textAppendFunct.getProperty(), textAppendFunct.var, textAppendFunct.text);
     }
 
     @Override

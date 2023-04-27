@@ -19,5 +19,6 @@ public final class MathChangeFunct extends Function {
         super(properties);
         this.var = var;
         this.delta = delta;
+        setReadOnly();
     }
 }

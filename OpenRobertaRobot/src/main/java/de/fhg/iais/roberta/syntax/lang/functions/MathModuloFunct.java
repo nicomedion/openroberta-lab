@@ -19,5 +19,6 @@ public final class MathModuloFunct extends Function {
         super(properties);
         this.dividend = dividend;
         this.divisor = divisor;
+        setReadOnly();
     }
 }

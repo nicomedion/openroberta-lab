@@ -799,7 +799,7 @@ public abstract class AbstractStackMachineVisitor extends BaseVisitor<Void> impl
     }
 
     @Override
-    public Void visitMathChangeStmt(MathChangeFunct mathChangeFunct) {
+    public Void visitMathChangeFunct(MathChangeFunct mathChangeFunct) {
         return null;
     }
 
