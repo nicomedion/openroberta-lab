@@ -2,18 +2,20 @@ import cyberpi
 import time
 import math, random
 
+
 def _median(l):
     l = sorted(l)
     l_len = len(l)
     if l_len < 1:
         return None
     if l_len % 2 == 0:
-        return (l[int((l_len - 1) / 2)] + l[int((l_len + 1) / 2)] ) / 2.0
+        return (l[int((l_len - 1) / 2)] + l[int((l_len + 1) / 2)]) / 2.0
     else:
         return l[int((l_len - 1) / 2)]
 
+
 def _isPrime(number):
-    if(number == 0 or number == 1):
+    if (number == 0 or number == 1):
         return False
     for i in range(2, int(math.floor(math.sqrt(number))) + 1):
         remainder = number % i
@@ -21,12 +23,14 @@ def _isPrime(number):
             return False
     return True
 
+
 def _standard_deviation(l):
     mean = float(sum(l)) / len(l)
     sd = 0
     for i in l:
-        sd += (i - mean)*(i - mean)
+        sd += (i - mean) * (i - mean)
     return math.sqrt(sd / len(l))
+
 
 ___numberVar = 0
 ___booleanVar = True
@@ -36,6 +40,8 @@ ___numberList = [0, 0, 0]
 ___booleanList = [True, True, True]
 ___stringList = ["", "", ""]
 ___colorList = [(204, 0, 0), (204, 0, 0), (204, 0, 0)]
+
+
 def ____lists():
     global ___numberVar, ___booleanVar, ___stringVar, ___colorVar, ___numberList, ___booleanList, ___stringList, ___colorList
     ___numberList = []
@@ -47,39 +53,40 @@ def ____lists():
     ___stringList = ["", ""]
     ___colorList = [(204, 0, 0), (204, 0, 0)]
     cyberpi.console.println([___numberVar] * 5)
-    cyberpi.console.println(len( ___numberList))
+    cyberpi.console.println(len(___numberList))
     cyberpi.console.println(not ___numberList)
     cyberpi.console.println(___numberList.index(___numberVar))
     cyberpi.console.println((len(___numberList) - 1) - ___numberList[::-1].index(___numberVar))
     cyberpi.console.println(___numberList[___numberVar])
-    cyberpi.console.println(___numberList[-1 -___numberVar])
+    cyberpi.console.println(___numberList[-1 - ___numberVar])
     cyberpi.console.println(___numberList[0])
     cyberpi.console.println(___numberList[-1])
     cyberpi.console.println(___numberList.pop(___numberVar))
-    cyberpi.console.println(___numberList.pop(-1 -___numberVar))
+    cyberpi.console.println(___numberList.pop(-1 - ___numberVar))
     cyberpi.console.println(___numberList.pop(0))
     cyberpi.console.println(___numberList.pop(-1))
     ___numberList.pop(___numberVar)
-    ___numberList.pop(-1 -___numberVar)
+    ___numberList.pop(-1 - ___numberVar)
     ___numberList.pop(0)
     ___numberList.pop(-1)
     ___numberList[___numberVar] = ___numberVar
-    ___numberList[-1 -___numberVar] = ___numberVar
+    ___numberList[-1 - ___numberVar] = ___numberVar
     ___numberList[0] = ___numberVar
     ___numberList[-1] = ___numberVar
     ___numberList.insert(___numberVar, ___numberVar)
-    ___numberList.insert(-1 -___numberVar, ___numberVar)
+    ___numberList.insert(-1 - ___numberVar, ___numberVar)
     ___numberList.insert(0, ___numberVar)
     ___numberList.insert(-1, ___numberVar)
     cyberpi.console.println(___numberList[___numberVar:___numberVar])
-    cyberpi.console.println(___numberList[___numberVar:-1 -___numberVar])
+    cyberpi.console.println(___numberList[___numberVar:-1 - ___numberVar])
     cyberpi.console.println(___numberList[___numberVar:])
-    cyberpi.console.println(___numberList[-1 -___numberVar:___numberVar])
-    cyberpi.console.println(___numberList[-1 -___numberVar:-1 -___numberVar])
-    cyberpi.console.println(___numberList[-1 -___numberVar:])
+    cyberpi.console.println(___numberList[-1 - ___numberVar:___numberVar])
+    cyberpi.console.println(___numberList[-1 - ___numberVar:-1 - ___numberVar])
+    cyberpi.console.println(___numberList[-1 - ___numberVar:])
     cyberpi.console.println(___numberList[0:___numberVar])
-    cyberpi.console.println(___numberList[0:-1 -___numberVar])
+    cyberpi.console.println(___numberList[0:-1 - ___numberVar])
     cyberpi.console.println(___numberList[0:])
+
 
 def ____math():
     global ___numberVar, ___booleanVar, ___stringVar, ___colorVar, ___numberList, ___booleanList, ___stringList, ___colorList
@@ -123,21 +130,23 @@ def ____math():
     cyberpi.console.println(sum(___numberList))
     cyberpi.console.println(min(___numberList))
     cyberpi.console.println(max(___numberList))
-    cyberpi.console.println(float(sum(___numberList))/len(___numberList))
+    cyberpi.console.println(float(sum(___numberList)) / len(___numberList))
     cyberpi.console.println(_median(___numberList))
     cyberpi.console.println(_standard_deviation(___numberList))
     cyberpi.console.println(___numberList[0])
-    cyberpi.console.println(___numberVar % ___numberVar)
+    cyberpi.console.println((___numberVar % ___numberVar))
     cyberpi.console.println(min(max(___numberVar, ___numberVar), ___numberVar))
     cyberpi.console.println(random.randint(___numberVar, ___numberVar))
     cyberpi.console.println(random.random())
     cyberpi.console.println(str(___numberVar))
     cyberpi.console.println(chr((int)(___numberVar)))
 
+
 def run():
     global ___numberVar, ___booleanVar, ___stringVar, ___colorVar, ___numberList, ___booleanList, ___stringList, ___colorList
     ____math()
     ____lists()
+
 
 def main():
     try:
@@ -146,4 +155,6 @@ def main():
         cyberpi.display.show_label("Exeption on Mbot 2", 16, int(8 * 0 + 5), int(17 * 0))
         cyberpi.display.show_label(e, 16, int(8 * 0 + 5), int(17 * 1))
         raise
+
+
 main()

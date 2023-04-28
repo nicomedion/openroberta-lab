@@ -630,7 +630,7 @@ public abstract class AbstractCppVisitor extends AbstractLanguageVisitor {
         mathModuloFunct.dividend.accept(this);
         this.sb.append(", ");
         mathModuloFunct.divisor.accept(this);
-        this.sb.append(");");
+        this.sb.append(")");
         return null;
     }
 

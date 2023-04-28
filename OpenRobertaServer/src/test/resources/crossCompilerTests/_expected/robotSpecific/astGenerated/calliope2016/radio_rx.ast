@@ -8,8 +8,7 @@ AktionStmt [DisplayImageAction[displayImageMode: IMAGE, valuesToDisplay: Predefi
 ClearDisplayAction[port: - EMPTY_PORT -]
 
 (repeat [TIMES, Var [k1], NumConst[value: 0], NumConst[value: 5], NumConst[value: 1]]
-AktionStmt [LedOnAction[ledColor: FunctionExpr [ListGetIndex [GET, FROM_START, [Var [colours], Var [idx]]]], port: R]]WaitTimeStmt[time: NumConst[value: 500]]
-exprStmt Binary [MATH_CHANGE, Var [idx], NumConst[value: 1]]
+AktionStmt [LedOnAction[ledColor: FunctionExpr [ListGetIndex [GET, FROM_START, [Var [colours], Var [idx]]]], port: R]]WaitTimeStmt[time: NumConst[value: 500]]FunctionStmt [MathChangeFunct[var: Var [idx], delta: NumConst[value: 1]]]
 )
 LightOffAction[port: R]
 DisplayImageAction[displayImageMode: IMAGE, valuesToDisplay: PredefinedImage[imageName: MUSIC_QUAVERS]]

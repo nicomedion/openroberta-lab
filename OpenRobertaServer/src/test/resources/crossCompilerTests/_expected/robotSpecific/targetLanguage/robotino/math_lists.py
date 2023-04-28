@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
 import math, random, time, requests, threading, sys, io
+
 sys.stdout = io.StringIO()
 sys.stderr = io.StringIO()
 ROBOTINOIP = "127.0.0.1:80"
-PARAMS = {'sid':'robertaProgram'}
+PARAMS = {'sid': 'robertaProgram'}
 MAXSPEED = 0.5
 MAXROTATION = 0.57
+
 
 def _median(l):
     l = sorted(l)
@@ -13,12 +15,13 @@ def _median(l):
     if l_len < 1:
         return None
     if l_len % 2 == 0:
-        return (l[int((l_len - 1) / 2)] + l[int((l_len + 1) / 2)] ) / 2.0
+        return (l[int((l_len - 1) / 2)] + l[int((l_len + 1) / 2)]) / 2.0
     else:
         return l[int((l_len - 1) / 2)]
 
+
 def _isPrime(number):
-    if(number == 0 or number == 1):
+    if (number == 0 or number == 1):
         return False
     for i in range(2, int(math.floor(math.sqrt(number))) + 1):
         remainder = number % i
@@ -26,12 +29,14 @@ def _isPrime(number):
             return False
     return True
 
+
 def _standard_deviation(l):
     mean = float(sum(l)) / len(l)
     sd = 0
     for i in l:
-        sd += (i - mean)*(i - mean)
+        sd += (i - mean) * (i - mean)
     return math.sqrt(sd / len(l))
+
 
 ___booleanFalse = None
 ___booleanTrue = None
@@ -39,6 +44,8 @@ ___number = None
 ___numberList = []
 ___string = None
 ___numberlist2 = []
+
+
 def ____lists():
     global ___booleanFalse, ___booleanTrue, ___number, ___numberList, ___string, ___numberlist2
     ___numberList = [0] * 5
@@ -49,6 +56,7 @@ def ____lists():
     ___number = ___numberList[0]
     ___numberList[0] = 0
     ___numberList = ___numberList[0:2]
+
 
 def ____math():
     global ___booleanFalse, ___booleanTrue, ___number, ___numberList, ___string, ___numberlist2
@@ -93,11 +101,11 @@ def ____math():
     ___number = sum(___numberList)
     ___number = min(___numberList)
     ___number = max(___numberList)
-    ___number = float(sum(___numberList))/len(___numberList)
+    ___number = float(sum(___numberList)) / len(___numberList)
     ___number = _median(___numberList)
     ___number = _standard_deviation(___numberList)
     ___number = ___numberList[0]
-    ___number = 1 % 2
+    ___number = (1 % 2)
     ___number = min(max(1002, 1), 100)
     ___number = random.randint(1, 100)
     ___number = random.random()
@@ -118,8 +126,10 @@ def run(RV):
     ____math()
     ____lists()
 
+
 def step(RV):
     pass
+
 
 def main(RV):
     try:
@@ -128,13 +138,15 @@ def main(RV):
         print(e)
         raise
 
+
 def start(RV):
     motorDaemon2 = threading.Thread(target=main, daemon=True, args=(RV,), name='mainProgram')
     motorDaemon2.start()
 
+
 def stop(RV):
     pass
 
+
 def cleanup(RV):
     pass
-

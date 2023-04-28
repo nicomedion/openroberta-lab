@@ -335,21 +335,8 @@ public abstract class AbstractStackMachineVisitor extends BaseVisitor<Void> impl
                 binary.left.accept(this);
                 binary.getRight().accept(this);
                 JSONObject o;
-                // FIXME: The math change should be removed from the binary expression since it is a statement
-                switch ( binary.op ) {
-                    case MATH_CHANGE:
-                        o = makeNode(C.MATH_CHANGE).put(C.NAME, ((Var) binary.left).name);
-                        break;
-                    case TEXT_APPEND:
-                        o = makeNode(C.TEXT_APPEND).put(C.NAME, ((Var) binary.left).name);
-                        break;
-
-                    default:
-                        o = makeNode(C.EXPR).put(C.EXPR, C.BINARY).put(C.OP, binary.op);
-                        break;
-                }
+                o = makeNode(C.EXPR).put(C.EXPR, C.BINARY).put(C.OP, binary.op);
                 return add(o);
-
         }
 
     }
@@ -800,17 +787,29 @@ public abstract class AbstractStackMachineVisitor extends BaseVisitor<Void> impl
 
     @Override
     public Void visitMathChangeFunct(MathChangeFunct mathChangeFunct) {
-        return null;
+        mathChangeFunct.var.accept(this);
+        mathChangeFunct.delta.accept(this);
+        JSONObject o;
+        o = makeNode(C.MATH_CHANGE).put(C.NAME, ((Var) mathChangeFunct.var).name);
+        return add(o);
     }
 
     @Override
     public Void visitMathModuloFunct(MathModuloFunct mathModuloFunct) {
-        return null;
+        mathModuloFunct.dividend.accept(this);
+        mathModuloFunct.divisor.accept(this);
+        JSONObject o;
+        o = makeNode(C.EXPR).put(C.EXPR, C.BINARY).put(C.OP, "MOD");
+        return add(o);
     }
 
     @Override
     public Void visitTextAppendFunct(TextAppendFunct textAppendFunct) {
-        return null;
+        textAppendFunct.var.accept(this);
+        textAppendFunct.text.accept(this);
+        JSONObject o;
+        o = makeNode(C.TEXT_APPEND).put(C.NAME, ((Var) textAppendFunct.var).name);
+        return add(o);
     }
 
     @Override

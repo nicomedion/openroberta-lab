@@ -498,9 +498,11 @@ public abstract class AbstractLanguageVisitor extends BaseVisitor<Void> implemen
 
     @Override
     public Void visitMathModuloFunct(MathModuloFunct mathModuloFunct) {
+        this.sb.append("( ");
         mathModuloFunct.dividend.accept(this);
         this.sb.append(" % ");
         mathModuloFunct.divisor.accept(this);
+        this.sb.append(" )");
         return null;
     }
 
