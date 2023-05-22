@@ -50,6 +50,7 @@
         <module>RobotThymio</module>
         <module>RobotRobotino</module>
         <module>RobotSpike</module>
+        <module>RobotKarl</module>
     </modules>
     <repositories>
         <repository>
