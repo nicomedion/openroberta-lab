@@ -43,10 +43,10 @@ import de.fhg.iais.roberta.persistence.util.SessionFactoryWrapper;
 import de.fhg.iais.roberta.robotCommunication.RobotCommunicator;
 import de.fhg.iais.roberta.testutil.JSONUtilForServer;
 import de.fhg.iais.roberta.util.Key;
-import de.fhg.iais.roberta.util.basic.Pair;
 import de.fhg.iais.roberta.util.RandomUrlPostfix;
 import de.fhg.iais.roberta.util.ServerProperties;
 import de.fhg.iais.roberta.util.Util;
+import de.fhg.iais.roberta.util.basic.Pair;
 import de.fhg.iais.roberta.util.jaxb.JaxbHelper;
 import de.fhg.iais.roberta.util.test.UnitTestHelper;
 import de.fhg.iais.roberta.util.testsetup.IntegrationTest;
@@ -376,7 +376,7 @@ public class CompilerWorkflowRobotCommonIT {
             LOG.error("Could not generate source code for robot {}", robotName);
             return false;
         }
-        List<String> requiredWorkflowsList = Arrays.asList("showsource", "compile", "run", "runnative", "compilenative", "transform", "getsimulationcode");
+        List<String> requiredWorkflowsList = Arrays.asList("showsource", "compile", "run", "runnative", "compilenative", "getsimulationcode");
         Set<String> requiredWorkflows = new HashSet<>(requiredWorkflowsList);
         Set<String> allWorkflowsOfRobot = pluginMap.get(robotName).getWorkflows();
         requiredWorkflows.addAll(allWorkflowsOfRobot);

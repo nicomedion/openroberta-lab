@@ -37,7 +37,7 @@ def ____math():
     ___numberVar = min(___numberList)
     ___numberVar = max(___numberList)
     ___numberVar = sum(___numberList) / len(___numberList)
-    ___numberVar = ___numberVar % ___numberVar
+    ___numberVar = ( ( ___numberVar ) % ( ___numberVar ) )
 
 def ____lists():
     global ___numberVar, ___booleanVar, ___numberList
@@ -94,3 +94,4 @@ def sum(list):
     for i in range(listLength): 
         listSum = (listSum + list[i])
     return listSum
+
