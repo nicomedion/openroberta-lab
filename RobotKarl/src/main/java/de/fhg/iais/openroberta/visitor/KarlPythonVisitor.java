@@ -9,6 +9,12 @@ import de.fhg.iais.roberta.bean.IProjectBean;
 import de.fhg.iais.roberta.bean.UsedHardwareBean;
 import de.fhg.iais.roberta.components.ConfigurationAst;
 import de.fhg.iais.roberta.syntax.Phrase;
+import de.fhg.iais.roberta.syntax.action.light.LightAction;
+import de.fhg.iais.roberta.syntax.action.light.LightOffAction;
+import de.fhg.iais.roberta.syntax.action.motor.MotorOnAction;
+import de.fhg.iais.roberta.syntax.action.spike.LedOffAction;
+import de.fhg.iais.roberta.syntax.action.spike.LedOnAction;
+import de.fhg.iais.roberta.syntax.action.spike.MotorStopAction;
 import de.fhg.iais.roberta.syntax.action.spike.PlayNoteAction;
 import de.fhg.iais.roberta.syntax.action.spike.PlayToneAction;
 import de.fhg.iais.roberta.syntax.configuration.ConfigurationComponent;
@@ -16,8 +22,10 @@ import de.fhg.iais.roberta.syntax.lang.blocksequence.MainTask;
 import de.fhg.iais.roberta.syntax.lang.stmt.WaitStmt;
 import de.fhg.iais.roberta.syntax.lang.stmt.WaitTimeStmt;
 import de.fhg.iais.roberta.syntax.sensor.generic.KeysSensor;
+import de.fhg.iais.roberta.syntax.sensor.generic.LightSensor;
 import de.fhg.iais.roberta.syntax.sensor.generic.TimerReset;
 import de.fhg.iais.roberta.syntax.sensor.generic.TimerSensor;
+import de.fhg.iais.roberta.syntax.sensor.generic.VoltageSensor;
 import de.fhg.iais.roberta.util.basic.C;
 import de.fhg.iais.roberta.util.dbc.DbcException;
 import de.fhg.iais.roberta.util.syntax.SC;
@@ -55,6 +63,11 @@ public class KarlPythonVisitor extends AbstractPythonVisitor implements IKarlVis
     }
 
     @Override
+    public Void visitVoltageSensor(VoltageSensor potentiometer) {
+        return null;
+    }
+
+    @Override
     public Void visitPlayToneAction(PlayToneAction playToneAction) {
         return null;
     }
@@ -65,12 +78,42 @@ public class KarlPythonVisitor extends AbstractPythonVisitor implements IKarlVis
     }
 
     @Override
-    public Void visitMainTask(MainTask mainTask) {
+    public Void visitMotorOnAction(MotorOnAction motorOnAction) {
         return null;
     }
 
     @Override
-    public Void visitTimerSensor(TimerSensor timerSensor) {
+    public Void visitMotorStopAction(MotorStopAction motorStopAction) {
+        return null;
+    }
+
+    @Override
+    public Void visitLedOnAction(LedOnAction ledOnAction) {
+        return null;
+    }
+
+    @Override
+    public Void visitLedOffAction(LedOffAction ledOffAction) {
+        return null;
+    }
+
+    @Override
+    public Void visitLightSensor(LightSensor lightSensor) {
+        return null;
+    }
+
+    @Override
+    public Void visitLightAction(LightAction lightAction) {
+        return null;
+    }
+
+    @Override
+    public Void visitLightOffAction(LightOffAction lightOffAction) {
+        return null;
+    }
+
+    @Override
+    public Void visitMainTask(MainTask mainTask) {
         return null;
     }
 
@@ -79,6 +122,13 @@ public class KarlPythonVisitor extends AbstractPythonVisitor implements IKarlVis
         this.src.add("timer.reset()");
         return null;
     }
+
+    @Override
+    public Void visitTimerSensor(TimerSensor timerSensor) {
+        this.src.add("timer.now() * 1000");
+        return null;
+    }
+
 
     @Override
     public Void visitWaitStmt(WaitStmt waitStmt) {
