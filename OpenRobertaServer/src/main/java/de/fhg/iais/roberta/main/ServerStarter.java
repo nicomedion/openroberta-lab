@@ -306,6 +306,8 @@ public class ServerStarter {
             if ( robotName.equals("sim") ) {
                 continue;
             }
+            System.out.println(robotName);
+            System.out.println(resourceDir);
             RobotFactory factory = Util.configureRobotPlugin(robotName, resourceDir, tempDir, pluginDefines);
             robotPlugins.put(robotName, factory);
         }
