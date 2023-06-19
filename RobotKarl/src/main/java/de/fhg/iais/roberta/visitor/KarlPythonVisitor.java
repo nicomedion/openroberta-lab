@@ -1,4 +1,4 @@
-package de.fhg.iais.openroberta.visitor;
+package de.fhg.iais.roberta.visitor;
 
 
 import java.util.List;
@@ -15,7 +15,6 @@ import de.fhg.iais.roberta.syntax.lang.blocksequence.MainTask;
 import de.fhg.iais.roberta.syntax.lang.stmt.WaitStmt;
 import de.fhg.iais.roberta.syntax.lang.stmt.WaitTimeStmt;
 import de.fhg.iais.roberta.syntax.sensor.generic.KeysSensor;
-import de.fhg.iais.roberta.syntax.sensor.generic.LightSensor;
 import de.fhg.iais.roberta.syntax.sensor.generic.TimerReset;
 import de.fhg.iais.roberta.syntax.sensor.generic.TimerSensor;
 import de.fhg.iais.roberta.syntax.sensor.generic.VoltageSensor;
@@ -34,7 +33,7 @@ public class KarlPythonVisitor extends AbstractPythonVisitor implements IKarlVis
      * @param programPhrases to generate the code from
      * @param beans
      */
-    protected KarlPythonVisitor(
+    public KarlPythonVisitor(
         List<List<Phrase>> programPhrases,
         ClassToInstanceMap<IProjectBean> beans,
         ConfigurationAst configurationAst) {

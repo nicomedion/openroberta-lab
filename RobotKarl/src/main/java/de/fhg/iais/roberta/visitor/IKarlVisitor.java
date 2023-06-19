@@ -1,12 +1,7 @@
-package de.fhg.iais.openroberta.visitor;
+package de.fhg.iais.roberta.visitor;
 
-import de.fhg.iais.roberta.syntax.action.light.LightAction;
-import de.fhg.iais.roberta.syntax.action.light.LightOffAction;
-import de.fhg.iais.roberta.syntax.action.motor.MotorOnAction;
 import de.fhg.iais.roberta.syntax.sensor.generic.KeysSensor;
-import de.fhg.iais.roberta.syntax.sensor.generic.LightSensor;
 import de.fhg.iais.roberta.syntax.sensor.generic.VoltageSensor;
-import de.fhg.iais.roberta.visitor.IVisitor;
 
 public interface IKarlVisitor<V> extends IVisitor<V> {
 

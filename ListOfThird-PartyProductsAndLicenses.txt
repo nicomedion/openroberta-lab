@@ -35,15 +35,15 @@ com.vaadin.external.google:android-json:0.0.20131108.vaadin1	Apache License 2.0
 commons-codec:commons-codec:1.11	Apache License, Version 2.0
 commons-io:commons-io:2.6	Apache License, Version 2.0
 commons-logging:commons-logging:1.2	The Apache Software License, Version 2.0
-de.fhg.iais.openroberta:OpenRobertaRobot:4.0.8-SNAPSHOT	Licensed under the Apache License, Version 2.0 (the "License")
-de.fhg.iais.openroberta:RobotArdu:4.0.8-SNAPSHOT	Licensed under the Apache License, Version 2.0 (the "License")
-de.fhg.iais.openroberta:RobotEdison:4.0.8-SNAPSHOT	Licensed under the Apache License, Version 2.0 (the "License")
-de.fhg.iais.openroberta:RobotEV3:4.0.8-SNAPSHOT	Licensed under the Apache License, Version 2.0 (the "License")
-de.fhg.iais.openroberta:RobotMbed:4.0.8-SNAPSHOT	Licensed under the Apache License, Version 2.0 (the "License")
-de.fhg.iais.openroberta:RobotNAO:4.0.8-SNAPSHOT	Licensed under the Apache License, Version 2.0 (the "License")
-de.fhg.iais.openroberta:RobotNXT:4.0.8-SNAPSHOT	Licensed under the Apache License, Version 2.0 (the "License")
-de.fhg.iais.openroberta:RobotVorwerk:4.0.8-SNAPSHOT	Licensed under the Apache License, Version 2.0 (the "License")
-de.fhg.iais.openroberta:RobotWeDo:4.0.8-SNAPSHOT	Licensed under the Apache License, Version 2.0 (the "License")
+de.fhg.iais.roberta:OpenRobertaRobot:4.0.8-SNAPSHOT	Licensed under the Apache License, Version 2.0 (the "License")
+de.fhg.iais.roberta:RobotArdu:4.0.8-SNAPSHOT	Licensed under the Apache License, Version 2.0 (the "License")
+de.fhg.iais.roberta:RobotEdison:4.0.8-SNAPSHOT	Licensed under the Apache License, Version 2.0 (the "License")
+de.fhg.iais.roberta:RobotEV3:4.0.8-SNAPSHOT	Licensed under the Apache License, Version 2.0 (the "License")
+de.fhg.iais.roberta:RobotMbed:4.0.8-SNAPSHOT	Licensed under the Apache License, Version 2.0 (the "License")
+de.fhg.iais.roberta:RobotNAO:4.0.8-SNAPSHOT	Licensed under the Apache License, Version 2.0 (the "License")
+de.fhg.iais.roberta:RobotNXT:4.0.8-SNAPSHOT	Licensed under the Apache License, Version 2.0 (the "License")
+de.fhg.iais.roberta:RobotVorwerk:4.0.8-SNAPSHOT	Licensed under the Apache License, Version 2.0 (the "License")
+de.fhg.iais.roberta:RobotWeDo:4.0.8-SNAPSHOT	Licensed under the Apache License, Version 2.0 (the "License")
 dom4j:dom4j:1.6.1	BSD License
 enjoyhint:3.1.0 	The MIT License
 eu.bitwalker:UserAgentUtils:1.21	New BSD License

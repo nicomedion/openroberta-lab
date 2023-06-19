@@ -172,91 +172,91 @@
                         <configuration>
                             <artifactItems>
                                 <artifactItem>
-                                    <groupId>de.fhg.iais.openroberta</groupId>
+                                    <groupId>de.fhg.iais.roberta</groupId>
                                     <artifactId>OpenRobertaServer</artifactId>
                                     <version>${project.version}</version>
                                     <type>jar</type>
                                     <overWrite>true</overWrite>
                                 </artifactItem>
                                 <artifactItem>
-                                    <groupId>de.fhg.iais.openroberta</groupId>
+                                    <groupId>de.fhg.iais.roberta</groupId>
                                     <artifactId>RobotEV3</artifactId>
                                     <version>${project.version}</version>
                                     <type>jar</type>
                                     <overWrite>true</overWrite>
                                 </artifactItem>
                                 <artifactItem>
-                                    <groupId>de.fhg.iais.openroberta</groupId>
+                                    <groupId>de.fhg.iais.roberta</groupId>
                                     <artifactId>RobotNXT</artifactId>
                                     <version>${project.version}</version>
                                     <type>jar</type>
                                     <overWrite>true</overWrite>
                                 </artifactItem>
                                 <artifactItem>
-                                    <groupId>de.fhg.iais.openroberta</groupId>
+                                    <groupId>de.fhg.iais.roberta</groupId>
                                     <artifactId>RobotArdu</artifactId>
                                     <version>${project.version}</version>
                                     <type>jar</type>
                                     <overWrite>true</overWrite>
                                 </artifactItem>
                                 <artifactItem>
-                                    <groupId>de.fhg.iais.openroberta</groupId>
+                                    <groupId>de.fhg.iais.roberta</groupId>
                                     <artifactId>RobotCyberpi</artifactId>
                                     <version>${project.version}</version>
                                     <type>jar</type>
                                     <overWrite>true</overWrite>
                                 </artifactItem>
                                 <artifactItem>
-                                    <groupId>de.fhg.iais.openroberta</groupId>
+                                    <groupId>de.fhg.iais.roberta</groupId>
                                     <artifactId>RobotMbed</artifactId>
                                     <version>${project.version}</version>
                                     <type>jar</type>
                                     <overWrite>true</overWrite>
                                 </artifactItem>
                                 <artifactItem>
-                                    <groupId>de.fhg.iais.openroberta</groupId>
+                                    <groupId>de.fhg.iais.roberta</groupId>
                                     <artifactId>RobotNAO</artifactId>
                                     <version>${project.version}</version>
                                     <type>jar</type>
                                     <overWrite>true</overWrite>
                                 </artifactItem>
                                 <artifactItem>
-                                    <groupId>de.fhg.iais.openroberta</groupId>
+                                    <groupId>de.fhg.iais.roberta</groupId>
                                     <artifactId>RobotWeDo</artifactId>
                                     <version>${project.version}</version>
                                     <type>jar</type>
                                     <overWrite>true</overWrite>
                                 </artifactItem>
                                 <artifactItem>
-                                    <groupId>de.fhg.iais.openroberta</groupId>
+                                    <groupId>de.fhg.iais.roberta</groupId>
                                     <artifactId>RobotEdison</artifactId>
                                     <version>${project.version}</version>
                                     <type>jar</type>
                                     <overWrite>true</overWrite>
                                 </artifactItem>
                                 <artifactItem>
-                                    <groupId>de.fhg.iais.openroberta</groupId>
+                                    <groupId>de.fhg.iais.roberta</groupId>
                                     <artifactId>RobotRobotino</artifactId>
                                     <version>${project.version}</version>
                                     <type>jar</type>
                                     <overWrite>true</overWrite>
                                 </artifactItem>
                                 <artifactItem>
-                                    <groupId>de.fhg.iais.openroberta</groupId>
+                                    <groupId>de.fhg.iais.roberta</groupId>
                                     <artifactId>RobotThymio</artifactId>
                                     <version>${project.version}</version>
                                     <type>jar</type>
                                     <overWrite>true</overWrite>
                                 </artifactItem>
                                 <artifactItem>
-                                    <groupId>de.fhg.iais.openroberta</groupId>
+                                    <groupId>de.fhg.iais.roberta</groupId>
                                     <artifactId>RobotSpike</artifactId>
                                     <version>${project.version}</version>
                                     <type>jar</type>
                                     <overWrite>true</overWrite>
                                 </artifactItem>
                                 <artifactItem>
-                                    <groupId>de.fhg.iais.openroberta</groupId>
+                                    <groupId>de.fhg.iais.roberta</groupId>
                                     <artifactId>RobotKarl</artifactId>
                                     <version>${project.version}</version>
                                     <type>jar</type>
