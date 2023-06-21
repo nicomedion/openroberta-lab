@@ -1,11 +1,15 @@
-<toolbox_set id="toolbox-Configuration" style="display: none">
-    <category name="TOOLBOX_ACTION" svg="true">
-        <block type="robConf_motor"></block>
-        <block type="robConf_differentialdrive"></block>
+<toolbox_set id='toolbox-Configuration' style='display: none'>
+    <category name='TOOLBOX_ACTION' svg='true'>
+        <block type='robConf_motor'/>
+        <block type='robConf_buzzer'/>
+        <block type='robConf_rgbled'/>
+        <block type="robConf_digitalin"/>
+        <block type="robConf_analogin"/>
     </category>
-    <category name="TOOLBOX_SENSOR" svg="true">
-        <block type="robConf_colour"></block>
-        <block type="robConf_ultrasonic"></block>
-        <block type="robConf_touch"></block>
+    <category name='TOOLBOX_SENSOR' svg='true'>
+        <block type='robConf_potentiometer'/>
+        <block type='robConf_key'/>
+        <block type="robConf_digitalout"/>
+        <block type="robConf_analogout"/>
     </category>
 </toolbox_set>
