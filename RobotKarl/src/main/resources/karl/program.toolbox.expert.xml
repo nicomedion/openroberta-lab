@@ -180,7 +180,7 @@
             <block type='math_number'/>
         </value>
     </category>
-    <block type='robLists_repeat'>
+    <!--<block type='robLists_repeat'>
         <value name='NUM'>
             <block type='math_number'>
                 <field name='NUM'>5</field>
@@ -192,7 +192,7 @@
     <block type='robLists_indexOf'/>
     <block type='robLists_getIndex'/>
     <block type='robLists_setIndex'/>
-    <block type='robLists_getSublist'/>
+    <block type='robLists_getSublist'/>-->
     <category name='TOOLBOX_COLOUR' svg='true'>
         <block type='colour_picker_spike'>
             <field name='COLOUR'>#EBC300</field>

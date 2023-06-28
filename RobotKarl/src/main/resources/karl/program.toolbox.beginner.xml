@@ -1,6 +1,5 @@
-<toolbox_set id='toolbox-Program' style='display: none'>
+<toolbox_set id="toolboxBeginner" style="display: none">
     <category name='TOOLBOX_ACTION' svg='true'>
-        <category name='TOOLBOX_MOVE' svg='true'>
             <block type="actions_motor_on_karl">
                 <value name="POWER">
                     <block type="math_number" intask="true">
@@ -9,7 +8,6 @@
                 </value>
             </block>
             <block type='actions_motor_stop_karl'/>
-        </category>
         <category name='TOOLBOX_SOUND' svg='true'>
             <block type='actions_play_tone'>
                 <value name='FREQUENCY'>
@@ -180,7 +178,7 @@
             <block type='math_number'/>
         </value>
     </category>
-    <block type='robLists_repeat'>
+    <!--<block type='robLists_repeat'>
         <value name='NUM'>
             <block type='math_number'>
                 <field name='NUM'>5</field>
@@ -192,7 +190,7 @@
     <block type='robLists_indexOf'/>
     <block type='robLists_getIndex'/>
     <block type='robLists_setIndex'/>
-    <block type='robLists_getSublist'/>
+    <block type='robLists_getSublist'/>-->
     <category name='TOOLBOX_COLOUR' svg='true'>
         <block type='colour_picker_spike'>
             <field name='COLOUR'>#EBC300</field>
