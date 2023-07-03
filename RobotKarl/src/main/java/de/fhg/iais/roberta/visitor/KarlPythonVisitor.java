@@ -10,6 +10,9 @@ import de.fhg.iais.roberta.bean.UsedHardwareBean;
 import de.fhg.iais.roberta.components.ConfigurationAst;
 import de.fhg.iais.roberta.syntax.Phrase;
 
+import de.fhg.iais.roberta.syntax.action.karl.LedOffAction;
+import de.fhg.iais.roberta.syntax.action.karl.LedOnAction;
+import de.fhg.iais.roberta.syntax.action.karl.PlayToneAction;
 import de.fhg.iais.roberta.syntax.configuration.ConfigurationComponent;
 import de.fhg.iais.roberta.syntax.lang.blocksequence.MainTask;
 import de.fhg.iais.roberta.syntax.lang.stmt.WaitStmt;
@@ -56,6 +59,21 @@ public class KarlPythonVisitor extends AbstractPythonVisitor implements IKarlVis
 
     @Override
     public Void visitVoltageSensor(VoltageSensor potentiometer) {
+        return null;
+    }
+
+    @Override
+    public Void visitLedOnAction(LedOnAction ledOnAction) {
+        return null;
+    }
+
+    @Override
+    public Void visitLedOffAction(LedOffAction ledOffAction) {
+        return null;
+    }
+
+    @Override
+    public Void visitPlayToneAction(PlayToneAction playToneAction) {
         return null;
     }
 

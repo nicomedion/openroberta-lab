@@ -1,5 +1,6 @@
 <toolbox_set id="toolboxBeginner" style="display: none">
     <category name='TOOLBOX_ACTION' svg='true'>
+    <category name='TOOLBOX_MOVE' svg='true'>
             <block type="actions_motor_on_karl">
                 <value name="POWER">
                     <block type="math_number" intask="true">
@@ -8,6 +9,7 @@
                 </value>
             </block>
             <block type='actions_motor_stop_karl'/>
+    </category>
         <category name='TOOLBOX_SOUND' svg='true'>
             <block type='actions_play_tone'>
                 <value name='FREQUENCY'>
