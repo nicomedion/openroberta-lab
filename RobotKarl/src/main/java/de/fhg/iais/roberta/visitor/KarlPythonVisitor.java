@@ -26,6 +26,7 @@ import de.fhg.iais.roberta.util.dbc.DbcException;
 import de.fhg.iais.roberta.util.syntax.SC;
 import de.fhg.iais.roberta.visitor.lang.codegen.prog.AbstractPythonVisitor;
 
+//TODO clean up/remove everything from spike that i do not need
 public class KarlPythonVisitor extends AbstractPythonVisitor implements IKarlVisitor<Void> {
 
     private final ConfigurationAst configurationAst;
@@ -69,6 +70,18 @@ public class KarlPythonVisitor extends AbstractPythonVisitor implements IKarlVis
 
     @Override
     public Void visitLedOffAction(LedOffAction ledOffAction) {
+        //TODO get the correct led to turn off (left/right)
+        switch ( ledOffAction.eye ){
+            case "LinkesAuge":
+                this.src.add("left_eye.off()");
+                break;
+            case "RechtesAuge":
+                this.src.add("right_eye.off()");
+                break;
+            default:
+                throw new DbcException("Invalid eye selected: " + ledOffAction.eye);
+        }
+
         return null;
     }
 

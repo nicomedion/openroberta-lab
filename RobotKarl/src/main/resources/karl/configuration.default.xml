@@ -1,56 +1,47 @@
-<block_set xmlns="http://de.fhg.iais.roberta.blockly" robottype="karl" xmlversion="" description="" tags="">
-    <instance x="80" y="130">
-        <block type="robConf_potentiometer" intask="true" deletable="false">
-            <field name="NAME">Poti</field>
-            <field name="PIN1">26</field>
+<block_set xmlns="http://de.fhg.iais.roberta.blockly" robottype="karl" xmlversion="3.1" description="" tags="">
+    <instance x="83" y="50">
+        <block type="robConf_motor" id="_E7uKI*OiWdA0VgZo{TD" intask="true">
+            <field name="NAME">LinkesBein</field>
         </block>
     </instance>
     <instance x="443" y="60">
-        <block type="robConf_key" intask="true" deletable="false">
+        <block type="robConf_key" id="PACn5nfnXS0x!am88^}w" intask="true" deletable="false">
             <field name="NAME">Knopf</field>
-            <field name="PIN1">22</field>
-        </block>
-    </instance>
-    <instance x="83" y="50">
-        <block type="robConf_motor" intask="true">
-            <field name="NAME">Linkes Bein</field>
-            <field name="PIN1">8</field>
         </block>
     </instance>
     <instance x="80" y="90">
-        <block type="robConf_motor" intask="true">
-            <field name="NAME">Rechtes Bein</field>
-            <field name="PIN1">6</field>
+        <block type="robConf_motor" id="Ju]_a1AOFVur`y;_z`_;" intask="true">
+            <field name="NAME">RechtesBein</field>
         </block>
     </instance>
     <instance x="444" y="100">
-        <block type="robConf_motor" intask="true">
-            <field name="NAME">Rechter Fuss</field>
-            <field name="PIN1">7</field>
+        <block type="robConf_motor" id="-/uy8@eD.#8D6q5W@Bi|" intask="true">
+            <field name="NAME">RechterFuss</field>
+        </block>
+    </instance>
+    <instance x="80" y="130">
+        <block type="robConf_potentiometer" id="sW(X[b_i`9Kz=3k+7eo5" intask="true" deletable="false">
+            <field name="NAME">Poti</field>
         </block>
     </instance>
     <instance x="444" y="180">
-        <block type="robConf_motor" intask="true">
-            <field name="NAME">Linker Fuss</field>
-            <field name="PIN1">9</field>
-        </block>
-    </instance>
-    <instance x="445" y="380">
-        <block type="robConf_rgbled" intask="true" deletable="false">
-            <field name="NAME">Linkes Auge</field>
-            <field name="PIN1">19</field>
-        </block>
-    </instance>
-    <instance x="445" y="300">
-        <block type="robConf_rgbled" intask="true" deletable="false">
-            <field name="NAME">Rechtes Auge</field>
-            <field name="PIN1">16</field>
+        <block type="robConf_motor" id=":PiGIIBw^0wTvCk:*J)#" intask="true">
+            <field name="NAME">LinkerFuss</field>
         </block>
     </instance>
     <instance x="300" y="200">
-        <block type="robConf_buzzer" intask="true" deletable="false">
+        <block type="robConf_buzzer" id="4rSM_}|13SU[u]Eu/:gO" intask="true" deletable="false">
             <field name="NAME">Mund</field>
-            <field name="PIN1">10</field>
+        </block>
+    </instance>
+    <instance x="445" y="300">
+        <block type="robConf_rgbled" id="lf5-dk:IEMs4R%J+A9AC" intask="true" deletable="false">
+            <field name="NAME">RechtesAuge</field>
+        </block>
+    </instance>
+    <instance x="445" y="380">
+        <block type="robConf_rgbled" id="CcqN[J(b`uGq9I`Lz~G^" intask="true" deletable="false">
+            <field name="NAME">LinkesAuge</field>
         </block>
     </instance>
 </block_set>
