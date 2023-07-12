@@ -8,6 +8,7 @@ import java.util.Map;
 
 import com.google.common.collect.ClassToInstanceMap;
 
+import de.fhg.iais.roberta.visitor.KarlMethods;
 import de.fhg.iais.roberta.visitor.KarlValidatorAndCollectorVisitor;
 import de.fhg.iais.roberta.bean.IProjectBean;
 import de.fhg.iais.roberta.components.Project;
@@ -22,7 +23,7 @@ public class KarlValidatorAndCollectorWorker extends AbstractValidatorAndCollect
 
     @Override
     public void execute(Project project) {
-        validateConfig(project);
+        //validateConfig(project);
         super.execute(project);
     }
 
@@ -34,8 +35,9 @@ public class KarlValidatorAndCollectorWorker extends AbstractValidatorAndCollect
 
     @Override
     protected List<Class<? extends Enum<?>>> getAdditionalMethodEnums() {
-        //return Collections.singletonList(KarlMethods.class);
-        return null;
+        //Helper method file has to be set
+        return Collections.singletonList(KarlMethods.class);
+
     }
 
     private void validateConfig(Project project) {

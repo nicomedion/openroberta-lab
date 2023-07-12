@@ -1,0 +1,8 @@
+include: "classpath:/common.methods.yml"
+
+## FunctionNames
+
+DUMMY:
+  PYTHON: |
+    def dummy():
+      pass

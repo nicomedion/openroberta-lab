@@ -4,6 +4,7 @@ import com.google.common.collect.ClassToInstanceMap;
 
 import de.fhg.iais.roberta.bean.IProjectBean;
 import de.fhg.iais.roberta.components.ConfigurationAst;
+import de.fhg.iais.roberta.components.UsedActor;
 import de.fhg.iais.roberta.syntax.Phrase;
 import de.fhg.iais.roberta.syntax.action.karl.LedOffAction;
 import de.fhg.iais.roberta.syntax.action.karl.LedOnAction;
@@ -50,6 +51,9 @@ public class KarlValidatorAndCollectorVisitor extends CommonNepoValidatorAndColl
 
     @Override
     public Void visitLedOffAction(LedOffAction ledOffAction) {
+        //checkActorPort(ledOffAction);
+
+        usedHardwareBuilder.addUsedActor(new UsedActor("", "HUB"));
         return null;
     }
 

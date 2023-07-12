@@ -1,6 +1,5 @@
 package de.fhg.iais.roberta.visitor;
 
-
 import java.util.List;
 
 import com.google.common.collect.ClassToInstanceMap;
@@ -132,37 +131,39 @@ public class KarlPythonVisitor extends AbstractPythonVisitor implements IKarlVis
             return;
         }
         UsedHardwareBean usedHardwareBean = this.getBean(UsedHardwareBean.class);
-        this.src.add("import karl.v3").nlI();
+        this.src.add("from karl.v3 import *").nlI();
         this.src.add("import math").nlI();
+        //TODO warum weiß used actor nicht das Random benutzt wird?
         if ( usedHardwareBean.isActorUsed(C.RANDOM) || usedHardwareBean.isActorUsed(C.RANDOM_DOUBLE) ) {
             this.src.add("import random").nlI();
         }
-
-        if(usedHardwareBean.isSensorUsed(SC.KEY)){
+        //TODO warum ist used actors empty?
+        //System.out.println("Used Actors");
+        //System.out.println(usedHardwareBean.getUsedActors());
+        /*if(usedHardwareBean.isSensorUsed(SC.KEY)){
             usedHardwareBean.getUsedSensors().stream().filter(usedActor -> usedActor.getType().equals("TOUCH")).forEach(sensor -> {
                 if ( configurationAst.optConfigurationComponent(sensor.getPort()) != null ) {
                     nlIndent();
                     this.src.add("button").add(sensor.getPort()).add(" = Button('").add(getPortFromConfig(sensor.getPort())).add("')");
                 }
             });
-        }
+        }*/
 
-        if(usedHardwareBean.isSensorUsed(SC.POTENTIOMETER)){
+        /*if(usedHardwareBean.isSensorUsed(SC.POTENTIOMETER)){
             usedHardwareBean.getUsedSensors().stream().filter(usedActor -> usedActor.getType().equals("TOUCH")).forEach(sensor -> {
                 if ( configurationAst.optConfigurationComponent(sensor.getPort()) != null ) {
                     nlIndent();
                     this.src.add("poti").add(sensor.getPort()).add(" = Rotary('").add(getPortFromConfig(sensor.getPort())).add("')");
                 }
             });
-        }
-
+        }*/
         //TODO Motoren unterscheiden in Beine/Füße
-        if ( usedHardwareBean.isActorUsed(SC.MOTOR) ) {
+        /*if ( usedHardwareBean.isActorUsed(SC.MOTOR) ) {
             usedHardwareBean.getUsedActors().stream().filter(usedActor -> usedActor.getType().equals("MOTOR")).forEach(motor -> {
                 nlIndent();
                 this.src.add("motor").add(motor.getPort()).add(" = Servo('").add(motor.getPort()).add("')");
             });
-        }
+        }*/
 
         if ( usedHardwareBean.isActorUsed(SC.RGBLED) ) {
             usedHardwareBean.getUsedActors().stream().filter(usedActor -> usedActor.getType().equals("RGBLED")).forEach(motor -> {
