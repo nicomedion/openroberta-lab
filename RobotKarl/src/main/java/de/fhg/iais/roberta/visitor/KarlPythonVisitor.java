@@ -70,7 +70,7 @@ public class KarlPythonVisitor extends AbstractPythonVisitor implements IKarlVis
     @Override
     public Void visitLedOffAction(LedOffAction ledOffAction) {
         //TODO get the correct led to turn off (left/right)
-        switch ( ledOffAction.eye ){
+        switch ( ledOffAction.eye.getValue() ){
             case "LinkesAuge":
                 this.src.add("left_eye.off()");
                 break;
@@ -78,7 +78,7 @@ public class KarlPythonVisitor extends AbstractPythonVisitor implements IKarlVis
                 this.src.add("right_eye.off()");
                 break;
             default:
-                throw new DbcException("Invalid eye selected: " + ledOffAction.eye);
+                throw new DbcException("Invalid eye selected: " + ledOffAction.eye.getValue());
         }
 
         return null;
