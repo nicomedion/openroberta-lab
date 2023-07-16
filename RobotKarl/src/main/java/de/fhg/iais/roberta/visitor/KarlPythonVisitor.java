@@ -14,6 +14,7 @@ import de.fhg.iais.roberta.syntax.action.karl.LedOnAction;
 import de.fhg.iais.roberta.syntax.action.karl.PlayToneAction;
 import de.fhg.iais.roberta.syntax.configuration.ConfigurationComponent;
 import de.fhg.iais.roberta.syntax.lang.blocksequence.MainTask;
+import de.fhg.iais.roberta.syntax.lang.stmt.StmtList;
 import de.fhg.iais.roberta.syntax.lang.stmt.WaitStmt;
 import de.fhg.iais.roberta.syntax.lang.stmt.WaitTimeStmt;
 import de.fhg.iais.roberta.syntax.sensor.generic.KeysSensor;
@@ -92,7 +93,24 @@ public class KarlPythonVisitor extends AbstractPythonVisitor implements IKarlVis
 
     @Override
     public Void visitMainTask(MainTask mainTask) {
+        this.sb.append("def main():");
+        incrIndentation();
+        if ( !this.usedGlobalVarInFunctions.isEmpty() ) {
+            nlIndent();
+            this.sb.append("global ").append(String.join(", ", this.usedGlobalVarInFunctions));
+        } else {
+            addPassIfProgramIsEmpty();
+        }
+
         return null;
+    }
+
+    @Override
+    protected void generateProgramSuffix(boolean withWrapping) {
+        decrIndentation();
+        nlIndent();
+        super.generateProgramSuffix(withWrapping);
+
     }
 
     @Override
@@ -137,7 +155,6 @@ public class KarlPythonVisitor extends AbstractPythonVisitor implements IKarlVis
         if ( usedHardwareBean.isActorUsed(C.RANDOM) || usedHardwareBean.isActorUsed(C.RANDOM_DOUBLE) ) {
             this.src.add("import random").nlI();
         }
-        //TODO warum ist used actors empty?
         //System.out.println("Used Actors");
         //System.out.println(usedHardwareBean.getUsedActors());
         /*if(usedHardwareBean.isSensorUsed(SC.KEY)){
