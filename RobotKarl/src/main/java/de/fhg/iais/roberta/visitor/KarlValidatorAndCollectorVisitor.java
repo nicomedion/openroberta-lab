@@ -8,6 +8,7 @@ import de.fhg.iais.roberta.components.UsedActor;
 import de.fhg.iais.roberta.syntax.Phrase;
 import de.fhg.iais.roberta.syntax.action.karl.LedOffAction;
 import de.fhg.iais.roberta.syntax.action.karl.LedOnAction;
+import de.fhg.iais.roberta.syntax.action.karl.LedToggleAction;
 import de.fhg.iais.roberta.syntax.action.karl.PlayToneAction;
 import de.fhg.iais.roberta.syntax.sensor.generic.KeysSensor;
 import de.fhg.iais.roberta.syntax.sensor.generic.TimerReset;
@@ -53,6 +54,12 @@ public class KarlValidatorAndCollectorVisitor extends CommonNepoValidatorAndColl
     public Void visitLedOffAction(LedOffAction ledOffAction) {
         //checkActorPort(ledOffAction);
 
+        usedHardwareBuilder.addUsedActor(new UsedActor("", "HUB"));
+        return null;
+    }
+
+    @Override
+    public Void visitLedToggleAction(LedToggleAction ledToggleAction) {
         usedHardwareBuilder.addUsedActor(new UsedActor("", "HUB"));
         return null;
     }

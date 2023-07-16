@@ -11,6 +11,7 @@ import de.fhg.iais.roberta.syntax.Phrase;
 
 import de.fhg.iais.roberta.syntax.action.karl.LedOffAction;
 import de.fhg.iais.roberta.syntax.action.karl.LedOnAction;
+import de.fhg.iais.roberta.syntax.action.karl.LedToggleAction;
 import de.fhg.iais.roberta.syntax.action.karl.PlayToneAction;
 import de.fhg.iais.roberta.syntax.configuration.ConfigurationComponent;
 import de.fhg.iais.roberta.syntax.lang.blocksequence.MainTask;
@@ -70,7 +71,6 @@ public class KarlPythonVisitor extends AbstractPythonVisitor implements IKarlVis
 
     @Override
     public Void visitLedOffAction(LedOffAction ledOffAction) {
-        //TODO get the correct led to turn off (left/right)
         switch ( ledOffAction.eye.getValue() ){
             case "LinkesAuge":
                 this.src.add("left_eye.off()");
@@ -80,6 +80,22 @@ public class KarlPythonVisitor extends AbstractPythonVisitor implements IKarlVis
                 break;
             default:
                 throw new DbcException("Invalid eye selected: " + ledOffAction.eye.getValue());
+        }
+
+        return null;
+    }
+
+    @Override
+    public Void visitLedToggleAction(LedToggleAction ledToggleAction) {
+        switch ( ledToggleAction.eye.getValue() ){
+            case "LinkesAuge":
+                this.src.add("left_eye.toggle()");
+                break;
+            case "RechtesAuge":
+                this.src.add("right_eye.toggle()");
+                break;
+            default:
+                throw new DbcException("Invalid eye selected: " + ledToggleAction.eye.getValue());
         }
 
         return null;
@@ -109,6 +125,7 @@ public class KarlPythonVisitor extends AbstractPythonVisitor implements IKarlVis
     protected void generateProgramSuffix(boolean withWrapping) {
         decrIndentation();
         nlIndent();
+        //TODO ask if try catch is necessary for us
         super.generateProgramSuffix(withWrapping);
 
     }
