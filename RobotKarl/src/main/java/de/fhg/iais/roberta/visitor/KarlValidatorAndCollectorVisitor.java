@@ -14,6 +14,7 @@ import de.fhg.iais.roberta.syntax.sensor.generic.KeysSensor;
 import de.fhg.iais.roberta.syntax.sensor.generic.TimerReset;
 import de.fhg.iais.roberta.syntax.sensor.generic.TimerSensor;
 import de.fhg.iais.roberta.syntax.sensor.generic.VoltageSensor;
+import de.fhg.iais.roberta.util.syntax.SC;
 import de.fhg.iais.roberta.visitor.validate.CommonNepoValidatorAndCollectorVisitor;
 
 public class KarlValidatorAndCollectorVisitor extends CommonNepoValidatorAndCollectorVisitor implements IKarlVisitor<Void> {
@@ -47,6 +48,7 @@ public class KarlValidatorAndCollectorVisitor extends CommonNepoValidatorAndColl
 
     @Override
     public Void visitLedOnAction(LedOnAction ledOnAction) {
+        usedHardwareBuilder.addUsedActor(new UsedActor("", SC.RGBLED));
         return null;
     }
 
@@ -54,13 +56,13 @@ public class KarlValidatorAndCollectorVisitor extends CommonNepoValidatorAndColl
     public Void visitLedOffAction(LedOffAction ledOffAction) {
         //checkActorPort(ledOffAction);
 
-        usedHardwareBuilder.addUsedActor(new UsedActor("", "HUB"));
+        usedHardwareBuilder.addUsedActor(new UsedActor("", SC.RGBLED));
         return null;
     }
 
     @Override
     public Void visitLedToggleAction(LedToggleAction ledToggleAction) {
-        usedHardwareBuilder.addUsedActor(new UsedActor("", "HUB"));
+        usedHardwareBuilder.addUsedActor(new UsedActor("", SC.RGBLED));
         return null;
     }
 

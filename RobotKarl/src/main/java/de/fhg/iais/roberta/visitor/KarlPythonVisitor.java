@@ -66,6 +66,18 @@ public class KarlPythonVisitor extends AbstractPythonVisitor implements IKarlVis
 
     @Override
     public Void visitLedOnAction(LedOnAction ledOnAction) {
+        switch ( ledOnAction.eye.getValue() ){
+            case "LinkesAuge":
+                //this.src.add("left_eye.off()");
+                this.src.add("");
+                break;
+            case "RechtesAuge":
+                //this.src.add("right_eye.off()");
+                this.src.add("");
+                break;
+            default:
+                throw new DbcException("Invalid eye selected: " + ledOnAction.eye.getValue());
+        }
         return null;
     }
 
@@ -87,6 +99,7 @@ public class KarlPythonVisitor extends AbstractPythonVisitor implements IKarlVis
 
     @Override
     public Void visitLedToggleAction(LedToggleAction ledToggleAction) {
+        //TODO find out why only right eye works
         switch ( ledToggleAction.eye.getValue() ){
             case "LinkesAuge":
                 this.src.add("left_eye.toggle()");
@@ -199,18 +212,25 @@ public class KarlPythonVisitor extends AbstractPythonVisitor implements IKarlVis
             });
         }*/
 
+        //TODO initialise components (eyes, mouth, legs) when they are used
         if ( usedHardwareBean.isActorUsed(SC.RGBLED) ) {
-            usedHardwareBean.getUsedActors().stream().filter(usedActor -> usedActor.getType().equals("RGBLED")).forEach(motor -> {
+            /*usedHardwareBean.getUsedActors().stream().filter(usedActor -> usedActor.getType().equals("RGBLED")).forEach(motor -> {
                 nlIndent();
                 this.src.add("eye").add(motor.getPort()).add(" = LED('").add(motor.getPort()).add("')");
-            });
+            });*/
+
+            nlIndent();
+            this.src.add("rigth_eye = LED(16)").nlI();
+            this.src.add("left_eye = LED(19)").nlI();
         }
 
         if ( usedHardwareBean.isActorUsed(SC.BUZZER) ) {
-            usedHardwareBean.getUsedActors().stream().filter(usedActor -> usedActor.getType().equals("BUZZER")).forEach(motor -> {
+            /*usedHardwareBean.getUsedActors().stream().filter(usedActor -> usedActor.getType().equals("BUZZER")).forEach(motor -> {
                 nlIndent();
                 this.src.add("mouth").add(motor.getPort()).add(" = Speaker('").add(motor.getPort()).add("')");
-            });
+            });*/
+            nlIndent();
+            this.src.add("mouth = Speaker()");
         }
 
         if ( !usedHardwareBean.getUsedActors().isEmpty() && !usedHardwareBean.getUsedSensors().isEmpty() ) {
