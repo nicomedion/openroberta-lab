@@ -48,19 +48,14 @@ public class KarlPythonVisitor extends AbstractPythonVisitor implements IKarlVis
 
     @Override
     public Void visitKeysSensor(KeysSensor keysSensor) {
-        String portName = keysSensor.getUserDefinedPort();
-        ConfigurationComponent configurationComponent = this.configurationAst.getConfigurationComponent(portName);
-        String port = configurationComponent.getProperty("PIN1");
-        if ( port.equals("Knopf")) {
-            this.src.add("hub.right_button.is_pressed()");
-        }else{
-            throw new DbcException("Invalid key sensor port: " + port);
-        }
+        //Pressed, hasBeenPressed or wait?
+        this.src.add("button.pressed()");
         return null;
     }
 
     @Override
     public Void visitVoltageSensor(VoltageSensor potentiometer) {
+        this.src.add("rotary.value()");
         return null;
     }
 

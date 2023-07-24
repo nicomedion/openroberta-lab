@@ -43,6 +43,7 @@ public class KarlValidatorAndCollectorVisitor extends CommonNepoValidatorAndColl
 
     @Override
     public Void visitKeysSensor(KeysSensor keysSensor) {
+        usedHardwareBuilder.addUsedActor(new UsedActor("", SC.KEY));
         return null;
     }
 
@@ -58,6 +59,7 @@ public class KarlValidatorAndCollectorVisitor extends CommonNepoValidatorAndColl
 
     @Override
     public Void visitVoltageSensor(VoltageSensor potentiometer) {
+        usedHardwareBuilder.addUsedActor(new UsedActor("", SC.POTENTIOMETER));
         return null;
     }
 
