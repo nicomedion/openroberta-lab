@@ -10,10 +10,13 @@ import de.fhg.iais.roberta.syntax.action.karl.LedOffAction;
 import de.fhg.iais.roberta.syntax.action.karl.LedOnAction;
 import de.fhg.iais.roberta.syntax.action.karl.LedToggleAction;
 import de.fhg.iais.roberta.syntax.action.karl.PlayToneAction;
+import de.fhg.iais.roberta.syntax.lang.functions.MathRandomFloatFunct;
+import de.fhg.iais.roberta.syntax.lang.functions.MathRandomIntFunct;
 import de.fhg.iais.roberta.syntax.sensor.generic.KeysSensor;
 import de.fhg.iais.roberta.syntax.sensor.generic.TimerReset;
 import de.fhg.iais.roberta.syntax.sensor.generic.TimerSensor;
 import de.fhg.iais.roberta.syntax.sensor.generic.VoltageSensor;
+import de.fhg.iais.roberta.util.basic.C;
 import de.fhg.iais.roberta.util.syntax.SC;
 import de.fhg.iais.roberta.visitor.validate.CommonNepoValidatorAndCollectorVisitor;
 
@@ -24,6 +27,18 @@ public class KarlValidatorAndCollectorVisitor extends CommonNepoValidatorAndColl
 
     }
 
+    @Override
+    public Void visitMathRandomFloatFunct(MathRandomFloatFunct mathRandomFloatFunct) {
+        usedHardwareBuilder.addUsedActor(new UsedActor(null, C.RANDOM_DOUBLE));
+        return null;
+    }
+
+    @Override
+    public Void visitMathRandomIntFunct(MathRandomIntFunct mathRandomIntFunct) {
+        super.visitMathRandomIntFunct(mathRandomIntFunct);
+        usedHardwareBuilder.addUsedActor(new UsedActor(null, C.RANDOM));
+        return null;
+    }
 
 
     @Override

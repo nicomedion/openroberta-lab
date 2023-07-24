@@ -66,17 +66,18 @@ public class KarlPythonVisitor extends AbstractPythonVisitor implements IKarlVis
 
     @Override
     public Void visitLedOnAction(LedOnAction ledOnAction) {
-        switch ( ledOnAction.eye.getValue() ){
+        String eye = ledOnAction.eye.getValue();
+        //TODO how to set the color correctly
+        //ledOnAction.colour.accept(this);
+        switch ( eye ){
             case "LinkesAuge":
-                //this.src.add("left_eye.off()");
-                this.src.add("");
+                this.src.add("left_eye.on()");
                 break;
             case "RechtesAuge":
-                //this.src.add("right_eye.off()");
-                this.src.add("");
+                this.src.add("right_eye.on()");
                 break;
             default:
-                throw new DbcException("Invalid eye selected: " + ledOnAction.eye.getValue());
+                throw new DbcException("Invalid eye selected: " + eye);
         }
         return null;
     }
@@ -184,53 +185,6 @@ public class KarlPythonVisitor extends AbstractPythonVisitor implements IKarlVis
         //TODO warum weiß used actor nicht das Random benutzt wird?
         if ( usedHardwareBean.isActorUsed(C.RANDOM) || usedHardwareBean.isActorUsed(C.RANDOM_DOUBLE) ) {
             this.src.add("import random").nlI();
-        }
-        //System.out.println("Used Actors");
-        //System.out.println(usedHardwareBean.getUsedActors());
-        /*if(usedHardwareBean.isSensorUsed(SC.KEY)){
-            usedHardwareBean.getUsedSensors().stream().filter(usedActor -> usedActor.getType().equals("TOUCH")).forEach(sensor -> {
-                if ( configurationAst.optConfigurationComponent(sensor.getPort()) != null ) {
-                    nlIndent();
-                    this.src.add("button").add(sensor.getPort()).add(" = Button('").add(getPortFromConfig(sensor.getPort())).add("')");
-                }
-            });
-        }*/
-
-        /*if(usedHardwareBean.isSensorUsed(SC.POTENTIOMETER)){
-            usedHardwareBean.getUsedSensors().stream().filter(usedActor -> usedActor.getType().equals("TOUCH")).forEach(sensor -> {
-                if ( configurationAst.optConfigurationComponent(sensor.getPort()) != null ) {
-                    nlIndent();
-                    this.src.add("poti").add(sensor.getPort()).add(" = Rotary('").add(getPortFromConfig(sensor.getPort())).add("')");
-                }
-            });
-        }*/
-        //TODO Motoren unterscheiden in Beine/Füße
-        /*if ( usedHardwareBean.isActorUsed(SC.MOTOR) ) {
-            usedHardwareBean.getUsedActors().stream().filter(usedActor -> usedActor.getType().equals("MOTOR")).forEach(motor -> {
-                nlIndent();
-                this.src.add("motor").add(motor.getPort()).add(" = Servo('").add(motor.getPort()).add("')");
-            });
-        }*/
-
-        //TODO initialise components (eyes, mouth, legs) when they are used
-        if ( usedHardwareBean.isActorUsed(SC.RGBLED) ) {
-            /*usedHardwareBean.getUsedActors().stream().filter(usedActor -> usedActor.getType().equals("RGBLED")).forEach(motor -> {
-                nlIndent();
-                this.src.add("eye").add(motor.getPort()).add(" = LED('").add(motor.getPort()).add("')");
-            });*/
-
-            nlIndent();
-            this.src.add("rigth_eye = LED(16)").nlI();
-            this.src.add("left_eye = LED(19)").nlI();
-        }
-
-        if ( usedHardwareBean.isActorUsed(SC.BUZZER) ) {
-            /*usedHardwareBean.getUsedActors().stream().filter(usedActor -> usedActor.getType().equals("BUZZER")).forEach(motor -> {
-                nlIndent();
-                this.src.add("mouth").add(motor.getPort()).add(" = Speaker('").add(motor.getPort()).add("')");
-            });*/
-            nlIndent();
-            this.src.add("mouth = Speaker()");
         }
 
         if ( !usedHardwareBean.getUsedActors().isEmpty() && !usedHardwareBean.getUsedSensors().isEmpty() ) {
