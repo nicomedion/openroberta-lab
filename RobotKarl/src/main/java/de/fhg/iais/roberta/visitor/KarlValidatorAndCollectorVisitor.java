@@ -84,7 +84,14 @@ public class KarlValidatorAndCollectorVisitor extends CommonNepoValidatorAndColl
     }
 
     @Override
+    public Void visitVoltageNormalizedSensor(VoltageSensor potentiometer) {
+        usedHardwareBuilder.addUsedActor(new UsedActor("", SC.POTENTIOMETER));
+        return null;
+    }
+
+    @Override
     public Void visitPlayToneAction(PlayToneAction playToneAction) {
+        usedHardwareBuilder.addUsedActor(new UsedActor("", SC.POTENTIOMETER));
         return null;
     }
 }

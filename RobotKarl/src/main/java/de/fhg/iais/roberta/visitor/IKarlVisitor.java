@@ -15,6 +15,7 @@ public interface IKarlVisitor<V> extends IVisitor<V> {
     V visitLedOffAction(LedOffAction ledOffAction);
     V visitPlayToneAction(PlayToneAction playToneAction);
     V visitLedToggleAction(LedToggleAction ledToggleAction);
+    V visitVoltageNormalizedSensor(VoltageSensor potentiometer);
     /*
     V visitPlayNoteAction(PlayNoteAction playNoteAction);
     V visitMotorOnAction(MotorOnAction motorOnAction);

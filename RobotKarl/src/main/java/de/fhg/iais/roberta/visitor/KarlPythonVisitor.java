@@ -60,6 +60,12 @@ public class KarlPythonVisitor extends AbstractPythonVisitor implements IKarlVis
     }
 
     @Override
+    public Void visitVoltageNormalizedSensor(VoltageSensor potentiometer) {
+        this.src.add("rotary.range(0, 1)");
+        return null;
+    }
+
+    @Override
     public Void visitLedOnAction(LedOnAction ledOnAction) {
         String eye = ledOnAction.eye.getValue();
         //TODO how to set the color correctly
