@@ -13,6 +13,7 @@ import de.fhg.iais.roberta.syntax.action.karl.LedOffAction;
 import de.fhg.iais.roberta.syntax.action.karl.LedOnAction;
 import de.fhg.iais.roberta.syntax.action.karl.LedToggleAction;
 import de.fhg.iais.roberta.syntax.action.karl.PlayToneAction;
+import de.fhg.iais.roberta.syntax.action.karl.VoltageRangeSensor;
 import de.fhg.iais.roberta.syntax.configuration.ConfigurationComponent;
 import de.fhg.iais.roberta.syntax.lang.blocksequence.MainTask;
 import de.fhg.iais.roberta.syntax.lang.stmt.StmtList;
@@ -60,7 +61,7 @@ public class KarlPythonVisitor extends AbstractPythonVisitor implements IKarlVis
     }
 
     @Override
-    public Void visitVoltageNormalizedSensor(VoltageSensor potentiometer) {
+    public Void visitVoltageRangeSensor(VoltageRangeSensor potentiometer) {
         this.src.add("rotary.range(0, 1)");
         return null;
     }

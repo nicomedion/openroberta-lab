@@ -10,6 +10,7 @@ import de.fhg.iais.roberta.syntax.action.karl.LedOffAction;
 import de.fhg.iais.roberta.syntax.action.karl.LedOnAction;
 import de.fhg.iais.roberta.syntax.action.karl.LedToggleAction;
 import de.fhg.iais.roberta.syntax.action.karl.PlayToneAction;
+import de.fhg.iais.roberta.syntax.action.karl.VoltageRangeSensor;
 import de.fhg.iais.roberta.syntax.lang.functions.MathRandomFloatFunct;
 import de.fhg.iais.roberta.syntax.lang.functions.MathRandomIntFunct;
 import de.fhg.iais.roberta.syntax.sensor.generic.KeysSensor;
@@ -84,14 +85,14 @@ public class KarlValidatorAndCollectorVisitor extends CommonNepoValidatorAndColl
     }
 
     @Override
-    public Void visitVoltageNormalizedSensor(VoltageSensor potentiometer) {
+    public Void visitVoltageRangeSensor(VoltageRangeSensor potentiometer) {
         usedHardwareBuilder.addUsedActor(new UsedActor("", SC.POTENTIOMETER));
         return null;
     }
 
     @Override
     public Void visitPlayToneAction(PlayToneAction playToneAction) {
-        usedHardwareBuilder.addUsedActor(new UsedActor("", SC.POTENTIOMETER));
+        //usedHardwareBuilder.addUsedActor(new UsedActor("", SC.POTENTIOMETER));
         return null;
     }
 }
