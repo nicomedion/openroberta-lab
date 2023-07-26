@@ -9,6 +9,7 @@ import de.fhg.iais.roberta.bean.UsedHardwareBean;
 import de.fhg.iais.roberta.components.ConfigurationAst;
 import de.fhg.iais.roberta.syntax.Phrase;
 
+import de.fhg.iais.roberta.syntax.action.karl.LedIntensityAction;
 import de.fhg.iais.roberta.syntax.action.karl.LedOffAction;
 import de.fhg.iais.roberta.syntax.action.karl.LedOnAction;
 import de.fhg.iais.roberta.syntax.action.karl.LedToggleAction;
@@ -69,8 +70,27 @@ public class KarlPythonVisitor extends AbstractPythonVisitor implements IKarlVis
 
     @Override
     public Void visitSetVolumeAction(SetVolumeAction volume) {
-        //TODO how do i set the volume in the karl lib?
+        //TODO delete this block
         this.src.add("");
+        return null;
+    }
+
+    @Override
+    public Void visitLedIntensityAction(LedIntensityAction intensity) {
+        //TODO nummer verschwindet wenn code genertiert wird
+        String eye = intensity.eye.getValue();
+        switch ( eye ){
+            case "LinkesAuge":
+                this.src.add("left_eye.intensity()");
+                break;
+            case "RechtesAuge":
+                this.src.add("right_eye.intensity(");
+                intensity.intensity.accept(this);
+                this.sb.append(")");
+                break;
+            default:
+                throw new DbcException("Invalid eye selected: " + eye);
+        }
         return null;
     }
 

@@ -1,5 +1,6 @@
 package de.fhg.iais.roberta.visitor;
 
+import de.fhg.iais.roberta.syntax.action.karl.LedIntensityAction;
 import de.fhg.iais.roberta.syntax.action.karl.LedOffAction;
 import de.fhg.iais.roberta.syntax.action.karl.LedOnAction;
 import de.fhg.iais.roberta.syntax.action.karl.LedToggleAction;
@@ -19,6 +20,7 @@ public interface IKarlVisitor<V> extends IVisitor<V> {
     V visitLedToggleAction(LedToggleAction ledToggleAction);
     V visitVoltageRangeSensor(VoltageRangeSensor potentiometer);
     V visitSetVolumeAction(SetVolumeAction volume);
+    V visitLedIntensityAction(LedIntensityAction intensity);
     /*
     V visitPlayNoteAction(PlayNoteAction playNoteAction);
     V visitMotorOnAction(MotorOnAction motorOnAction);
