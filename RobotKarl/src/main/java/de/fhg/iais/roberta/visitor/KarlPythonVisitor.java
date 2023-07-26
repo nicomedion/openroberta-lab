@@ -77,7 +77,6 @@ public class KarlPythonVisitor extends AbstractPythonVisitor implements IKarlVis
 
     @Override
     public Void visitLedIntensityAction(LedIntensityAction intensity) {
-        //TODO nummer verschwindet wenn code genertiert wird
         String eye = intensity.eye.getValue();
         switch ( eye ){
             case "LinkesAuge":

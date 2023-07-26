@@ -15,7 +15,7 @@ import de.fhg.iais.roberta.util.syntax.BlocklyConstants;
 public final class LedIntensityAction extends Action {
     @NepoHide
     public final Hide eye;
-    @NepoValue(name = BlocklyConstants.DURATION, type = BlocklyType.NUMBER_INT)
+    @NepoValue(name = BlocklyConstants.INTENSITY, type = BlocklyType.NUMBER_INT)
     public final Expr intensity;
     public LedIntensityAction(BlocklyProperties properties, Hide eye, Expr intensity) {
         super(properties);
