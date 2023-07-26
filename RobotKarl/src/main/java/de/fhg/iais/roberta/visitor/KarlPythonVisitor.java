@@ -84,12 +84,12 @@ public class KarlPythonVisitor extends AbstractPythonVisitor implements IKarlVis
                 break;
             case "RechtesAuge":
                 this.src.add("right_eye.intensity(");
-                intensity.intensity.accept(this);
-                this.sb.append(")");
                 break;
             default:
                 throw new DbcException("Invalid eye selected: " + eye);
         }
+        intensity.intensity.accept(this);
+        this.sb.append(")");
         return null;
     }
 
