@@ -14,6 +14,7 @@ import de.fhg.iais.roberta.syntax.action.karl.LedOnAction;
 import de.fhg.iais.roberta.syntax.action.karl.LedToggleAction;
 import de.fhg.iais.roberta.syntax.action.karl.PlayToneAction;
 import de.fhg.iais.roberta.syntax.action.karl.VoltageRangeSensor;
+import de.fhg.iais.roberta.syntax.action.sound.SetVolumeAction;
 import de.fhg.iais.roberta.syntax.configuration.ConfigurationComponent;
 import de.fhg.iais.roberta.syntax.lang.blocksequence.MainTask;
 import de.fhg.iais.roberta.syntax.lang.stmt.StmtList;
@@ -63,6 +64,13 @@ public class KarlPythonVisitor extends AbstractPythonVisitor implements IKarlVis
     @Override
     public Void visitVoltageRangeSensor(VoltageRangeSensor potentiometer) {
         this.src.add("rotary.range(0, 1)");
+        return null;
+    }
+
+    @Override
+    public Void visitSetVolumeAction(SetVolumeAction volume) {
+        //TODO how do i set the volume in the karl lib?
+        this.src.add("");
         return null;
     }
 
@@ -170,9 +178,9 @@ public class KarlPythonVisitor extends AbstractPythonVisitor implements IKarlVis
 
     @Override
     public Void visitWaitTimeStmt(WaitTimeStmt waitTimeStmt) {
-        this.sb.append("wait_for_seconds(");
+        this.sb.append("time.sleep_ms(");
         waitTimeStmt.time.accept(this);
-        this.sb.append("/1000)");
+        this.sb.append(")");
         return null;
     }
 
@@ -184,6 +192,7 @@ public class KarlPythonVisitor extends AbstractPythonVisitor implements IKarlVis
         UsedHardwareBean usedHardwareBean = this.getBean(UsedHardwareBean.class);
         this.src.add("from karl.v3 import *").nlI();
         this.src.add("import math").nlI();
+        this.src.add("import time").nlI();
         //TODO warum weiß used actor nicht das Random benutzt wird?
         if ( usedHardwareBean.isActorUsed(C.RANDOM) || usedHardwareBean.isActorUsed(C.RANDOM_DOUBLE) ) {
             this.src.add("import random").nlI();
@@ -195,6 +204,8 @@ public class KarlPythonVisitor extends AbstractPythonVisitor implements IKarlVis
 
 
     }
+
+
 
 
     private String getPortFromConfig(String name) {

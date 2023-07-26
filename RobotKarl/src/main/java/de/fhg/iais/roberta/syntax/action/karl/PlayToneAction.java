@@ -8,6 +8,7 @@ import de.fhg.iais.roberta.typecheck.BlocklyType;
 import de.fhg.iais.roberta.util.ast.BlocklyProperties;
 import de.fhg.iais.roberta.util.syntax.BlocklyConstants;
 
+//TODO create actions_play__tone_karl block in compressedjs
 @NepoPhrase(category = "ACTOR", blocklyNames = {"actions_play_tone_karl"}, name = "TONE_ACTION")
 public class PlayToneAction extends Action {
     @NepoValue(name = BlocklyConstants.FREQUENCY, type = BlocklyType.NUMBER_INT)
