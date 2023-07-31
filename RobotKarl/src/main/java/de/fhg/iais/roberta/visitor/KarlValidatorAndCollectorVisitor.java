@@ -10,6 +10,7 @@ import de.fhg.iais.roberta.syntax.action.karl.LedIntensityAction;
 import de.fhg.iais.roberta.syntax.action.karl.LedOffAction;
 import de.fhg.iais.roberta.syntax.action.karl.LedOnAction;
 import de.fhg.iais.roberta.syntax.action.karl.LedToggleAction;
+import de.fhg.iais.roberta.syntax.action.karl.MotorStopAction;
 import de.fhg.iais.roberta.syntax.action.karl.PlayToneAction;
 import de.fhg.iais.roberta.syntax.action.karl.VoltageRangeSensor;
 import de.fhg.iais.roberta.syntax.action.sound.SetVolumeAction;
@@ -99,6 +100,12 @@ public class KarlValidatorAndCollectorVisitor extends CommonNepoValidatorAndColl
 
     @Override
     public Void visitLedIntensityAction(LedIntensityAction intensity) {
+        return null;
+    }
+
+    @Override
+    public Void visitMotorStopAction(MotorStopAction motorStopAction) {
+        usedHardwareBuilder.addUsedActor(new UsedActor("", SC.SERVOMOTOR));
         return null;
     }
 

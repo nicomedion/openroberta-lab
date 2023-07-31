@@ -13,6 +13,7 @@ import de.fhg.iais.roberta.syntax.action.karl.LedIntensityAction;
 import de.fhg.iais.roberta.syntax.action.karl.LedOffAction;
 import de.fhg.iais.roberta.syntax.action.karl.LedOnAction;
 import de.fhg.iais.roberta.syntax.action.karl.LedToggleAction;
+import de.fhg.iais.roberta.syntax.action.karl.MotorStopAction;
 import de.fhg.iais.roberta.syntax.action.karl.PlayToneAction;
 import de.fhg.iais.roberta.syntax.action.karl.VoltageRangeSensor;
 import de.fhg.iais.roberta.syntax.action.sound.SetVolumeAction;
@@ -90,6 +91,27 @@ public class KarlPythonVisitor extends AbstractPythonVisitor implements IKarlVis
         }
         intensity.intensity.accept(this);
         this.sb.append(")");
+        return null;
+    }
+
+    @Override
+    public Void visitMotorStopAction(MotorStopAction motorStopAction) {
+        //right_leg, left_leg, right_foot, left_foot
+        String port = motorStopAction.port;
+        switch ( port ){
+            case "LinkesBein":
+                this.src.add("left_leg.angle(0)");
+                break;
+            case "RechtesBein":
+                this.src.add("right_leg.angle(0)");
+                break;
+            case "LinkerFuss":
+                this.src.add("left_foot.angle(0)");
+                break;
+            case "RechterFuss":
+                this.src.add("right_foot.angle(0)");
+                break;
+        }
         return null;
     }
 
