@@ -13,13 +13,14 @@ import de.fhg.iais.roberta.syntax.action.karl.LedIntensityAction;
 import de.fhg.iais.roberta.syntax.action.karl.LedOffAction;
 import de.fhg.iais.roberta.syntax.action.karl.LedOnAction;
 import de.fhg.iais.roberta.syntax.action.karl.LedToggleAction;
+import de.fhg.iais.roberta.syntax.action.karl.MotorOnAction;
 import de.fhg.iais.roberta.syntax.action.karl.MotorStopAction;
 import de.fhg.iais.roberta.syntax.action.karl.PlayToneAction;
 import de.fhg.iais.roberta.syntax.action.karl.VoltageRangeSensor;
 import de.fhg.iais.roberta.syntax.action.sound.SetVolumeAction;
 import de.fhg.iais.roberta.syntax.configuration.ConfigurationComponent;
 import de.fhg.iais.roberta.syntax.lang.blocksequence.MainTask;
-import de.fhg.iais.roberta.syntax.lang.stmt.StmtList;
+import de.fhg.iais.roberta.syntax.lang.expr.Expr;
 import de.fhg.iais.roberta.syntax.lang.stmt.WaitStmt;
 import de.fhg.iais.roberta.syntax.lang.stmt.WaitTimeStmt;
 import de.fhg.iais.roberta.syntax.sensor.generic.KeysSensor;
@@ -28,7 +29,6 @@ import de.fhg.iais.roberta.syntax.sensor.generic.TimerSensor;
 import de.fhg.iais.roberta.syntax.sensor.generic.VoltageSensor;
 import de.fhg.iais.roberta.util.basic.C;
 import de.fhg.iais.roberta.util.dbc.DbcException;
-import de.fhg.iais.roberta.util.syntax.SC;
 import de.fhg.iais.roberta.visitor.lang.codegen.prog.AbstractPythonVisitor;
 
 //TODO clean up/remove everything from spike that i do not need
@@ -112,6 +112,32 @@ public class KarlPythonVisitor extends AbstractPythonVisitor implements IKarlVis
                 this.src.add("right_foot.angle(0)");
                 break;
         }
+        return null;
+    }
+
+    @Override
+    public Void visitMotorOnAction(MotorOnAction motorOnAction) {
+        //right_leg, left_leg, right_foot, left_foot
+        String port = motorOnAction.port;
+        switch ( port ){
+            case "LinkesBein":
+                this.src.add("left_leg");
+                break;
+            case "RechtesBein":
+                this.src.add("right_leg");
+                break;
+            case "LinkerFuss":
+                this.src.add("left_foot");
+                break;
+            case "RechterFuss":
+                this.src.add("right_foot");
+                break;
+        }
+
+        this.sb.append(".angle(");
+        motorOnAction.power.accept(this);
+        this.sb.append(")");
+
         return null;
     }
 
@@ -234,7 +260,6 @@ public class KarlPythonVisitor extends AbstractPythonVisitor implements IKarlVis
         this.src.add("from karl.v3 import *").nlI();
         this.src.add("import math").nlI();
         this.src.add("import time").nlI();
-        //TODO warum weiß used actor nicht das Random benutzt wird?
         if ( usedHardwareBean.isActorUsed(C.RANDOM) || usedHardwareBean.isActorUsed(C.RANDOM_DOUBLE) ) {
             this.src.add("import random").nlI();
         }

@@ -5,11 +5,11 @@ import com.google.common.collect.ClassToInstanceMap;
 import de.fhg.iais.roberta.bean.IProjectBean;
 import de.fhg.iais.roberta.components.ConfigurationAst;
 import de.fhg.iais.roberta.components.UsedActor;
-import de.fhg.iais.roberta.syntax.Phrase;
 import de.fhg.iais.roberta.syntax.action.karl.LedIntensityAction;
 import de.fhg.iais.roberta.syntax.action.karl.LedOffAction;
 import de.fhg.iais.roberta.syntax.action.karl.LedOnAction;
 import de.fhg.iais.roberta.syntax.action.karl.LedToggleAction;
+import de.fhg.iais.roberta.syntax.action.karl.MotorOnAction;
 import de.fhg.iais.roberta.syntax.action.karl.MotorStopAction;
 import de.fhg.iais.roberta.syntax.action.karl.PlayToneAction;
 import de.fhg.iais.roberta.syntax.action.karl.VoltageRangeSensor;
@@ -105,6 +105,12 @@ public class KarlValidatorAndCollectorVisitor extends CommonNepoValidatorAndColl
 
     @Override
     public Void visitMotorStopAction(MotorStopAction motorStopAction) {
+        usedHardwareBuilder.addUsedActor(new UsedActor("", SC.SERVOMOTOR));
+        return null;
+    }
+
+    @Override
+    public Void visitMotorOnAction(MotorOnAction motorOnAction) {
         usedHardwareBuilder.addUsedActor(new UsedActor("", SC.SERVOMOTOR));
         return null;
     }
