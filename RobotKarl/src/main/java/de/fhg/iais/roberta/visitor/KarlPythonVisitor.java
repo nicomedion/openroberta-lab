@@ -15,12 +15,11 @@ import de.fhg.iais.roberta.syntax.action.karl.LedOnAction;
 import de.fhg.iais.roberta.syntax.action.karl.LedToggleAction;
 import de.fhg.iais.roberta.syntax.action.karl.MotorOnAction;
 import de.fhg.iais.roberta.syntax.action.karl.MotorStopAction;
-import de.fhg.iais.roberta.syntax.action.karl.PlayToneAction;
 import de.fhg.iais.roberta.syntax.action.karl.VoltageRangeSensor;
 import de.fhg.iais.roberta.syntax.action.sound.SetVolumeAction;
+import de.fhg.iais.roberta.syntax.action.spike.PlayNoteAction;
 import de.fhg.iais.roberta.syntax.configuration.ConfigurationComponent;
 import de.fhg.iais.roberta.syntax.lang.blocksequence.MainTask;
-import de.fhg.iais.roberta.syntax.lang.expr.Expr;
 import de.fhg.iais.roberta.syntax.lang.stmt.WaitStmt;
 import de.fhg.iais.roberta.syntax.lang.stmt.WaitTimeStmt;
 import de.fhg.iais.roberta.syntax.sensor.generic.KeysSensor;
@@ -192,10 +191,20 @@ public class KarlPythonVisitor extends AbstractPythonVisitor implements IKarlVis
         return null;
     }
 
+
     @Override
-    public Void visitPlayToneAction(PlayToneAction playToneAction) {
+    public Void visitPlayNoteAction(PlayNoteAction playNoteAction) {
+        this.sb.append("speaker.tone(");
+        this.sb.append(playNoteAction.frequency);
+        this.sb.append(")");
+        nlIndent();
+        this.sb.append("time.sleep_ms(");
+        this.sb.append(playNoteAction.duration);
+        this.sb.append(")");
+
         return null;
     }
+
 
 
     @Override
