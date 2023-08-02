@@ -202,6 +202,8 @@ public class KarlPythonVisitor extends AbstractPythonVisitor implements IKarlVis
         this.sb.append("time.sleep_ms(");
         this.sb.append(playNoteAction.duration);
         this.sb.append(")");
+        nlIndent();
+        this.sb.append("speaker.no_tone()");
 
         return null;
     }
@@ -215,6 +217,8 @@ public class KarlPythonVisitor extends AbstractPythonVisitor implements IKarlVis
         this.sb.append("time.sleep_ms(");
         playToneAction.duration.accept(this);
         this.sb.append(")");
+        nlIndent();
+        this.sb.append("speaker.no_tone()");
         return null;
     }
 
