@@ -15,5 +15,6 @@ public final class MotorStopAction extends Action {
         super(properties);
         this.port = port;
         this.control = control;
+        this.setReadOnly();
     }
 }

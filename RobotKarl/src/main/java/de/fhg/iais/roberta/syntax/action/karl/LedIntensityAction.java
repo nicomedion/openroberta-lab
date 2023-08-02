@@ -21,5 +21,6 @@ public final class LedIntensityAction extends Action {
         super(properties);
         this.eye = eye;
         this.intensity = intensity;
+        this.setReadOnly();
     }
 }

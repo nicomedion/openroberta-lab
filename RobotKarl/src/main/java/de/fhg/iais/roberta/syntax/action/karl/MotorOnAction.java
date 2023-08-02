@@ -19,5 +19,6 @@ public final class MotorOnAction extends Action {
         super(properties);
         this.port = port;
         this.power = power;
+        this.setReadOnly();
     }
 }

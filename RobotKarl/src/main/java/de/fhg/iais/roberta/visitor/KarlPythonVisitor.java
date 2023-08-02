@@ -90,7 +90,7 @@ public class KarlPythonVisitor extends AbstractPythonVisitor implements IKarlVis
                 throw new DbcException("Invalid eye selected: " + eye);
         }
         intensity.intensity.accept(this);
-        this.sb.append(")");
+        this.src.add(")");
         return null;
     }
 
@@ -134,9 +134,9 @@ public class KarlPythonVisitor extends AbstractPythonVisitor implements IKarlVis
                 break;
         }
 
-        this.sb.append(".angle(");
+        this.src.add(".angle(");
         motorOnAction.power.accept(this);
-        this.sb.append(")");
+        this.src.add(")");
 
         return null;
     }
