@@ -9,6 +9,7 @@ import de.fhg.iais.roberta.syntax.action.karl.MotorStopAction;
 import de.fhg.iais.roberta.syntax.action.karl.VoltageRangeSensor;
 import de.fhg.iais.roberta.syntax.action.sound.SetVolumeAction;
 import de.fhg.iais.roberta.syntax.action.spike.PlayNoteAction;
+import de.fhg.iais.roberta.syntax.action.spike.PlayToneAction;
 import de.fhg.iais.roberta.syntax.sensor.generic.KeysSensor;
 import de.fhg.iais.roberta.syntax.sensor.generic.VoltageSensor;
 
@@ -19,6 +20,7 @@ public interface IKarlVisitor<V> extends IVisitor<V> {
     V visitLedOnAction(LedOnAction ledOnAction);
     V visitLedOffAction(LedOffAction ledOffAction);
     V visitPlayNoteAction(PlayNoteAction playNoteAction);
+    V visitPlayToneAction(PlayToneAction playToneAction);
     V visitLedToggleAction(LedToggleAction ledToggleAction);
     V visitVoltageRangeSensor(VoltageRangeSensor potentiometer);
     V visitSetVolumeAction(SetVolumeAction volume);

@@ -18,6 +18,7 @@ import de.fhg.iais.roberta.syntax.action.karl.MotorStopAction;
 import de.fhg.iais.roberta.syntax.action.karl.VoltageRangeSensor;
 import de.fhg.iais.roberta.syntax.action.sound.SetVolumeAction;
 import de.fhg.iais.roberta.syntax.action.spike.PlayNoteAction;
+import de.fhg.iais.roberta.syntax.action.spike.PlayToneAction;
 import de.fhg.iais.roberta.syntax.configuration.ConfigurationComponent;
 import de.fhg.iais.roberta.syntax.lang.blocksequence.MainTask;
 import de.fhg.iais.roberta.syntax.lang.stmt.WaitStmt;
@@ -205,6 +206,17 @@ public class KarlPythonVisitor extends AbstractPythonVisitor implements IKarlVis
         return null;
     }
 
+    @Override
+    public Void visitPlayToneAction(PlayToneAction playToneAction) {
+        this.sb.append("speaker.tone(");
+        playToneAction.frequency.accept(this);
+        this.sb.append(")");
+        nlIndent();
+        this.sb.append("time.sleep_ms(");
+        playToneAction.duration.accept(this);
+        this.sb.append(")");
+        return null;
+    }
 
 
     @Override
