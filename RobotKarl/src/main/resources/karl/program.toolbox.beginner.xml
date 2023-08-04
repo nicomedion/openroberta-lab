@@ -24,14 +24,6 @@
                 </value>
             </block>
             <block type='actions_play_note'/>
-            <block type='actions_play_setVolume'>
-                <value name='VOLUME'>
-                    <block type='math_number'>
-                        <field name='NUM'>50</field>
-                    </block>
-                </value>
-            </block>
-            <block type='actions_play_getVolume'/>
         </category>
         <category name='TOOLBOX_LIGHT' svg='true'>
             <block type='actions_eyeLed_on_karl'>
