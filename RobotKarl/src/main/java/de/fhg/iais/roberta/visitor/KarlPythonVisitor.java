@@ -78,7 +78,7 @@ public class KarlPythonVisitor extends AbstractPythonVisitor implements IKarlVis
 
     @Override
     public Void visitLedIntensityAction(LedIntensityAction intensity) {
-        String eye = intensity.eye.getValue();
+        String eye = intensity.eye;
         switch ( eye ){
             case "LinkesAuge":
                 this.src.add("left_eye.intensity()");
@@ -143,7 +143,7 @@ public class KarlPythonVisitor extends AbstractPythonVisitor implements IKarlVis
 
     @Override
     public Void visitLedOnAction(LedOnAction ledOnAction) {
-        String eye = ledOnAction.eye.getValue();
+        String eye = ledOnAction.eye;
         //TODO how to set the color correctly
         //ledOnAction.colour.accept(this);
         switch ( eye ){
@@ -161,7 +161,7 @@ public class KarlPythonVisitor extends AbstractPythonVisitor implements IKarlVis
 
     @Override
     public Void visitLedOffAction(LedOffAction ledOffAction) {
-        switch ( ledOffAction.eye.getValue() ){
+        switch ( ledOffAction.eye){
             case "LinkesAuge":
                 this.src.add("left_eye.off()");
                 break;
@@ -169,7 +169,7 @@ public class KarlPythonVisitor extends AbstractPythonVisitor implements IKarlVis
                 this.src.add("right_eye.off()");
                 break;
             default:
-                throw new DbcException("Invalid eye selected: " + ledOffAction.eye.getValue());
+                throw new DbcException("Invalid eye selected: " + ledOffAction.eye);
         }
 
         return null;
@@ -178,7 +178,7 @@ public class KarlPythonVisitor extends AbstractPythonVisitor implements IKarlVis
     @Override
     public Void visitLedToggleAction(LedToggleAction ledToggleAction) {
         //TODO find out why only right eye works
-        switch ( ledToggleAction.eye.getValue() ){
+        switch ( ledToggleAction.eye){
             case "LinkesAuge":
                 this.src.add("left_eye.toggle()");
                 break;
@@ -186,7 +186,7 @@ public class KarlPythonVisitor extends AbstractPythonVisitor implements IKarlVis
                 this.src.add("right_eye.toggle()");
                 break;
             default:
-                throw new DbcException("Invalid eye selected: " + ledToggleAction.eye.getValue());
+                throw new DbcException("Invalid eye selected: " + ledToggleAction.eye);
         }
 
         return null;
