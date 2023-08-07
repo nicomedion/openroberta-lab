@@ -21,6 +21,7 @@ import de.fhg.iais.roberta.syntax.action.spike.PlayNoteAction;
 import de.fhg.iais.roberta.syntax.action.spike.PlayToneAction;
 import de.fhg.iais.roberta.syntax.configuration.ConfigurationComponent;
 import de.fhg.iais.roberta.syntax.lang.blocksequence.MainTask;
+import de.fhg.iais.roberta.syntax.lang.expr.ColorConst;
 import de.fhg.iais.roberta.syntax.lang.stmt.WaitStmt;
 import de.fhg.iais.roberta.syntax.lang.stmt.WaitTimeStmt;
 import de.fhg.iais.roberta.syntax.sensor.generic.KeysSensor;
@@ -144,8 +145,7 @@ public class KarlPythonVisitor extends AbstractPythonVisitor implements IKarlVis
     @Override
     public Void visitLedOnAction(LedOnAction ledOnAction) {
         String eye = ledOnAction.eye;
-        //TODO how to set the color correctly
-        //ledOnAction.colour.accept(this);
+        ledOnAction.colour.accept(this);
         switch ( eye ){
             case "LinkesAuge":
                 this.src.add("left_eye.on()");
@@ -156,6 +156,13 @@ public class KarlPythonVisitor extends AbstractPythonVisitor implements IKarlVis
             default:
                 throw new DbcException("Invalid eye selected: " + eye);
         }
+        return null;
+    }
+
+    @Override
+    public Void visitColorConst(ColorConst colorConst) {
+        String color = colorConst.getHexValueAsString().toUpperCase();
+        this.sb.append(color);
         return null;
     }
 
