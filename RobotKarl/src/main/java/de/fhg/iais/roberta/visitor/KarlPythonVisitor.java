@@ -81,7 +81,7 @@ public class KarlPythonVisitor extends AbstractPythonVisitor implements IKarlVis
         String eye = intensity.eye;
         switch ( eye ){
             case "LinkesAuge":
-                this.src.add("left_eye.intensity()");
+                this.src.add("left_eye.intensity(");
                 break;
             case "RechtesAuge":
                 this.src.add("right_eye.intensity(");
