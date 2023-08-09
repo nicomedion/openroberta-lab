@@ -4,7 +4,7 @@
             <block type="actions_motor_on_karl">
                 <value name="POWER">
                     <block type="math_number" intask="true">
-                        <field name="NUM">90</field>
+                        <field name="NUM">30</field>
                     </block>
                 </value>
             </block>
