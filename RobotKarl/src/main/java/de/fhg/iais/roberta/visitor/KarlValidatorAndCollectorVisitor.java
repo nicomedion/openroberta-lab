@@ -34,6 +34,7 @@ public class KarlValidatorAndCollectorVisitor extends CommonNepoValidatorAndColl
 
     @Override
     public Void visitMathRandomFloatFunct(MathRandomFloatFunct mathRandomFloatFunct) {
+        //TODO find out why this and random int never get called
         usedHardwareBuilder.addUsedActor(new UsedActor(null, C.RANDOM_DOUBLE));
         return null;
     }
@@ -91,11 +92,6 @@ public class KarlValidatorAndCollectorVisitor extends CommonNepoValidatorAndColl
     @Override
     public Void visitVoltageRangeSensor(VoltageRangeSensor potentiometer) {
         usedHardwareBuilder.addUsedActor(new UsedActor("", SC.POTENTIOMETER));
-        return null;
-    }
-
-    @Override
-    public Void visitSetVolumeAction(SetVolumeAction volume) {
         return null;
     }
 

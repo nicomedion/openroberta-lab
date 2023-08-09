@@ -66,14 +66,7 @@ public class KarlPythonVisitor extends AbstractPythonVisitor implements IKarlVis
 
     @Override
     public Void visitVoltageRangeSensor(VoltageRangeSensor potentiometer) {
-        this.src.add("rotary.range(0, 1)");
-        return null;
-    }
-
-    @Override
-    public Void visitSetVolumeAction(SetVolumeAction volume) {
-        //TODO delete this block
-        this.src.add("");
+        this.src.add("rotary.range(0, 100)");
         return null;
     }
 
@@ -145,13 +138,35 @@ public class KarlPythonVisitor extends AbstractPythonVisitor implements IKarlVis
     @Override
     public Void visitLedOnAction(LedOnAction ledOnAction) {
         String eye = ledOnAction.eye;
-        ledOnAction.colour.accept(this);
+        //ledOnAction.colour.accept(this);
         switch ( eye ){
             case "LinkesAuge":
-                this.src.add("left_eye.on()");
+                //this.src.add("left_eye.on()");
+                this.src.add("left_eye.red.intensity(");
+                ledOnAction.colour.accept(this);
+                this.src.add(")");
+                nlIndent();
+                this.src.add("left_eye.green.intensity(");
+                ledOnAction.colour.accept(this);
+                this.src.add(")");
+                nlIndent();
+                this.src.add("left_eye.blue.intensity(");
+                ledOnAction.colour.accept(this);
+                this.src.add(")");
                 break;
             case "RechtesAuge":
-                this.src.add("right_eye.on()");
+                //this.src.add("right_eye.on()");
+                this.src.add("right_eye.red.intensity(");
+                ledOnAction.colour.accept(this);
+                this.src.add(")");
+                nlIndent();
+                this.src.add("right_eye.green.intensity(");
+                ledOnAction.colour.accept(this);
+                this.src.add(")");
+                nlIndent();
+                this.src.add("right_eye.blue.intensity(");
+                ledOnAction.colour.accept(this);
+                this.src.add(")");
                 break;
             default:
                 throw new DbcException("Invalid eye selected: " + eye);
@@ -161,8 +176,11 @@ public class KarlPythonVisitor extends AbstractPythonVisitor implements IKarlVis
 
     @Override
     public Void visitColorConst(ColorConst colorConst) {
-        String color = colorConst.getHexValueAsString().toUpperCase();
-        this.sb.append(color);
+        //TODO convert color to intensity
+        int colorRed = colorConst.getRedChannelInt();
+        int colorGreen = colorConst.getGreenChannelInt();
+        int colorBlue = colorConst.getBlueChannelInt();
+        this.sb.append(colorRed);
         return null;
     }
 
@@ -184,7 +202,6 @@ public class KarlPythonVisitor extends AbstractPythonVisitor implements IKarlVis
 
     @Override
     public Void visitLedToggleAction(LedToggleAction ledToggleAction) {
-        //TODO find out why only right eye works
         switch ( ledToggleAction.eye){
             case "LinkesAuge":
                 this.src.add("left_eye.toggle()");
@@ -292,9 +309,9 @@ public class KarlPythonVisitor extends AbstractPythonVisitor implements IKarlVis
         this.src.add("from karl.v3 import *").nlI();
         this.src.add("import math").nlI();
         this.src.add("import time").nlI();
-        if ( usedHardwareBean.isActorUsed(C.RANDOM) || usedHardwareBean.isActorUsed(C.RANDOM_DOUBLE) ) {
+        //if ( usedHardwareBean.isActorUsed(C.RANDOM) || usedHardwareBean.isActorUsed(C.RANDOM_DOUBLE) ) {
             this.src.add("import random").nlI();
-        }
+        //}
 
         if ( !usedHardwareBean.getUsedActors().isEmpty() && !usedHardwareBean.getUsedSensors().isEmpty() ) {
             nlIndent();
