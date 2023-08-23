@@ -230,7 +230,7 @@ public class KarlPythonVisitor extends AbstractPythonVisitor implements IKarlVis
         this.sb.append(")");
         nlIndent();
         this.sb.append("time.sleep_ms(");
-        this.sb.append(playNoteAction.duration);
+        this.sb.append(Integer.parseInt(playNoteAction.duration)/2);
         this.sb.append(")");
         nlIndent();
         this.sb.append("speaker.no_tone()");
