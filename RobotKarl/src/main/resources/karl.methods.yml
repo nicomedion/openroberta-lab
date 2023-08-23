@@ -2,7 +2,16 @@ include: "classpath:/common.methods.yml"
 
 ## FunctionNames
 
-DUMMY:
+EYECOLOR:
   PYTHON: |
-    def dummy():
-      pass
+    def set_eye_color(eye, color):
+        print(color)
+        color = color[2:]
+        if not eye:
+            right_eye.red.intensity(int(color[0:2], 16))
+            right_eye.green.intensity(int(color[2:4], 16))
+            right_eye.blue.intensity(int(color[4:6], 16))
+        else:
+            left_eye.red.intensity(int(color[0:2], 16))
+            left_eye.green.intensity(int(color[2:4], 16))
+            left_eye.blue.intensity(int(color[4:6], 16))

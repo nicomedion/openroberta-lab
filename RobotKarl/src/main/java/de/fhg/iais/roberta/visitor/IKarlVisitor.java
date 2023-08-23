@@ -25,14 +25,5 @@ public interface IKarlVisitor<V> extends IVisitor<V> {
     V visitLedIntensityAction(LedIntensityAction intensity);
     V visitMotorStopAction(MotorStopAction motorStopAction);
     V visitMotorOnAction(MotorOnAction motorOnAction);
-    /*
-    V visitPlayNoteAction(PlayNoteAction playNoteAction);
-    V visitMotorOnAction(MotorOnAction motorOnAction);
-    V visitMotorStopAction(MotorStopAction motorStopAction);
-    V visitLightSensor(LightSensor lightSensor);
-    V visitLightAction(LightAction lightAction);
-    V visitLightOffAction(LightOffAction lightOffAction);*/
-
-    //V visitLightIntensityAction(LightAction lightAction);
 
 }

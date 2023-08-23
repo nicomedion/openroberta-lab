@@ -71,6 +71,7 @@ public class KarlValidatorAndCollectorVisitor extends CommonNepoValidatorAndColl
 
     @Override
     public Void visitLedOnAction(LedOnAction ledOnAction) {
+        usedMethodBuilder.addUsedMethod(KarlMethods.EYECOLOR);
         usedHardwareBuilder.addUsedActor(new UsedActor("", SC.RGBLED));
         return null;
     }

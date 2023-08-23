@@ -142,7 +142,7 @@ public class KarlPythonVisitor extends AbstractPythonVisitor implements IKarlVis
         switch ( eye ){
             case "LinkesAuge":
                 //this.src.add("left_eye.on()");
-                this.src.add("left_eye.red.intensity(");
+                /*this.src.add("left_eye.red.intensity(");
                 ledOnAction.colour.accept(this);
                 this.src.add(")");
                 nlIndent();
@@ -152,11 +152,16 @@ public class KarlPythonVisitor extends AbstractPythonVisitor implements IKarlVis
                 nlIndent();
                 this.src.add("left_eye.blue.intensity(");
                 ledOnAction.colour.accept(this);
+                this.src.add(")");*/
+
+                this.src.add("set_eye_color(True, ");
+                ledOnAction.colour.accept(this);
                 this.src.add(")");
+
                 break;
             case "RechtesAuge":
                 //this.src.add("right_eye.on()");
-                this.src.add("right_eye.red.intensity(");
+                /*this.src.add("right_eye.red.intensity(");
                 ledOnAction.colour.accept(this);
                 this.src.add(")");
                 nlIndent();
@@ -166,7 +171,12 @@ public class KarlPythonVisitor extends AbstractPythonVisitor implements IKarlVis
                 nlIndent();
                 this.src.add("right_eye.blue.intensity(");
                 ledOnAction.colour.accept(this);
+                this.src.add(")");*/
+
+                this.src.add("set_eye_color(False, ");
+                ledOnAction.colour.accept(this);
                 this.src.add(")");
+
                 break;
             default:
                 throw new DbcException("Invalid eye selected: " + eye);
@@ -176,11 +186,7 @@ public class KarlPythonVisitor extends AbstractPythonVisitor implements IKarlVis
 
     @Override
     public Void visitColorConst(ColorConst colorConst) {
-        //TODO convert color to intensity
-        int colorRed = colorConst.getRedChannelInt();
-        int colorGreen = colorConst.getGreenChannelInt();
-        int colorBlue = colorConst.getBlueChannelInt();
-        this.sb.append(colorRed);
+        this.sb.append("'" + colorConst.getHexIntAsString() + "'");
         return null;
     }
 
