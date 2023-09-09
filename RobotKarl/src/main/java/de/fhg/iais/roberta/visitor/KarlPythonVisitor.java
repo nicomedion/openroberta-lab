@@ -4,8 +4,10 @@ import java.util.List;
 
 import com.google.common.collect.ClassToInstanceMap;
 
+import de.fhg.iais.roberta.bean.CodeGeneratorSetupBean;
 import de.fhg.iais.roberta.bean.IProjectBean;
 import de.fhg.iais.roberta.bean.UsedHardwareBean;
+import de.fhg.iais.roberta.components.Category;
 import de.fhg.iais.roberta.components.ConfigurationAst;
 import de.fhg.iais.roberta.syntax.Phrase;
 
@@ -92,6 +94,9 @@ public class KarlPythonVisitor extends AbstractPythonVisitor implements IKarlVis
     public Void visitMotorStopAction(MotorStopAction motorStopAction) {
         //right_leg, left_leg, right_foot, left_foot
         String port = motorStopAction.port;
+        //Can be COAST or BRAKE
+        String control = motorStopAction.control;
+
         switch ( port ){
             case "LinkesBein":
                 this.src.add("left_leg.angle(0)");
@@ -255,14 +260,24 @@ public class KarlPythonVisitor extends AbstractPythonVisitor implements IKarlVis
 
     @Override
     public Void visitMainTask(MainTask mainTask) {
+        if ( this.programPhrases
+            .stream()
+            .filter(phrase -> phrase.getKind().getCategory() == Category.METHOD && !phrase.getKind().hasName("METHOD_CALL"))
+            .count() > 0 ) {
+            generateUserDefinedMethods();
+        }
+        nlIndent();
+
         this.sb.append("def main():");
         incrIndentation();
+
         if ( !this.usedGlobalVarInFunctions.isEmpty() ) {
             nlIndent();
             this.sb.append("global ").append(String.join(", ", this.usedGlobalVarInFunctions));
         } else {
             addPassIfProgramIsEmpty();
         }
+
 
         return null;
     }
