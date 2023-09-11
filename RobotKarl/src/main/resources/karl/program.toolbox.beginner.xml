@@ -23,12 +23,29 @@
                     </block>
                 </value>
             </block>
-            <block type='actions_play_note'/>
+            <block type='actions_play_note_karl'/>
         </category>
         <category name='TOOLBOX_LIGHT' svg='true'>
             <block type='actions_eyeLed_on_karl'>
                 <value name='COLOUR'>
                     <block type='naoColour_picker'>
+                    </block>
+                </value>
+            </block>
+            <block type='actions_eyeLed_set_rgb_karl'>
+                <value name="COLOUR_RED">
+                    <block type="math_number">
+                        <field name="NUM">100</field>
+                    </block>
+                </value>
+                <value name="COLOUR_GREEN">
+                    <block type="math_number">
+                        <field name="NUM">100</field>
+                    </block>
+                </value>
+                <value name="COLOUR_BLUE">
+                    <block type="math_number">
+                        <field name="NUM">100</field>
                     </block>
                 </value>
             </block>
