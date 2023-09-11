@@ -3,6 +3,7 @@ package de.fhg.iais.roberta.visitor;
 import de.fhg.iais.roberta.syntax.action.karl.LedIntensityAction;
 import de.fhg.iais.roberta.syntax.action.karl.LedOffAction;
 import de.fhg.iais.roberta.syntax.action.karl.LedOnAction;
+import de.fhg.iais.roberta.syntax.action.karl.LedSetRgbKarlAction;
 import de.fhg.iais.roberta.syntax.action.karl.LedToggleAction;
 import de.fhg.iais.roberta.syntax.action.karl.MotorOnAction;
 import de.fhg.iais.roberta.syntax.action.karl.MotorStopAction;
@@ -18,6 +19,7 @@ public interface IKarlVisitor<V> extends IVisitor<V> {
     V visitKeysSensor(KeysSensor keysSensor);
     V visitVoltageSensor(VoltageSensor potentiometer);
     V visitLedOnAction(LedOnAction ledOnAction);
+    V visitLedSetRgbKarlAction(LedSetRgbKarlAction ledSetRgbAction);
     V visitLedOffAction(LedOffAction ledOffAction);
     V visitPlayNoteKarlAction(PlayNoteKarlAction playNoteAction);
     V visitPlayToneAction(PlayToneAction playToneAction);

@@ -14,6 +14,7 @@ import de.fhg.iais.roberta.syntax.Phrase;
 import de.fhg.iais.roberta.syntax.action.karl.LedIntensityAction;
 import de.fhg.iais.roberta.syntax.action.karl.LedOffAction;
 import de.fhg.iais.roberta.syntax.action.karl.LedOnAction;
+import de.fhg.iais.roberta.syntax.action.karl.LedSetRgbKarlAction;
 import de.fhg.iais.roberta.syntax.action.karl.LedToggleAction;
 import de.fhg.iais.roberta.syntax.action.karl.MotorOnAction;
 import de.fhg.iais.roberta.syntax.action.karl.MotorStopAction;
@@ -183,6 +184,43 @@ public class KarlPythonVisitor extends AbstractPythonVisitor implements IKarlVis
                 ledOnAction.colour.accept(this);
                 this.src.add(")");
 
+                break;
+            default:
+                throw new DbcException("Invalid eye selected: " + eye);
+        }
+        return null;
+    }
+
+    @Override
+    public Void visitLedSetRgbKarlAction(LedSetRgbKarlAction ledSetRgbAction) {
+        String eye = ledSetRgbAction.eye;
+
+        switch ( eye ){
+            case "LinkesAuge":
+                this.src.add("left_eye.red.intensity(");
+                ledSetRgbAction.colour_red.accept(this);
+                this.src.add(")");
+                nlIndent();
+                this.src.add("left_eye.green.intensity(");
+                ledSetRgbAction.colour_green.accept(this);
+                this.src.add(")");
+                nlIndent();
+                this.src.add("left_eye.blue.intensity(");
+                ledSetRgbAction.colour_blue.accept(this);
+                this.src.add(")");
+                break;
+            case "RechtesAuge":
+                this.src.add("right_eye.red.intensity(");
+                ledSetRgbAction.colour_red.accept(this);
+                this.src.add(")");
+                nlIndent();
+                this.src.add("right_eye.green.intensity(");
+                ledSetRgbAction.colour_green.accept(this);
+                this.src.add(")");
+                nlIndent();
+                this.src.add("right_eye.blue.intensity(");
+                ledSetRgbAction.colour_blue.accept(this);
+                this.src.add(")");
                 break;
             default:
                 throw new DbcException("Invalid eye selected: " + eye);

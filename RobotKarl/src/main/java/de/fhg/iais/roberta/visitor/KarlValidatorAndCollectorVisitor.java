@@ -8,6 +8,7 @@ import de.fhg.iais.roberta.components.UsedActor;
 import de.fhg.iais.roberta.syntax.action.karl.LedIntensityAction;
 import de.fhg.iais.roberta.syntax.action.karl.LedOffAction;
 import de.fhg.iais.roberta.syntax.action.karl.LedOnAction;
+import de.fhg.iais.roberta.syntax.action.karl.LedSetRgbKarlAction;
 import de.fhg.iais.roberta.syntax.action.karl.LedToggleAction;
 import de.fhg.iais.roberta.syntax.action.karl.MotorOnAction;
 import de.fhg.iais.roberta.syntax.action.karl.MotorStopAction;
@@ -73,6 +74,12 @@ public class KarlValidatorAndCollectorVisitor extends CommonNepoValidatorAndColl
     @Override
     public Void visitLedOnAction(LedOnAction ledOnAction) {
         usedMethodBuilder.addUsedMethod(KarlMethods.EYECOLOR);
+        usedHardwareBuilder.addUsedActor(new UsedActor("", SC.RGBLED));
+        return null;
+    }
+
+    @Override
+    public Void visitLedSetRgbKarlAction(LedSetRgbKarlAction ledSetRgbAction) {
         usedHardwareBuilder.addUsedActor(new UsedActor("", SC.RGBLED));
         return null;
     }
