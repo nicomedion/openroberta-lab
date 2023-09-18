@@ -4,7 +4,6 @@ import java.util.List;
 
 import com.google.common.collect.ClassToInstanceMap;
 
-import de.fhg.iais.roberta.bean.CodeGeneratorSetupBean;
 import de.fhg.iais.roberta.bean.IProjectBean;
 import de.fhg.iais.roberta.bean.UsedHardwareBean;
 import de.fhg.iais.roberta.components.Category;
@@ -12,6 +11,7 @@ import de.fhg.iais.roberta.components.ConfigurationAst;
 import de.fhg.iais.roberta.syntax.Phrase;
 
 import de.fhg.iais.roberta.syntax.action.karl.ButtonWaitAction;
+import de.fhg.iais.roberta.syntax.action.karl.ButtonInterruptKarlAction;
 import de.fhg.iais.roberta.syntax.action.karl.LedIntensityAction;
 import de.fhg.iais.roberta.syntax.action.karl.LedOffAction;
 import de.fhg.iais.roberta.syntax.action.karl.LedOnAction;
@@ -22,8 +22,6 @@ import de.fhg.iais.roberta.syntax.action.karl.MotorStopAction;
 import de.fhg.iais.roberta.syntax.action.karl.PlayNoteKarlAction;
 import de.fhg.iais.roberta.syntax.action.karl.TestKarlAction;
 import de.fhg.iais.roberta.syntax.action.karl.VoltageRangeSensor;
-import de.fhg.iais.roberta.syntax.action.sound.SetVolumeAction;
-import de.fhg.iais.roberta.syntax.action.spike.PlayNoteAction;
 import de.fhg.iais.roberta.syntax.action.spike.PlayToneAction;
 import de.fhg.iais.roberta.syntax.configuration.ConfigurationComponent;
 import de.fhg.iais.roberta.syntax.lang.blocksequence.MainTask;
@@ -34,7 +32,6 @@ import de.fhg.iais.roberta.syntax.sensor.generic.KeysSensor;
 import de.fhg.iais.roberta.syntax.sensor.generic.TimerReset;
 import de.fhg.iais.roberta.syntax.sensor.generic.TimerSensor;
 import de.fhg.iais.roberta.syntax.sensor.generic.VoltageSensor;
-import de.fhg.iais.roberta.util.basic.C;
 import de.fhg.iais.roberta.util.dbc.DbcException;
 import de.fhg.iais.roberta.visitor.lang.codegen.prog.AbstractPythonVisitor;
 
@@ -153,6 +150,12 @@ public class KarlPythonVisitor extends AbstractPythonVisitor implements IKarlVis
     @Override
     public Void visitTestKarlAction(TestKarlAction testKarlAction) {
         this.src.add("test()");
+        return null;
+    }
+
+    @Override
+    public Void visitButtonInterruptKarlAction(ButtonInterruptKarlAction interruptKarlAction) {
+        this.src.add("button.interrupt = ");
         return null;
     }
 

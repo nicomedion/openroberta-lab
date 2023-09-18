@@ -6,6 +6,7 @@ import de.fhg.iais.roberta.bean.IProjectBean;
 import de.fhg.iais.roberta.components.ConfigurationAst;
 import de.fhg.iais.roberta.components.UsedActor;
 import de.fhg.iais.roberta.syntax.action.karl.ButtonWaitAction;
+import de.fhg.iais.roberta.syntax.action.karl.ButtonInterruptKarlAction;
 import de.fhg.iais.roberta.syntax.action.karl.LedIntensityAction;
 import de.fhg.iais.roberta.syntax.action.karl.LedOffAction;
 import de.fhg.iais.roberta.syntax.action.karl.LedOnAction;
@@ -16,8 +17,6 @@ import de.fhg.iais.roberta.syntax.action.karl.MotorStopAction;
 import de.fhg.iais.roberta.syntax.action.karl.PlayNoteKarlAction;
 import de.fhg.iais.roberta.syntax.action.karl.TestKarlAction;
 import de.fhg.iais.roberta.syntax.action.karl.VoltageRangeSensor;
-import de.fhg.iais.roberta.syntax.action.sound.SetVolumeAction;
-import de.fhg.iais.roberta.syntax.action.spike.PlayNoteAction;
 import de.fhg.iais.roberta.syntax.action.spike.PlayToneAction;
 import de.fhg.iais.roberta.syntax.lang.functions.MathRandomFloatFunct;
 import de.fhg.iais.roberta.syntax.lang.functions.MathRandomIntFunct;
@@ -131,6 +130,12 @@ public class KarlValidatorAndCollectorVisitor extends CommonNepoValidatorAndColl
 
     @Override
     public Void visitTestKarlAction(TestKarlAction testKarlAction) {
+        return null;
+    }
+
+    @Override
+    public Void visitButtonInterruptKarlAction(ButtonInterruptKarlAction interruptKarlAction) {
+        usedHardwareBuilder.addUsedActor(new UsedActor("", SC.KEY));
         return null;
     }
 
