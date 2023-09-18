@@ -58,6 +58,7 @@
                     </block>
                 </value>
             </block>
+            <block type='actions_button_wait_karl'/>
         </category>
     </category>
     <category name='TOOLBOX_SENSOR' svg='true'>

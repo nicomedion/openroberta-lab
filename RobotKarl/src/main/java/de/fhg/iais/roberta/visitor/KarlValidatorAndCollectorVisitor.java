@@ -5,6 +5,7 @@ import com.google.common.collect.ClassToInstanceMap;
 import de.fhg.iais.roberta.bean.IProjectBean;
 import de.fhg.iais.roberta.components.ConfigurationAst;
 import de.fhg.iais.roberta.components.UsedActor;
+import de.fhg.iais.roberta.syntax.action.karl.ButtonWaitAction;
 import de.fhg.iais.roberta.syntax.action.karl.LedIntensityAction;
 import de.fhg.iais.roberta.syntax.action.karl.LedOffAction;
 import de.fhg.iais.roberta.syntax.action.karl.LedOnAction;
@@ -118,6 +119,12 @@ public class KarlValidatorAndCollectorVisitor extends CommonNepoValidatorAndColl
     @Override
     public Void visitMotorOnAction(MotorOnAction motorOnAction) {
         usedHardwareBuilder.addUsedActor(new UsedActor("", SC.SERVOMOTOR));
+        return null;
+    }
+
+    @Override
+    public Void visitButtonWaitAction(ButtonWaitAction buttonWaitAction) {
+        usedHardwareBuilder.addUsedActor(new UsedActor("", SC.KEY));
         return null;
     }
 

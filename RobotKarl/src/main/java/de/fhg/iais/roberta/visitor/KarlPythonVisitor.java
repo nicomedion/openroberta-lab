@@ -11,6 +11,7 @@ import de.fhg.iais.roberta.components.Category;
 import de.fhg.iais.roberta.components.ConfigurationAst;
 import de.fhg.iais.roberta.syntax.Phrase;
 
+import de.fhg.iais.roberta.syntax.action.karl.ButtonWaitAction;
 import de.fhg.iais.roberta.syntax.action.karl.LedIntensityAction;
 import de.fhg.iais.roberta.syntax.action.karl.LedOffAction;
 import de.fhg.iais.roberta.syntax.action.karl.LedOnAction;
@@ -139,6 +140,12 @@ public class KarlPythonVisitor extends AbstractPythonVisitor implements IKarlVis
         motorOnAction.power.accept(this);
         this.src.add(")");
 
+        return null;
+    }
+
+    @Override
+    public Void visitButtonWaitAction(ButtonWaitAction buttonWaitAction) {
+        this.src.add("button.wait()");
         return null;
     }
 
