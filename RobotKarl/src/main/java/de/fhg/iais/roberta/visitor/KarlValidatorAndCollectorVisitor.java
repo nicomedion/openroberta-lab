@@ -14,6 +14,7 @@ import de.fhg.iais.roberta.syntax.action.karl.LedToggleAction;
 import de.fhg.iais.roberta.syntax.action.karl.MotorOnAction;
 import de.fhg.iais.roberta.syntax.action.karl.MotorStopAction;
 import de.fhg.iais.roberta.syntax.action.karl.PlayNoteKarlAction;
+import de.fhg.iais.roberta.syntax.action.karl.TestKarlAction;
 import de.fhg.iais.roberta.syntax.action.karl.VoltageRangeSensor;
 import de.fhg.iais.roberta.syntax.action.sound.SetVolumeAction;
 import de.fhg.iais.roberta.syntax.action.spike.PlayNoteAction;
@@ -125,6 +126,11 @@ public class KarlValidatorAndCollectorVisitor extends CommonNepoValidatorAndColl
     @Override
     public Void visitButtonWaitAction(ButtonWaitAction buttonWaitAction) {
         usedHardwareBuilder.addUsedActor(new UsedActor("", SC.KEY));
+        return null;
+    }
+
+    @Override
+    public Void visitTestKarlAction(TestKarlAction testKarlAction) {
         return null;
     }
 

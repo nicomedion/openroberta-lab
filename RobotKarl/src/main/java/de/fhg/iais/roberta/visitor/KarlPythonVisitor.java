@@ -20,6 +20,7 @@ import de.fhg.iais.roberta.syntax.action.karl.LedToggleAction;
 import de.fhg.iais.roberta.syntax.action.karl.MotorOnAction;
 import de.fhg.iais.roberta.syntax.action.karl.MotorStopAction;
 import de.fhg.iais.roberta.syntax.action.karl.PlayNoteKarlAction;
+import de.fhg.iais.roberta.syntax.action.karl.TestKarlAction;
 import de.fhg.iais.roberta.syntax.action.karl.VoltageRangeSensor;
 import de.fhg.iais.roberta.syntax.action.sound.SetVolumeAction;
 import de.fhg.iais.roberta.syntax.action.spike.PlayNoteAction;
@@ -146,6 +147,12 @@ public class KarlPythonVisitor extends AbstractPythonVisitor implements IKarlVis
     @Override
     public Void visitButtonWaitAction(ButtonWaitAction buttonWaitAction) {
         this.src.add("button.wait()");
+        return null;
+    }
+
+    @Override
+    public Void visitTestKarlAction(TestKarlAction testKarlAction) {
+        this.src.add("test()");
         return null;
     }
 
