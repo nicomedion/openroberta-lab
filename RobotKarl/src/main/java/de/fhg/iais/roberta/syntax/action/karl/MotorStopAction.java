@@ -9,12 +9,9 @@ import de.fhg.iais.roberta.util.ast.BlocklyProperties;
 public final class MotorStopAction extends Action {
     @NepoField(name = "ACTORPORT")
     public final String port;
-    @NepoField(name = "CONTROL")
-    public final String control;
-    public MotorStopAction(BlocklyProperties properties, String port, String control) {
+    public MotorStopAction(BlocklyProperties properties, String port) {
         super(properties);
         this.port = port;
-        this.control = control;
         this.setReadOnly();
     }
 }

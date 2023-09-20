@@ -99,8 +99,6 @@ public class KarlPythonVisitor extends AbstractPythonVisitor implements IKarlVis
     public Void visitMotorStopAction(MotorStopAction motorStopAction) {
         //right_leg, left_leg, right_foot, left_foot
         String port = motorStopAction.port;
-        //Can be COAST or BRAKE
-        String control = motorStopAction.control;
 
         switch ( port ){
             case "LinkesBein":
