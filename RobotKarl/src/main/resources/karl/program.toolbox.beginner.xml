@@ -66,7 +66,18 @@
     <category name='TOOLBOX_SENSOR' svg='true'>
         <block type='robSensors_key_getSample'/>
         <block type='robSensors_potentiometer_getSample'/>
-        <block type='robSensors_potentiometerrange_getSample'/>
+        <block type='robSensors_potentiometerrange_getSample_karl'>
+            <value name="RANGE1">
+                <block type="math_number">
+                    <field name="NUM">0</field>
+                </block>
+            </value>
+            <value name="RANGE2">
+                <block type="math_number">
+                    <field name="NUM">100</field>
+                </block>
+            </value>
+        </block>
     </category>
     <category name='TOOLBOX_CONTROL' svg='true'>
         <category name='TOOLBOX_DECISION' svg='true'>

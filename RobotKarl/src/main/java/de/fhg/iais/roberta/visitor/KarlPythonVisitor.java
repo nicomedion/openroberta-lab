@@ -69,7 +69,11 @@ public class KarlPythonVisitor extends AbstractPythonVisitor implements IKarlVis
 
     @Override
     public Void visitVoltageRangeSensor(VoltageRangeSensor potentiometer) {
-        this.src.add("rotary.range(0, 100)");
+        this.src.add("rotary.range(");
+        potentiometer.minValue.accept(this);
+        this.src.add(", ");
+        potentiometer.maxValue.accept(this);
+        this.src.add(")");
         return null;
     }
 
