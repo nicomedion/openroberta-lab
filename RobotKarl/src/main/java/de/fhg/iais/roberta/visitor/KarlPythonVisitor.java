@@ -1,6 +1,7 @@
 package de.fhg.iais.roberta.visitor;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import com.google.common.collect.ClassToInstanceMap;
 
@@ -318,22 +319,35 @@ public class KarlPythonVisitor extends AbstractPythonVisitor implements IKarlVis
 
     @Override
     public Void visitMainTask(MainTask mainTask) {
+        boolean hasInterruptMethod = false;
         if ( this.programPhrases
             .stream()
             .filter(phrase -> phrase.getKind().getCategory() == Category.METHOD && !phrase.getKind().hasName("METHOD_CALL"))
             .count() > 0 ) {
             generateUserDefinedMethods();
+
+            List<Phrase> phraseList = this.programPhrases
+                .stream()
+                .filter(phrase -> phrase.getKind().getCategory() == Category.METHOD && !phrase.getKind().hasName("METHOD_CALL")).collect(Collectors.toList());
+
+            String name = phraseList.toString();
+            hasInterruptMethod = name.contains(", interrupt,") || name.contains("[interrupt,");
         }
         nlIndent();
 
         this.sb.append("def main():");
         incrIndentation();
 
+        if(hasInterruptMethod){
+            nlIndent();
+            this.src.add("button.interrupt = ____interrupt");
+        }
+
         if ( !this.usedGlobalVarInFunctions.isEmpty() ) {
             nlIndent();
             this.sb.append("global ").append(String.join(", ", this.usedGlobalVarInFunctions));
         } else {
-            addPassIfProgramIsEmpty();
+            if(!hasInterruptMethod) addPassIfProgramIsEmpty();
         }
 
 
