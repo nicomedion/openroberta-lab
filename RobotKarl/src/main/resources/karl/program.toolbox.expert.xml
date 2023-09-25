@@ -4,7 +4,7 @@
             <block type="actions_motor_on_karl">
                 <value name="POWER">
                     <block type="math_number" intask="true">
-                        <field name="NUM">90</field>
+                        <field name="NUM">30</field>
                     </block>
                 </value>
             </block>
@@ -23,20 +23,29 @@
                     </block>
                 </value>
             </block>
-            <block type='actions_play_note'/>
-            <block type='actions_play_setVolume'>
-                <value name='VOLUME'>
-                    <block type='math_number'>
-                        <field name='NUM'>50</field>
-                    </block>
-                </value>
-            </block>
-            <block type='actions_play_getVolume'/>
+            <block type='actions_play_note_karl'/>
         </category>
         <category name='TOOLBOX_LIGHT' svg='true'>
             <block type='actions_eyeLed_on_karl'>
                 <value name='COLOUR'>
                     <block type='naoColour_picker'>
+                    </block>
+                </value>
+            </block>
+            <block type='actions_eyeLed_set_rgb_karl'>
+                <value name="COLOUR_RED">
+                    <block type="math_number">
+                        <field name="NUM">100</field>
+                    </block>
+                </value>
+                <value name="COLOUR_GREEN">
+                    <block type="math_number">
+                        <field name="NUM">100</field>
+                    </block>
+                </value>
+                <value name="COLOUR_BLUE">
+                    <block type="math_number">
+                        <field name="NUM">100</field>
                     </block>
                 </value>
             </block>
@@ -50,11 +59,26 @@
                 </value>
             </block>
         </category>
+        <category name='Verschiedenes' svg='true'>
+            <block type='actions_button_wait_karl'/>
+            <block type='actions_test_karl'/>
+        </category>
     </category>
     <category name='TOOLBOX_SENSOR' svg='true'>
         <block type='robSensors_key_getSample'/>
         <block type='robSensors_potentiometer_getSample'/>
-        <block type='robSensors_potentiometerrange_getSample'/>
+        <block type='robSensors_potentiometerrange_getSample_karl'>
+            <value name="RANGE1">
+                <block type="math_number">
+                    <field name="NUM">0</field>
+                </block>
+            </value>
+            <value name="RANGE2">
+                <block type="math_number">
+                    <field name="NUM">100</field>
+                </block>
+            </value>
+        </block>
     </category>
     <category name='TOOLBOX_CONTROL' svg='true'>
         <category name='TOOLBOX_DECISION' svg='true'>

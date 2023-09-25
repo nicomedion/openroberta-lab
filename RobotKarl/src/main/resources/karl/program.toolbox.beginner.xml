@@ -58,9 +58,10 @@
                     </block>
                 </value>
             </block>
+        </category>
+        <category name='Verschiedenes' svg='true'>
             <block type='actions_button_wait_karl'/>
             <block type='actions_test_karl'/>
-            <block type='actions_button_interrupt_karl'/>
         </category>
     </category>
     <category name='TOOLBOX_SENSOR' svg='true'>
